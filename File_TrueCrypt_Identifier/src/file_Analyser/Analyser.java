@@ -1,57 +1,134 @@
 package file_Analyser;
 
+import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.io.RandomAccessFile;
 import java.nio.ByteBuffer;
 import java.nio.channels.FileChannel;
 import java.nio.file.Files;
+import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.concurrent.Callable;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.Future;
 import java.nio.MappedByteBuffer;
 import static java.lang.Math.toIntExact;
+import org.apache.tika.Tika;
 
 public class Analyser {
 	
-	public static Map<Byte, Integer> distribution;
+	//public static Map<Byte, Integer> distribution;
+	public static Map<String, Integer> walkedFiles;
+	public String typeofSearch;
+	private static int threads;
+	public static Tika tika = new Tika();
 	
-	public static int analyseFile(File file) throws IOException
+	public static int analyseFile(File file) throws IOException, InterruptedException
 	{
 		int ret = 0;
-		//walk(file.getAbsolutePath());
-		
-		distribution = new HashMap<Byte, Integer>();
+		if(file.isDirectory())
+		{
+			walkedFiles = new HashMap<String, Integer>();
+			walk(file.getAbsolutePath());
+		}
+		else
+		{
+			ret = processFile(file);
+			if(ret == 0)
+				ret = doubleCheck(file);
+		}
+		while(threads != 0)
+		{
+			Thread.sleep(5000);
+		}
+	return ret;
+	}
+
+	private static int processFile(File file) throws IOException {
+		int ret;
+		System.out.println(tika.detect(file.toPath()));
+		Map<Byte, Integer> distribution = new HashMap<Byte, Integer>();
 		try {
 		    FileInputStream is = new FileInputStream(file);
 		    byte[] chunk = new byte[512];
 		    int chunkLen = 0;
-		    while (chunkLen != 809) { // sums up to 414208 Bytes analyzed as sample block
+		    long chunkLimit = 809;
+		    if((file.length() % 512) != 0 || !tika.detect(file.toPath()).equals("application/octet-stream")) // TC files are always a size correlating to 512
+		    {
+		    	return 1;
+		    }
+		    while (chunkLen != chunkLimit) { // sums up to 414208 Bytes analyzed as sample block 809 is the original
 		    	is.read(chunk);
-		        sortBytes(chunk);
+		        sortBytes(chunk, distribution);
 		        chunkLen++;
 		    }
 		    
 		} catch (FileNotFoundException fnfE) {
-		    // file not found, handle case
+		    System.out.println("FILE NOT FOUND!!!");
 		} catch (IOException ioE) {
-		    // problem reading, handle case
+			System.out.println("FILE READING ISSUE!!!");
 		}
-		ret = analyseDistribution();
+		ret = analyseDistribution(distribution, false);
+		return ret;
+	}
 	
-	ret = analyseDistribution();
-	return ret;
 	
+	//////////////////////////////////////////////////////////////////////
+	//////////////////////////////////////////////////////////////////////
+	
+	private static int doubleCheck(File file) throws IOException // Make a further check for those that test positive on initial testing!!!!
+	{
+			int ret;
+			boolean wholeFileCheck = false;
+			Map<Byte, Integer> distribution = new HashMap<Byte, Integer>();
+			try {
+			    FileInputStream is = new FileInputStream(file);
+			    byte[] chunk = new byte[512];
+			    int chunkLen = 0;
+			    long chunkLimit = 2000000L;
+			    if((file.length() % 512) != 0 || !tika.detect(file.toPath()).equals("application/octet-stream")) // TC files are always a size correlating to 512
+			    {
+			    	return 1;
+			    }
+			    if((file.length()/512) < 2000000)
+			    {
+			    	wholeFileCheck = true;
+			    	chunkLimit = file.length() / 512;
+			    }
+			    while (chunkLen != chunkLimit) {
+			    	is.read(chunk);
+			        sortBytes(chunk, distribution);
+			        chunkLen++;
+			    }
+			    
+			} catch (FileNotFoundException fnfE) {
+			    System.out.println("FILE NOT FOUND!!!");
+			} catch (IOException ioE) {
+				System.out.println("FILE READING ISSUE!!!");
+			}
+			ret = analyseDistribution(distribution, wholeFileCheck);
+			if(ret == 0 && GUI.typeOfSearch.equals("dir"))
+			{
+				walkedFiles.put(file.getAbsolutePath(), 1);
+				System.out.println(file.getAbsolutePath());
+			}
+			return ret;
 	}
 	
 	//////////////////////////////////////////////////////////////////////
 	//////////////////////////////////////////////////////////////////////
 	
-	 public static void walk( String path ) {
+	 public static void walk( String path ) throws IOException {
 
+		 
 	        File root = new File( path );
 	        File[] list = root.listFiles();
 
@@ -60,18 +137,44 @@ public class Analyser {
 	        for ( File f : list ) {
 	            if ( f.isDirectory() ) {
 	                walk( f.getAbsolutePath() );
-	                System.out.println( "Dir:" + f.getAbsoluteFile() );
+	                System.out.println(f.getAbsolutePath());
+	                try{
+	        		GUI.jLabel5.setText(f.getAbsolutePath());
+	        		GUI.jLabel5.paintImmediately(GUI.jLabel5.getVisibleRect());
+	                }
+	       		 catch(ClassCastException e)
+	    		 {
+	    			 System.out.println("GUI Update collision, due to not using EDT runnable. Can be ignored and not relevant to internal scanning");
+	    		 }
 	            }
 	            else {
-	                System.out.println( "File:" + f.getAbsoluteFile() );
+	                if(processFile(f) == 0)
+	                {
+	                	ExecutorService exec = Executors.newSingleThreadExecutor();
+	                	Callable<String> callable = new Callable<String>() {
+	                		@Override
+	                		public String call() throws InterruptedException, IOException{
+	                			threads++;
+	                			GUI.jLabel6.setText(Integer.toString(threads));
+	        	        		GUI.jLabel6.paintImmediately(GUI.jLabel6.getVisibleRect());
+	                			doubleCheck(f);
+	                			threads--;
+	                			GUI.jLabel6.setText(Integer.toString(threads));
+	        	        		GUI.jLabel6.paintImmediately(GUI.jLabel6.getVisibleRect());
+	                			return "Complete";
+	                		}
+	                	};
+	                	exec.submit(callable);
+	                }
 	            }
 	        }
-	    }
+		 }
+	    
 	 
 	//////////////////////////////////////////////////////////////////////
 	//////////////////////////////////////////////////////////////////////
 	
-	private static void sortBytes(byte[] b)
+	private static void sortBytes(byte[] b, Map<Byte, Integer> distribution)
 	{
 		for(byte bite : b)
 		{
@@ -84,28 +187,32 @@ public class Analyser {
 	//////////////////////////////////////////////////////////////////////
 	//////////////////////////////////////////////////////////////////////
 	
-	private static int analyseDistribution()
+	private static int analyseDistribution(Map<Byte, Integer> distribution, boolean wholeFileCheck)
 	{
 		int ret = 0;
-		int total = 0;
-		int distrib = 0;
+		float total = 0;
+		float distrib = 0;
+		double checkIntensity = 0.05;
+		if(wholeFileCheck == true)
+			checkIntensity = 0.01;
+		
+		if(distribution.size() < 5)
+			ret = 1;
 		
 		for(Map.Entry<Byte,Integer> entry : distribution.entrySet())
 		{
 			total = total + entry.getValue();
 		}
-		
-		for(Map.Entry<Byte,Integer> entry : distribution.entrySet())
-		{
-			int percent = entry.getValue() / (total / 100);
-			if(distrib == 0)
-				distrib = percent;
-			if(percent < distrib - 0.1 || percent > distrib + 0.1)
-				ret = 1;
-		}
+			for(Map.Entry<Byte,Integer> entry : distribution.entrySet())
+			{
+				float percent = entry.getValue() / (total / 100);
+				if(distrib == 0)
+					distrib = percent;
+				if(percent < distrib - checkIntensity || percent > distrib + checkIntensity)
+					ret = 1;
+			}
 		return ret;
 	}
-
 }
 
 

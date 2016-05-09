@@ -1,13 +1,33 @@
 package file_Analyser;
 
+import java.awt.Desktop;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.io.File;
 import java.io.IOException;
+import java.net.MalformedURLException;
+import java.net.URISyntaxException;
+import java.net.URL;
+import java.util.Map;
+import java.util.concurrent.Callable;
+import java.util.concurrent.ExecutionException;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.Future;
 
+import javax.swing.ButtonGroup;
 import javax.swing.JFileChooser;
+import javax.swing.JOptionPane;
+import javax.swing.SwingConstants;
+import javax.swing.text.BadLocationException;
+import javax.swing.text.Utilities;
 
 public class GUI extends javax.swing.JFrame {
 
 	public static File file;
+	public static String typeOfSearch = "";
+	public static String selectedItem = "";
+	private static int isScanning = 0;
 	
 
     public GUI() {
@@ -15,133 +35,258 @@ public class GUI extends javax.swing.JFrame {
     }
 
 
-    @SuppressWarnings("unchecked")
-    // <editor-fold defaultstate="collapsed" desc="Generated Code">                          
+    @SuppressWarnings("unchecked")                       
     private void initComponents() {
 
+        button1 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTextArea1 = new javax.swing.JTextArea();
+        jTextField1 = new javax.swing.JTextField();
+        jRadioButton1 = new javax.swing.JRadioButton();
+        jRadioButton2 = new javax.swing.JRadioButton();
         jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
         fc = new JFileChooser();
-
+        dc = new JFileChooser();
+        dc.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
+        dc.setAcceptAllFileFilterUsed(false);
+        
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabel1.setText("Analyser");
+		button1.setText("Scan");
+		button1.addActionListener(new java.awt.event.ActionListener() {
+			public void actionPerformed(java.awt.event.ActionEvent evt) {
+				try {
+					scanSelection(evt);
+				} catch (InterruptedException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
+		});
 
-        jButton1.setText("Select Target");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
-        
-        jButton2.setText("Scan");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
-            }
-        });
-        
-        jLabel2.setText("Target");
+		jButton1.addActionListener(new java.awt.event.ActionListener() {
+			public void actionPerformed(java.awt.event.ActionEvent evt) {
+				selectTarget(evt);
+			}
+		});
 
-        jLabel3.setText("Result");
+		jLabel1.setFont(new java.awt.Font("Tahoma", 0, 18));
+		jLabel1.setText("TC HUNTER");
 
-        jLabel4.setText("");
+		jLabel4.setText("Status: ");
 
-        jLabel5.setText("");
+		jTextArea1.setColumns(20);
+		jTextArea1.setRows(5);
+		jScrollPane1.setViewportView(jTextArea1);
 
-        jLabel6.setText("v0.1");
+		ButtonGroup group = new ButtonGroup();
+		group.add(jRadioButton1);
+		group.add(jRadioButton2);
 
-        jLabel7.setText("CDM");
+		jRadioButton1.setText("File Select");
+
+		jRadioButton2.setText("Dir Select");
+
+		jButton1.setText("Select Target");
+		jTextField1.setEditable(false);
+
+
+		jLabel2.setText("Selected:");
+		
+		jLabel6.setText("0");
+
+		jLabel5.setHorizontalTextPosition(SwingConstants.LEADING);
+		jLabel5.setAlignmentX(SwingConstants.RIGHT);
+		jLabel5.setText("Ready");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jLabel6)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel7))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(67, 67, 67)
-                .addComponent(jLabel3)
-                .addGap(0, 0, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(35, Short.MAX_VALUE)
+                .addGap(33, 33, 33)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addGap(43, 43, 43))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jLabel2)
-                        .addGap(65, 65, 65))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButton1)
-                            .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(29, 29, 29))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 550, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jRadioButton1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jRadioButton2)
+                        .addGap(34, 34, 34)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 68, Short.MAX_VALUE)
+                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(button1, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jScrollPane1)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel1)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addGroup(layout.createSequentialGroup()
+                                        	.addGap(38,38,38)
+                                            .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 600, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addGap(150,150,150)
+                                            .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                                ))
+                        .addContainerGap())))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel1)
-                .addGap(18, 18, 18)
-                .addComponent(jLabel2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel5)
-                .addGap(17, 17, 17)
-                .addComponent(jButton1)
-                .addGap(18, 18, 18)
-                .addComponent(jLabel3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel4)
-                .addGap(18, 18, 18)
-                .addComponent(jButton2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel1)
+                    .addComponent(jLabel4)
+                    .addComponent(jLabel5)
+                    .addComponent(jLabel6))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 492, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel6)
-                    .addComponent(jLabel7)))
+                    .addComponent(button1)
+                    .addComponent(jButton1)
+                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                   .addComponent(jRadioButton1)
+                    .addComponent(jRadioButton2))
+                .addGap(21, 21, 21))
         );
+        
+		jTextArea1.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				if (e.getButton() != MouseEvent.BUTTON1) {
+					return;
+				}
+				int offset = jTextArea1.viewToModel(e.getPoint());
 
+				try {
+					if(!jTextArea1.getText().equals(""))
+					{
+					int rowStart = Utilities.getRowStart(jTextArea1, offset);
+					int rowEnd = Utilities.getRowEnd(jTextArea1, offset);
+					String selectedLine = jTextArea1.getText().substring(rowStart, rowEnd);
+					if (!selectedLine.equals("TicketID	Pebl	Source			Description")) {
+						jTextArea1.select(rowStart, rowEnd);
+						selectedItem = selectedLine;
+						jLabel3.setText(selectedLine);
+					}
+					if (e.getClickCount() == 2
+							&& (!selectedLine.equals("TicketID	Pebl	Source			Description") || !selectedLine.equals(""))) {
+						Desktop desktop = Desktop.isDesktopSupported() ? Desktop.getDesktop() : null;
+						desktop.browse(
+								new URL("https://helpdesk.itrsgroup.com/helpdesk/WebObjects/Helpdesk.woa/wa/TicketActions/view?ticket="
+										+ selectedLine.substring(0, selectedLine.indexOf("	"))).toURI());
+					}
+					}
+				} catch (BadLocationException e1) {
+					e1.printStackTrace();
+				} catch (MalformedURLException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				} catch (IOException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				} catch (URISyntaxException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+
+			}
+		});
+        
+        jRadioButton2.setSelected(true);
+        
         pack();
-    }                            
+    }
+    
+                    
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {                                         
+    private void selectTarget(java.awt.event.ActionEvent evt) {     
+    	if(jRadioButton1.isSelected())
+    	{
     	int returnVal = fc.showOpenDialog(GUI.this);
 
         if (returnVal == JFileChooser.APPROVE_OPTION) {
             file = fc.getSelectedFile();
-            jLabel5.setText(file.getName());
+            jTextField1.setText(file.getName());
             System.out.println("success");
+            typeOfSearch = "file";
         } else {
         	System.out.println("cancelled");
         }
-    }  
-    
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {       
-    	if(file != null)
+    	}
+    	
+    	
+    	else if(jRadioButton2.isSelected())
     	{
-    	try {
-			int tc = Analyser.analyseFile(file);
-			jLabel4.setText("TC Detected!");
-			if(tc == 1)
-			jLabel4.setText("Not TC!");
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+    		int returnVal = dc.showOpenDialog(GUI.this);
+
+        if (returnVal == JFileChooser.APPROVE_OPTION) {
+            file = dc.getSelectedFile();
+            jTextField1.setText(file.getName());
+            System.out.println("success");
+            typeOfSearch = "dir";
+        } else {
+        	System.out.println("cancelled");
+        }
+    		
     	}
     }  
+    
+    private void scanSelection(java.awt.event.ActionEvent evt) throws InterruptedException {     
+    	if(isScanning == 0)
+    	{
+    	if(file != null)
+    	{
+    		isScanning = 1;
+    		jLabel5.setText("Scanning");
+    		jLabel5.paintImmediately(jLabel5.getVisibleRect());
+    		jTextArea1.setText("");
+			
+			ExecutorService exec = Executors.newSingleThreadExecutor();
+        	Callable<String> callable = new Callable<String>() {
+        		@Override
+        		public String call() throws InterruptedException, IOException{
+        			int tc = Analyser.analyseFile(file);
+        			if(typeOfSearch.equals("file"))
+        			{
+        			jTextArea1.setText(file.getAbsolutePath() + "						TC DETECTED!");
+        			if(tc == 1)
+        			jTextArea1.setText(file.getAbsolutePath() + "					NOT TC! ");
+        			}
+        			else if(typeOfSearch.equals("dir"))
+        			{
+        				for(Map.Entry<String, Integer> found : Analyser.walkedFiles.entrySet())
+        				{
+        					if(jTextArea1.getText().equals(""))
+        					{
+        						jTextArea1.setText(found.getKey() + "		 \n");
+        					}else {
+        						jTextArea1.append(found.getKey() + "		\n");
+        					}
+        				}
+        			}
+        			jLabel5.setText("Scan Complete");
+        			isScanning = 0;
+        			return "Complete";
+        		}
+        	};
+        	Future<String> future = exec.submit(callable);
+    	}  
+    	}
+    	else{
+			JOptionPane.showMessageDialog(null, "Scan already in progress, please wait for completion.", "Warning",
+					JOptionPane.INFORMATION_MESSAGE);
+    	}
+    }
     
     /**
      * @param args the command line arguments
@@ -173,17 +318,21 @@ public class GUI extends javax.swing.JFrame {
             }
         });
     }
-
-    // Variables declaration - do not modify                     
+    
+    private javax.swing.JButton button1;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
+    public static javax.swing.JLabel jLabel5;
+    public static javax.swing.JLabel jLabel6;
+    private javax.swing.JRadioButton jRadioButton1;
+    private javax.swing.JRadioButton jRadioButton2;
+    private javax.swing.JScrollPane jScrollPane1;
+    public static javax.swing.JTextArea jTextArea1;
+    private javax.swing.JTextField jTextField1;       
     private JFileChooser fc;
-    // End of variables declaration                   
+    private JFileChooser dc;                 
 }
