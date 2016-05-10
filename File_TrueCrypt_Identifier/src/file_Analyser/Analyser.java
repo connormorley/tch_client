@@ -16,45 +16,68 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.Callable;
+import java.util.concurrent.ExecutionException;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
+import java.util.concurrent.atomic.AtomicInteger;
 import java.nio.MappedByteBuffer;
 import static java.lang.Math.toIntExact;
 import org.apache.tika.Tika;
 
 public class Analyser {
 	
-	//public static Map<Byte, Integer> distribution;
 	public static Map<String, Integer> walkedFiles;
 	public String typeofSearch;
-	private static int threads;
+	static AtomicInteger threads;
 	public static Tika tika = new Tika();
+	public static AtomicInteger dirThreadCount;
+	public static ExecutorService executor = Executors.newFixedThreadPool(200);
+	public static ArrayList<String> paths;
+	public static int furtherTests;
+	public static long startTime; 
 	
-	public static int analyseFile(File file) throws IOException, InterruptedException
-	{
+	public static int analyseFile(File file) throws IOException, InterruptedException {
 		int ret = 0;
-		if(file.isDirectory())
-		{
+		if (file.isDirectory()) {
+			startTime = System.currentTimeMillis();
 			walkedFiles = new HashMap<String, Integer>();
-			walk(file.getAbsolutePath());
-		}
-		else
-		{
+			paths = new ArrayList<String>();
+			//dirThreadCount = 0;
+			dirThreadCount = new AtomicInteger(0);
+			furtherTests = 0;
+			threads = new AtomicInteger(0);
+			DirRunner.newCheck();
+			paths.add(file.getAbsolutePath());
+			createThread(file.getAbsolutePath());
+		} else {
 			ret = processFile(file);
-			if(ret == 0)
+			if (ret == 0)
 				ret = doubleCheck(file);
 		}
-		while(threads != 0)
-		{
+		Thread.sleep(5000);
+		while (threads.get() != 0 || dirThreadCount.get() != 0) {
+			System.out.println(furtherTests);
+			System.out.println(dirThreadCount);
+			System.out.println(threads);
 			Thread.sleep(5000);
 		}
-	return ret;
+		System.out.println("FINISHED!!!!!");
+		System.out.println(furtherTests);
+		System.out.println(dirThreadCount);
+		System.out.println(threads);
+		System.out.println(startTime - System.currentTimeMillis());
+		GUI.jLabel5.setText("Scan Complete");
+		GUI.jLabel5.paintImmediately(GUI.jLabel5.getVisibleRect());
+		GUI.isScanning = 0;
+		return ret;
 	}
+	
+	//////////////////////////////////////////////////////////////////////
+	//////////////////////////////////////////////////////////////////////
 
-	private static int processFile(File file) throws IOException {
+	static int processFile(File file) throws IOException {
 		int ret;
-		System.out.println(tika.detect(file.toPath()));
 		Map<Byte, Integer> distribution = new HashMap<Byte, Integer>();
 		try {
 		    FileInputStream is = new FileInputStream(file);
@@ -84,7 +107,7 @@ public class Analyser {
 	//////////////////////////////////////////////////////////////////////
 	//////////////////////////////////////////////////////////////////////
 	
-	private static int doubleCheck(File file) throws IOException // Make a further check for those that test positive on initial testing!!!!
+	static int doubleCheck(File file) throws IOException // Make a further check for those that test positive on initial testing!!!!
 	{
 			int ret;
 			boolean wholeFileCheck = false;
@@ -119,57 +142,90 @@ public class Analyser {
 			{
 				walkedFiles.put(file.getAbsolutePath(), 1);
 				System.out.println(file.getAbsolutePath());
+				if(GUI.jTextArea1.getText().equals(""))
+					GUI.jTextArea1.setText(file.getAbsolutePath() + " \n");
+				else
+					GUI.jTextArea1.append(file.getAbsolutePath() + " \n");
+				GUI.jTextArea1.paintImmediately(GUI.jTextArea1.getVisibleRect());
 			}
 			return ret;
 	}
 	
 	//////////////////////////////////////////////////////////////////////
-	//////////////////////////////////////////////////////////////////////
-	
-	 public static void walk( String path ) throws IOException {
+	//////////////////////////////////////////////////////////////////////	 
 
-		 
-	        File root = new File( path );
-	        File[] list = root.listFiles();
-
-	        if (list == null) return;
-
-	        for ( File f : list ) {
-	            if ( f.isDirectory() ) {
-	                walk( f.getAbsolutePath() );
-	                System.out.println(f.getAbsolutePath());
-	                try{
-	        		GUI.jLabel5.setText(f.getAbsolutePath());
-	        		GUI.jLabel5.paintImmediately(GUI.jLabel5.getVisibleRect());
-	                }
-	       		 catch(ClassCastException e)
-	    		 {
-	    			 System.out.println("GUI Update collision, due to not using EDT runnable. Can be ignored and not relevant to internal scanning");
-	    		 }
-	            }
-	            else {
-	                if(processFile(f) == 0)
-	                {
-	                	ExecutorService exec = Executors.newSingleThreadExecutor();
-	                	Callable<String> callable = new Callable<String>() {
-	                		@Override
-	                		public String call() throws InterruptedException, IOException{
-	                			threads++;
-	                			GUI.jLabel6.setText(Integer.toString(threads));
-	        	        		GUI.jLabel6.paintImmediately(GUI.jLabel6.getVisibleRect());
-	                			doubleCheck(f);
-	                			threads--;
-	                			GUI.jLabel6.setText(Integer.toString(threads));
-	        	        		GUI.jLabel6.paintImmediately(GUI.jLabel6.getVisibleRect());
-	                			return "Complete";
-	                		}
-	                	};
-	                	exec.submit(callable);
-	                }
-	            }
-	        }
-		 }
+	public static void createThread(String path)
+	{
+        Callable<Integer> worker = new Analyser.MyAnalysis(path);
+        Future<Integer> thread = Analyser.executor.submit(worker);
+        return;
+	}
 	    
+	 
+	 public static class MyAnalysis implements Callable<Integer> {
+
+			private String dir;
+			ExecutorService exec;
+			Callable<Integer> callable;
+			Future<Integer> future;
+
+			public MyAnalysis(String path) {
+				this.dir = path;
+			}
+
+			@Override
+			public Integer call() throws InterruptedException, ExecutionException, IOException {
+				Integer x = 1;
+				Integer dv = 1;
+				System.out.println("Path : " + dir);
+				dv = callThread();
+				return x;
+			}
+
+
+			private Integer callThread() throws InterruptedException, IOException {
+				return DirRunner.call(dir);
+			}
+		}
+	 
+		//////////////////////////////////////////////////////////////////////
+		//////////////////////////////////////////////////////////////////////
+	 
+	 
+	 public static void createFurtherTest(File f)
+		{
+	        Callable<Integer> worker = new Analyser.FurtherAnalysis(f);
+	        Future<Integer> thread = Analyser.executor.submit(worker);
+	        return;
+		}
+		    
+		 
+		 public static class FurtherAnalysis implements Callable<Integer> {
+
+				private File dir;
+				ExecutorService exec;
+				Callable<Integer> callable;
+				Future<Integer> future;
+
+				public FurtherAnalysis(File f) {
+					this.dir = f;
+				}
+
+				@Override
+				public Integer call() throws InterruptedException, ExecutionException, IOException {
+					Integer x = 1;
+					Integer dv = 1;
+					System.out.println("Path : " + dir);
+					dv = callThread();
+					furtherTests--;
+					return x;
+				}
+
+
+				private Integer callThread() throws InterruptedException, IOException {
+					return DirRunner.furtherThread(dir);
+				}
+			}
 	 
 	//////////////////////////////////////////////////////////////////////
 	//////////////////////////////////////////////////////////////////////
@@ -214,164 +270,3 @@ public class Analyser {
 		return ret;
 	}
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*
-
-
-long splitSize = 128 * 1048576; // 128 Megabytes file chunks
-int bufferSize = 256 * 1048576; // 256 Megabyte memory buffer for reading source file
-
-// String source = args[0];
-String source = "/C:/Users/mshannon/Desktop/18597996/UCMTRACE/idccs_UCM_server1_1398902885000.log";
-
-// String output = args[1];
-String output = "temp.log.split";
-
-FileChannel sourceChannel = null;
-try
-{
- sourceChannel = new FileInputStream(file.getAbsolutePath()).getChannel();
-
- ByteBuffer buffer = ByteBuffer.allocateDirect(bufferSize);
-
- long totalBytesRead = 0; // total bytes read from channel
- long totalBytesWritten = 0; // total bytes written to output
-
- double numberOfChunks = Math.ceil(sourceChannel.size() / (double) splitSize);
- int padSize = (int) Math.floor(Math.log10(numberOfChunks) + 1);
- String outputFileFormat = "%s.%0" + padSize + "d";
-
- FileChannel outputChannel = null; // output channel (split file) we are currently writing
- long outputChunkNumber = 0; // the split file / chunk number
- long outputChunkBytesWritten = 0; // number of bytes written to chunk so far
-
- try
- {
-  for (int bytesRead = sourceChannel.read(buffer); bytesRead != -1; bytesRead = sourceChannel.read(buffer))
-  {
-   totalBytesRead += bytesRead;
-
-   System.out.println(String.format("Read %d bytes from channel; total bytes read %d/%d ", bytesRead,
-    totalBytesRead, sourceChannel.size()));
-
-   buffer.flip(); // convert the buffer from writing data to buffer from disk to reading mode
-
-   int bytesWrittenFromBuffer = 0; // number of bytes written from buffer
-
-   while (buffer.hasRemaining())
-   {
-    if (outputChannel == null)
-    {
-     outputChunkNumber++;
-     outputChunkBytesWritten = 0;
-
-     String outputName = String.format(outputFileFormat, output, outputChunkNumber);
-     System.out.println(String.format("Creating new output channel %s", outputName));
-     outputChannel = new FileOutputStream(outputName).getChannel();
-    }
-
-    long chunkBytesFree = (splitSize - outputChunkBytesWritten); // maxmimum free space in chunk
-    int bytesToWrite = (int) Math.min(buffer.remaining(), chunkBytesFree); // maximum bytes that should be read from current byte buffer
-
-    System.out.println(
-     String.format(
-      "Byte buffer has %d remaining bytes; chunk has %d bytes free; writing up to %d bytes to chunk",
-       buffer.remaining(), chunkBytesFree, bytesToWrite));
-
-    buffer.limit(bytesWrittenFromBuffer + bytesToWrite); // set limit in buffer up to where bytes can be read
-
-    int bytesWritten = outputChannel.write(buffer);
-
-    outputChunkBytesWritten += bytesWritten;
-    bytesWrittenFromBuffer += bytesWritten;
-    totalBytesWritten += bytesWritten;
-
-    System.out.println(
-     String.format(
-      "Wrote %d to chunk; %d bytes written to chunk so far; %d bytes written from buffer so far; %d bytes written in total",
-       bytesWritten, outputChunkBytesWritten, bytesWrittenFromBuffer, totalBytesWritten));
-
-    buffer.limit(bytesRead); // reset limit
-
-    if (totalBytesWritten == sourceChannel.size())
-    {
-     System.out.println("Finished writing last chunk");
-
-     closeChannel(outputChannel);
-     outputChannel = null;
-
-     break;
-    }
-    else if (outputChunkBytesWritten == splitSize)
-    {
-     System.out.println("Chunk at capacity; closing()");
-
-     closeChannel(outputChannel);
-     outputChannel = null;
-    }
-   }
-
-   buffer.clear();
-  }
- }
- finally
- {
-  closeChannel(outputChannel);
- }
-}
-finally
-{
- closeChannel(sourceChannel);
-}
-
-
-	return ret;
-}
-
-private static void closeChannel(FileChannel channel)
-{
-if (channel != null)
-{
- try
- {
-  channel.close();
- }
- catch (Exception ignore)
- {
-  ;
- }
-}
-}
-*/
-
-

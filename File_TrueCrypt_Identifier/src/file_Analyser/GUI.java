@@ -27,7 +27,7 @@ public class GUI extends javax.swing.JFrame {
 	public static File file;
 	public static String typeOfSearch = "";
 	public static String selectedItem = "";
-	private static int isScanning = 0;
+	static int isScanning = 0;
 	
 
     public GUI() {
@@ -259,12 +259,14 @@ public class GUI extends javax.swing.JFrame {
         			if(typeOfSearch.equals("file"))
         			{
         			jTextArea1.setText(file.getAbsolutePath() + "						TC DETECTED!");
+        			jLabel5.setText("Scan Complete");
+        			isScanning = 0;
         			if(tc == 1)
         			jTextArea1.setText(file.getAbsolutePath() + "					NOT TC! ");
         			}
         			else if(typeOfSearch.equals("dir"))
         			{
-        				for(Map.Entry<String, Integer> found : Analyser.walkedFiles.entrySet())
+        				/*for(Map.Entry<String, Integer> found : Analyser.walkedFiles.entrySet())
         				{
         					if(jTextArea1.getText().equals(""))
         					{
@@ -272,10 +274,8 @@ public class GUI extends javax.swing.JFrame {
         					}else {
         						jTextArea1.append(found.getKey() + "		\n");
         					}
-        				}
+        				}*/
         			}
-        			jLabel5.setText("Scan Complete");
-        			isScanning = 0;
         			return "Complete";
         		}
         	};
