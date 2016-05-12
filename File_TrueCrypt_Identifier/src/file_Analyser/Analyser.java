@@ -1,17 +1,9 @@
 package file_Analyser;
 
-import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
 import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.RandomAccessFile;
-import java.nio.ByteBuffer;
-import java.nio.channels.FileChannel;
-import java.nio.file.Files;
-import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
@@ -21,8 +13,6 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
 import java.util.concurrent.atomic.AtomicInteger;
-import java.nio.MappedByteBuffer;
-import static java.lang.Math.toIntExact;
 import org.apache.tika.Tika;
 
 public class Analyser {
@@ -43,7 +33,6 @@ public class Analyser {
 			startTime = System.currentTimeMillis();
 			walkedFiles = new HashMap<String, Integer>();
 			paths = new ArrayList<String>();
-			//dirThreadCount = 0;
 			dirThreadCount = new AtomicInteger(0);
 			furtherTests = 0;
 			threads = new AtomicInteger(0);
@@ -88,7 +77,7 @@ public class Analyser {
 		    {
 		    	return 1;
 		    }
-		    while (chunkLen != chunkLimit) { // sums up to 414208 Bytes analyzed as sample block 809 is the original
+		    while (chunkLen != chunkLimit) { // sums up to 414208 Bytes analyzed as sample block, can also be useed as attack block!!!! 809 is the original
 		    	is.read(chunk);
 		        sortBytes(chunk, distribution);
 		        chunkLen++;
