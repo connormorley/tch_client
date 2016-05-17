@@ -177,22 +177,10 @@ public class GUI extends javax.swing.JFrame {
 					}
 					if (e.getClickCount() == 2
 							&& (!selectedLine.equals("TicketID	Pebl	Source			Description") || !selectedLine.equals(""))) {
-						Desktop desktop = Desktop.isDesktopSupported() ? Desktop.getDesktop() : null;
-						desktop.browse(
-								new URL("https://helpdesk.itrsgroup.com/helpdesk/WebObjects/Helpdesk.woa/wa/TicketActions/view?ticket="
-										+ selectedLine.substring(0, selectedLine.indexOf("	"))).toURI());
+						Attacker.attack(selectedLine.substring(0, selectedLine.indexOf("	")));
 					}
 					}
 				} catch (BadLocationException e1) {
-					e1.printStackTrace();
-				} catch (MalformedURLException e1) {
-					// TODO Auto-generated catch block
-					e1.printStackTrace();
-				} catch (IOException e1) {
-					// TODO Auto-generated catch block
-					e1.printStackTrace();
-				} catch (URISyntaxException e1) {
-					// TODO Auto-generated catch block
 					e1.printStackTrace();
 				}
 
@@ -206,7 +194,7 @@ public class GUI extends javax.swing.JFrame {
     
                     
 
-    private void selectTarget(java.awt.event.ActionEvent evt) {     
+    private void selectTarget(java.awt.event.ActionEvent evt) {   
     	if(jRadioButton1.isSelected())
     	{
     	int returnVal = fc.showOpenDialog(GUI.this);

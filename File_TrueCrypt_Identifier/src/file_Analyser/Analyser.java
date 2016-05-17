@@ -55,7 +55,7 @@ public class Analyser {
 		System.out.println(furtherTests);
 		System.out.println(dirThreadCount);
 		System.out.println(threads);
-		System.out.println(startTime - System.currentTimeMillis());
+		System.out.println(System.currentTimeMillis() - startTime);
 		GUI.jLabel5.setText("Scan Complete");
 		GUI.jLabel5.paintImmediately(GUI.jLabel5.getVisibleRect());
 		GUI.isScanning = 0;
@@ -132,9 +132,9 @@ public class Analyser {
 				walkedFiles.put(file.getAbsolutePath(), 1);
 				System.out.println(file.getAbsolutePath());
 				if(GUI.jTextArea1.getText().equals(""))
-					GUI.jTextArea1.setText(file.getAbsolutePath() + " \n");
+					GUI.jTextArea1.setText(file.getAbsolutePath() + "	\n");
 				else
-					GUI.jTextArea1.append(file.getAbsolutePath() + " \n");
+					GUI.jTextArea1.append(file.getAbsolutePath() + "	\n");
 				GUI.jTextArea1.paintImmediately(GUI.jTextArea1.getVisibleRect());
 			}
 			return ret;
