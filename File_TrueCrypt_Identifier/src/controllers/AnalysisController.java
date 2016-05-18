@@ -1,4 +1,4 @@
-package file_Analyser;
+package controllers;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -15,11 +15,13 @@ import java.util.concurrent.Future;
 import java.util.concurrent.atomic.AtomicInteger;
 import org.apache.tika.Tika;
 
-public class Analyser {
+import Threads.DirectoryThread;
+
+public class AnalysisController {
 	
 	public static Map<String, Integer> walkedFiles;
 	public String typeofSearch;
-	static AtomicInteger threads;
+	public static AtomicInteger threads;
 	public static Tika tika = new Tika();
 	public static AtomicInteger dirThreadCount;
 	public static ExecutorService executor = Executors.newFixedThreadPool(200);
@@ -30,15 +32,9 @@ public class Analyser {
 	public static int analyseFile(File file) throws IOException, InterruptedException {
 		int ret = 0;
 		if (file.isDirectory()) {
-			startTime = System.currentTimeMillis();
-			walkedFiles = new HashMap<String, Integer>();
-			paths = new ArrayList<String>();
-			dirThreadCount = new AtomicInteger(0);
-			furtherTests = 0;
-			threads = new AtomicInteger(0);
-			DirRunner.newCheck();
+			refreshVariables();
 			paths.add(file.getAbsolutePath());
-			createThread(file.getAbsolutePath());
+			createDefaultTest(file.getAbsolutePath());
 		} else {
 			ret = processFile(file);
 			if (ret == 0)
@@ -61,11 +57,21 @@ public class Analyser {
 		GUI.isScanning = 0;
 		return ret;
 	}
+
+	private static void refreshVariables() {
+		startTime = System.currentTimeMillis();
+		walkedFiles = new HashMap<String, Integer>();
+		paths = new ArrayList<String>();
+		dirThreadCount = new AtomicInteger(0);
+		furtherTests = 0;
+		threads = new AtomicInteger(0);
+		DirectoryThread.newCheck();
+	}
 	
 	//////////////////////////////////////////////////////////////////////
 	//////////////////////////////////////////////////////////////////////
 
-	static int processFile(File file) throws IOException {
+	public static int processFile(File file) throws IOException {
 		int ret;
 		Map<Byte, Integer> distribution = new HashMap<Byte, Integer>();
 		try {
@@ -96,7 +102,7 @@ public class Analyser {
 	//////////////////////////////////////////////////////////////////////
 	//////////////////////////////////////////////////////////////////////
 	
-	static int doubleCheck(File file) throws IOException // Make a further check for those that test positive on initial testing!!!!
+	public static int doubleCheck(File file) throws IOException // Make a further check for those that test positive on initial testing!!!!
 	{
 			int ret;
 			boolean wholeFileCheck = false;
@@ -143,10 +149,10 @@ public class Analyser {
 	//////////////////////////////////////////////////////////////////////
 	//////////////////////////////////////////////////////////////////////	 
 
-	public static void createThread(String path)
+	public static void createDefaultTest(String path)
 	{
-        Callable<Integer> worker = new Analyser.MyAnalysis(path);
-        Future<Integer> thread = Analyser.executor.submit(worker);
+        Callable<Integer> worker = new AnalysisController.MyAnalysis(path);
+        Future<Integer> thread = AnalysisController.executor.submit(worker);
         return;
 	}
 	    
@@ -173,7 +179,7 @@ public class Analyser {
 
 
 			private Integer callThread() throws InterruptedException, IOException {
-				return DirRunner.call(dir);
+				return DirectoryThread.defaultTest(dir);
 			}
 		}
 	 
@@ -183,8 +189,8 @@ public class Analyser {
 	 
 	 public static void createFurtherTest(File f)
 		{
-	        Callable<Integer> worker = new Analyser.FurtherAnalysis(f);
-	        Future<Integer> thread = Analyser.executor.submit(worker);
+	        Callable<Integer> worker = new AnalysisController.FurtherAnalysis(f);
+	        Future<Integer> thread = AnalysisController.executor.submit(worker);
 	        return;
 		}
 		    
@@ -212,7 +218,7 @@ public class Analyser {
 
 
 				private Integer callThread() throws InterruptedException, IOException {
-					return DirRunner.furtherThread(dir);
+					return DirectoryThread.furtherThread(dir);
 				}
 			}
 	 

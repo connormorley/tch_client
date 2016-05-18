@@ -1,4 +1,4 @@
-package file_Analyser;
+package controllers;
 
 import java.awt.Desktop;
 import java.awt.event.MouseAdapter;
@@ -177,7 +177,7 @@ public class GUI extends javax.swing.JFrame {
 					}
 					if (e.getClickCount() == 2
 							&& (!selectedLine.equals("TicketID	Pebl	Source			Description") || !selectedLine.equals(""))) {
-						Attacker.attack(selectedLine.substring(0, selectedLine.indexOf("	")));
+						AttackController.attack(selectedLine.substring(0, selectedLine.indexOf("	")), 0);
 					}
 					}
 				} catch (BadLocationException e1) {
@@ -240,7 +240,7 @@ public class GUI extends javax.swing.JFrame {
         	Callable<String> callable = new Callable<String>() {
         		@Override
         		public String call() throws InterruptedException, IOException{
-        			int tc = Analyser.analyseFile(file);
+        			int tc = AnalysisController.analyseFile(file);
         			if(typeOfSearch.equals("file"))
         			{
         			jTextArea1.setText(file.getAbsolutePath() + "						TC DETECTED!");
@@ -248,18 +248,6 @@ public class GUI extends javax.swing.JFrame {
         			isScanning = 0;
         			if(tc == 1)
         			jTextArea1.setText(file.getAbsolutePath() + "					NOT TC! ");
-        			}
-        			else if(typeOfSearch.equals("dir"))
-        			{
-        				/*for(Map.Entry<String, Integer> found : Analyser.walkedFiles.entrySet())
-        				{
-        					if(jTextArea1.getText().equals(""))
-        					{
-        						jTextArea1.setText(found.getKey() + "		 \n");
-        					}else {
-        						jTextArea1.append(found.getKey() + "		\n");
-        					}
-        				}*/
         			}
         			return "Complete";
         		}

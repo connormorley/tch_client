@@ -1,4 +1,4 @@
-package file_Analyser;
+package controllers;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -8,21 +8,19 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.TreeMap;
 
-public class Attacker {
-	
+public class AttackController {
+
 	private static int passwordMasterCounter = 0;
-	//private static Map<Integer, ArrayList<Integer>> testingSet = new HashMap<Integer, ArrayList<Integer>>();
 	private static ArrayList<ArrayList<Integer>> testingSet;
 	private static char[] masterCharSet = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ`¬!\"£$%^&*()-_=+[{]};:'@#~,<.>/?\\|".toCharArray();
-	
-	public static void attack(String filePath)
-	{
-		passwordMasterCounter = 500000;
-		testingSet  = generatePasswords();
+
+	// Initiate attack on specified file, Alpha version is set to predetermined numerical figure and test series
+	public static void attack(String filePath, int sequenceIdentifier) {
+		passwordMasterCounter = sequenceIdentifier * 500;
+		testingSet = generatePasswords();
 		ArrayList<ArrayList<Integer>> checkDebug = testingSet;
 		int attempt = 0;
-		while(attempt != testingSet.size())
-		{
+		while (attempt != testingSet.size()) {
 			String password = getPassword(attempt);
 			System.out.println(password);
 			Process p;
@@ -35,17 +33,15 @@ public class Attacker {
 				filePath = filePath.replaceAll("'", "\\\'");
 			System.out.println(filePath);
 			try {
-				p = Runtime.getRuntime().exec(file + " /s /l x /v " + filePath + " /p "+password+" /q");
+				//This try block is the inclusion of the external TC executable that must be used as the interface when testing password
+				p = Runtime.getRuntime().exec(file + " /s /l x /v " + filePath + " /p " + password + " /q");
 				p = Runtime.getRuntime().exec("find \"Block\" X:\\\\");
-				BufferedReader stdError = new BufferedReader(new 
-					 InputStreamReader(p.getErrorStream()));
+				BufferedReader stdError = new BufferedReader(new InputStreamReader(p.getErrorStream()));
 				String output = stdError.readLine();
-				if(!output.equals("File not found - X:\\\\") || !output.equals("Access denied - X:\\\\")) {
-					System.out.println("Password: "+password);
-					//System.exit(1);
-				}
-				else {
-					System.out.println("Correct Password: "+password);
+				if (!output.equals("File not found - X:\\\\") || !output.equals("Access denied - X:\\\\")) { // Error output will differ depending on drive letter, this should be an option!
+					System.out.println("Password: " + password);
+				} else {
+					System.out.println("Correct Password: " + password);
 					System.exit(1);
 				}
 			} catch (IOException e) {
@@ -56,101 +52,79 @@ public class Attacker {
 			attempt++;
 		}
 	}
-	
-	public static String getPassword(int position)
-	{
+
+	//From the generated password list retrieve the associated Integer array and translate into characters.
+	public static String getPassword(int position) {
 		String ret = "";
 		ArrayList<Integer> passwordSet = testingSet.get(position);
-		for(int i = 0; i < passwordSet.size(); i++)
-		{
+		for (int i = 0; i < passwordSet.size(); i++) {
 			ret = ret + masterCharSet[passwordSet.get(i)];
 		}
 		return ret;
 	}
 	
+	//Using the passwordMasterCount as a controller, generate a series of Integer arrays in incrementing values from right to left with max 98 to be 
+	//used as password keys.
 	public static ArrayList<ArrayList<Integer>> generatePasswords() {
 		System.out.println(masterCharSet);
-		boolean matchReached = false;
 		ArrayList<ArrayList<Integer>> ret = new ArrayList<ArrayList<Integer>>();
-		//Integer testNumber = 0;
 
 		int startPoint = passwordMasterCounter * 980; // Start value
 		startPoint = startPoint / 98;
 
 		ArrayList<Integer> startArray = new ArrayList<Integer>();
-		startArray = getArrayPoint(startPoint); 
-		
-		int endPoint = (passwordMasterCounter + 500) * 980; // End value
+		startArray = getArrayPoint(startPoint);
+
+		int endPoint = (passwordMasterCounter + 499) * 980; // End value
 		endPoint = endPoint / 98;
 		ArrayList<Integer> endArray = new ArrayList<Integer>();
-		endArray = getArrayPoint(endPoint); 
+		endArray = getArrayPoint(endPoint);
 
 		ArrayList<Integer> test = new ArrayList<Integer>();
-		
 
 		int counter = startArray.size() - 1;
-		
+
 		while (!startArray.toString().equals(endArray.toString())) {
 			System.out.println(startArray);
 			System.out.println(endArray);
-			
-			while (startArray.get(counter) != 99) { // all map is updating to latest entry.....why!!!!!!!!
+
+			while (startArray.get(counter) != 99) {
 				ArrayList<Integer> temp = new ArrayList<Integer>(startArray);
-				//temp = startArray.;
-				//temp.set(counter, startArray.get(counter));
 				Integer testNumber = new Integer(ret.size());
-				if(ret.contains(testNumber))
-				{
-					System.out.println("Well this exaplains alot");
-				}
 				ret.add(temp);
 				ArrayList<ArrayList<Integer>> checkDebug = ret;
-				//Integer tempNum = testNumber;
-				//testNumber = new Integer(testNumber + 1); // Create new Integer instance so hash map does not try and update all relate items
-				//testNumber = tempNum + 1;
 				startArray.set(counter, startArray.get(counter) + 1);
-				//System.out.println(startArray);
-				/*if (startArray == endArray) {
-					matchReached = true;
-					break;
-				}*/
 			}
-			
-			
+
 			startArray.set(counter, 0);
 
-			/*if (matchReached == true)
-				break;
-*/
-			
-			
-			for (int placement = counter - 1; placement != 0; placement--) {
-				if (startArray.get(placement) == 98) {
-					startArray.set(placement, 0);
-/*					if (startArray == endArray) {
-						matchReached = true;
+			if(counter - 1 == -1)
+			{
+					startArray.set(counter, startArray.get(counter) + 1);
+					counter++;
+					startArray.add(counter, 0);
+			}
+			else{
+				for (int placement = counter - 1; placement != -1; placement--) {
+					if (startArray.get(placement) == 98) {
+						startArray.set(placement, 0);
+						if(placement == 0)
+						{
+							counter++;
+							startArray.add(counter, 0);
+						}
+					} else {
+						startArray.set(placement, startArray.get(placement) + 1);
 						break;
-					}*/
-				} else {
-					startArray.set(placement, startArray.get(placement) + 1);
-/*					if (startArray == endArray) {
-						matchReached = true;
-					}*/
-					break;
+					}
 				}
 			}
-			
-			
-			
-			
-/*			if (matchReached == true)
-				break;*/
 		}
-		
 
 		return ret;
 	}
 
+	//From the masterKey number generate a Integer array, these are used as start and end points for the current numerical value.
 	private static ArrayList<Integer> getArrayPoint(int passwordsUsed) {
 		ArrayList<Integer> columns = new ArrayList<Integer>();
 		int limit = 1;
@@ -160,50 +134,31 @@ public class Attacker {
 		columnCount++;
 
 		if (passwordsUsed > limit) {
-			columns.add(columnCount, 0); // If above one run it has moved onto
-											// the next columns such as 1a
+			columns.add(columnCount, 0); // If above one run it has moved onto the next columns such as 1a
 			columnCount++;
 			passwordsUsed--;
 			limit = limit * 98;
 
 			while (endReached == false) {
 
-				if (passwordsUsed > limit) // While the number of password runs
-											// is above the limit which is a
-											// multiple of 98 keep running
+				if (passwordsUsed > limit) // While the number of password runs is above the limit which is a multiple of 98 keep running
 				{
-					columns.add(columnCount, 0); // If count is above the limit
-													// this means another column
+					columns.add(columnCount, 0); // If count is above the limit this means another column
 					columnCount++;
 					passwordsUsed = passwordsUsed - limit;
-					limit = limit * 98; // Each multiplication is a column to
-										// the left, then must be checked left
-										// to right dividing limit by 98
+					limit = limit * 98; // Each multiplication is a column to the left, then must be checked left to right dividing limit by 98
 					System.out.println(limit);
 				}
 
 				else {
 					int finalCounter = 0;
-					limit = limit / 98; // Divide limit by 98 from limit that
-										// caused entry to else statement
+					limit = limit / 98; // Divide limit by 98 from limit that caused entry to else statement
 					while (limit != 1) {
-						if (passwordsUsed > limit) // If the password count is
-													// greater than the new
-													// limit value then count
-													// into appropriate column
+						if (passwordsUsed > limit) // If the password count is greater than the new limit value then count into appropriate column
 						{
-							int tally = passwordsUsed / limit; // Find divisible
-																// value
-																// ignoring
-																// remainders,
-																// result is how
-																// many runs in
-																// that column
+							int tally = passwordsUsed / limit; // Find divisible value ignoring remainders, result is how many runs in that column
 							passwordsUsed = passwordsUsed - (tally * limit);
-							columns.set(finalCounter, tally); // First column
-																// (0) counted
-																// from limit
-																// first
+							columns.set(finalCounter, tally); // First column (0) counted from limit first
 							System.out.println(tally);
 							finalCounter++; // Increment counter to next column
 							if (limit == 98) {
@@ -230,11 +185,5 @@ public class Attacker {
 		}
 		return columns;
 	}
-	
-/*	public static void setCharSet()
-	{
-		masterCharSet[0] = "0";
-		
-	}*/
 
 }
