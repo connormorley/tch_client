@@ -177,7 +177,7 @@ public class GUI extends javax.swing.JFrame {
 					}
 					if (e.getClickCount() == 2
 							&& (!selectedLine.equals("TicketID	Pebl	Source			Description") || !selectedLine.equals(""))) {
-						AttackController.attack(selectedLine.substring(0, selectedLine.indexOf("	")), 0);
+						AttackController.attack(selectedLine.substring(0, selectedLine.indexOf("	")), 2);
 					}
 					}
 				} catch (BadLocationException e1) {

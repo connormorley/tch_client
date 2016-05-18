@@ -75,7 +75,7 @@ public class AttackController {
 		ArrayList<Integer> startArray = new ArrayList<Integer>();
 		startArray = getArrayPoint(startPoint);
 
-		int endPoint = (passwordMasterCounter + 499) * 980; // End value
+		int endPoint = (passwordMasterCounter + 500) * 980; // End value
 		endPoint = endPoint / 98;
 		ArrayList<Integer> endArray = new ArrayList<Integer>();
 		endArray = getArrayPoint(endPoint);
