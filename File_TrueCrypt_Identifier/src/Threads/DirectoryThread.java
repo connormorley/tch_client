@@ -9,11 +9,14 @@ import java.util.concurrent.Future;
 
 import controllers.AnalysisController;
 import controllers.GUI;
+import loggers.LogObject;
+import loggers.LtA;
 
 public class DirectoryThread {
 	
 	public static Map<String, Future<Integer>> dirs = new HashMap<String, Future<Integer>>();
 	public static ArrayList<String> checkers;
+	static LtA logA = new LogObject();
 	
 	//Initiate a new checkers array for new test, prevent prviously scanned files from being ignored (this could be a setting)
 	public static void newCheck()
@@ -50,7 +53,9 @@ public class DirectoryThread {
 			AnalysisController.paths.add(f.getAbsolutePath());
 			AnalysisController.createDefaultTest(f.getAbsolutePath());
 		} else {
-			System.out.println("Duplicate DIR somehow");
+			logA.doLog("DirecotryThread", "[D-Thread] Directory " + f.getAbsolutePath() + " has been put through for analysis twice. Directory check failure."
+					, "Critical");
+			//System.out.println("Duplicate DIR somehow");
 		}
 	}
 
@@ -62,7 +67,9 @@ public class DirectoryThread {
 				AnalysisController.createFurtherTest(f);
 				AnalysisController.furtherTests++;
 			} else {
-				System.out.println("Duplicate check somehow");
+				logA.doLog("DirecotryThread", "[D-Thread] File " + f.getAbsolutePath() + " has been put through for analysis twice. File check failure."
+						, "Critical");
+				//System.out.println("Duplicate check somehow");
 			}
 		}
 	}

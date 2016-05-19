@@ -8,34 +8,41 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.TreeMap;
 
+import loggers.LogObject;
+import loggers.LtA;
+
 public class AttackController {
 
 	private static int passwordMasterCounter = 0;
 	private static ArrayList<ArrayList<Integer>> testingSet;
-	private static char[] masterCharSet = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ`¨!\"£$%^&*()-_=+[{]};:'@#~,<.>/?\\|".toCharArray();
-
+	private static char[] masterCharSet = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ`¨!\"£$%^&*()-_=+[{]};:'@#~,<.>/?\\|≈…Ê".toCharArray();
+	static LtA logA = new LogObject();
+	
 	// Initiate attack on specified file, Alpha version is set to predetermined numerical figure and test series
-	public static void attack(String filePath, int sequenceIdentifier) {
+	public static void attack(String filePath, int sequenceIdentifier) throws InterruptedException {
 		passwordMasterCounter = sequenceIdentifier * 500;
 		testingSet = generatePasswords();
 		ArrayList<ArrayList<Integer>> checkDebug = testingSet;
 		int attempt = 0;
+		if (filePath.contains("\\"))
+			filePath = filePath.replaceAll("'", "\\\'");
 		while (attempt != testingSet.size()) {
 			String password = getPassword(attempt);
 			System.out.println(password);
+			if(password.contains("\""))
+				password = password.replaceAll("\"", "\\\\\"");
 			Process p;
 			String file = "";
 			if (System.getProperty("os.name").contains("Windows"))
 				file = ".\\truecrypt";
 			if (System.getProperty("os.name").contains("Linux"))
 				file = "./truecrypt";
-			if (filePath.contains("\\"))
-				filePath = filePath.replaceAll("'", "\\\'");
 			System.out.println(filePath);
 			try {
 				//This try block is the inclusion of the external TC executable that must be used as the interface when testing password
 				p = Runtime.getRuntime().exec(file + " /s /l x /v " + filePath + " /p " + password + " /q");
 				p = Runtime.getRuntime().exec("find \"Block\" X:\\\\");
+				Thread.sleep(150);
 				BufferedReader stdError = new BufferedReader(new InputStreamReader(p.getErrorStream()));
 				String output = stdError.readLine();
 				if (!output.equals("File not found - X:\\\\") || !output.equals("Access denied - X:\\\\")) { // Error output will differ depending on drive letter, this should be an option!

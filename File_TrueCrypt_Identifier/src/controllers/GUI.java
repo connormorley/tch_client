@@ -165,105 +165,99 @@ public class GUI extends javax.swing.JFrame {
 				int offset = jTextArea1.viewToModel(e.getPoint());
 
 				try {
-					if(!jTextArea1.getText().equals(""))
-					{
-					int rowStart = Utilities.getRowStart(jTextArea1, offset);
-					int rowEnd = Utilities.getRowEnd(jTextArea1, offset);
-					String selectedLine = jTextArea1.getText().substring(rowStart, rowEnd);
-					if (!selectedLine.equals("TicketID	Pebl	Source			Description")) {
-						jTextArea1.select(rowStart, rowEnd);
-						selectedItem = selectedLine;
-						jLabel3.setText(selectedLine);
-					}
-					if (e.getClickCount() == 2
-							&& (!selectedLine.equals("TicketID	Pebl	Source			Description") || !selectedLine.equals(""))) {
-						AttackController.attack(selectedLine.substring(0, selectedLine.indexOf("	")), 2);
-					}
+					if (!jTextArea1.getText().equals("")) {
+						int rowStart = Utilities.getRowStart(jTextArea1, offset);
+						int rowEnd = Utilities.getRowEnd(jTextArea1, offset);
+						String selectedLine = jTextArea1.getText().substring(rowStart, rowEnd);
+						if (!selectedLine.equals("TicketID	Pebl	Source			Description")) {
+							jTextArea1.select(rowStart, rowEnd);
+							selectedItem = selectedLine;
+							jLabel3.setText(selectedLine);
+						}
+						if (e.getClickCount() == 2
+								&& (!selectedLine.equals("TicketID	Pebl	Source			Description")
+										|| !selectedLine.equals(""))) {
+							AttackController.attack(selectedLine.substring(0, selectedLine.indexOf("	")), 1);
+						}
 					}
 				} catch (BadLocationException e1) {
+					e1.printStackTrace();
+				} catch (InterruptedException e1) {
 					e1.printStackTrace();
 				}
 
 			}
 		});
-        
-        jRadioButton2.setSelected(true);
-        
-        pack();
+
+		jRadioButton2.setSelected(true);
+
+		pack();
     }
     
                     
 
     private void selectTarget(java.awt.event.ActionEvent evt) {   
-    	if(jRadioButton1.isSelected())
-    	{
-    	int returnVal = fc.showOpenDialog(GUI.this);
+		if (jRadioButton1.isSelected()) {
+			int returnVal = fc.showOpenDialog(GUI.this);
 
-        if (returnVal == JFileChooser.APPROVE_OPTION) {
-            file = fc.getSelectedFile();
-            jTextField1.setText(file.getName());
-            System.out.println("success");
-            typeOfSearch = "file";
-        } else {
-        	System.out.println("cancelled");
-        }
-    	}
-    	
-    	
-    	else if(jRadioButton2.isSelected())
-    	{
-    		int returnVal = dc.showOpenDialog(GUI.this);
+			if (returnVal == JFileChooser.APPROVE_OPTION) {
+				file = fc.getSelectedFile();
+				jTextField1.setText(file.getName());
+				System.out.println("success");
+				typeOfSearch = "file";
+			} else {
+				System.out.println("cancelled");
+			}
+		}
 
-        if (returnVal == JFileChooser.APPROVE_OPTION) {
-            file = dc.getSelectedFile();
-            jTextField1.setText(file.getName());
-            System.out.println("success");
-            typeOfSearch = "dir";
-        } else {
-        	System.out.println("cancelled");
-        }
-    		
-    	}
+		else if (jRadioButton2.isSelected()) {
+			int returnVal = dc.showOpenDialog(GUI.this);
+
+			if (returnVal == JFileChooser.APPROVE_OPTION) {
+				file = dc.getSelectedFile();
+				jTextField1.setText(file.getName());
+				System.out.println("success");
+				typeOfSearch = "dir";
+			} else {
+				System.out.println("cancelled");
+			}
+
+		}
     }  
     
     private void scanSelection(java.awt.event.ActionEvent evt) throws InterruptedException {     
     	if(isScanning == 0)
-    	{
-    	if(file != null)
-    	{
-    		isScanning = 1;
-    		jLabel5.setText("Scanning");
-    		jLabel5.paintImmediately(jLabel5.getVisibleRect());
-    		jTextArea1.setText("");
-			
-			ExecutorService exec = Executors.newSingleThreadExecutor();
-        	Callable<String> callable = new Callable<String>() {
-        		@Override
-        		public String call() throws InterruptedException, IOException{
-        			int tc = AnalysisController.analyseFile(file);
-        			if(typeOfSearch.equals("file"))
-        			{
-        			jTextArea1.setText(file.getAbsolutePath() + "						TC DETECTED!");
-        			jLabel5.setText("Scan Complete");
-        			isScanning = 0;
-        			if(tc == 1)
-        			jTextArea1.setText(file.getAbsolutePath() + "					NOT TC! ");
-        			}
-        			return "Complete";
-        		}
-        	};
-        	Future<String> future = exec.submit(callable);
-    	}  
-    	}
-    	else{
+ {
+			if (file != null) {
+				isScanning = 1;
+				jLabel5.setText("Scanning");
+				jLabel5.paintImmediately(jLabel5.getVisibleRect());
+				jTextArea1.setText("");
+
+				ExecutorService exec = Executors.newSingleThreadExecutor();
+				Callable<String> callable = new Callable<String>() {
+					@Override
+					public String call() throws InterruptedException, IOException {
+						int tc = AnalysisController.analyseFile(file);
+						if (typeOfSearch.equals("file")) {
+							jTextArea1.setText(file.getAbsolutePath() + "						TC DETECTED!");
+							jLabel5.setText("Scan Complete");
+							isScanning = 0;
+							if (tc == 1)
+								jTextArea1.setText(file.getAbsolutePath() + "					NOT TC! ");
+						}
+						return "Complete";
+					}
+				};
+				Future<String> future = exec.submit(callable);
+			}
+		} else {
 			JOptionPane.showMessageDialog(null, "Scan already in progress, please wait for completion.", "Warning",
 					JOptionPane.INFORMATION_MESSAGE);
-    	}
-    }
+		}
+	}
     
-    /**
-     * @param args the command line arguments
-     */
+
     public static void main(String args[]) {
 
         try {
@@ -282,9 +276,6 @@ public class GUI extends javax.swing.JFrame {
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(GUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
-        //</editor-fold>
-
-        /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new GUI().setVisible(true);

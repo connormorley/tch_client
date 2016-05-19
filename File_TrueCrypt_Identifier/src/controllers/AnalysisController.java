@@ -16,6 +16,8 @@ import java.util.concurrent.atomic.AtomicInteger;
 import org.apache.tika.Tika;
 
 import Threads.DirectoryThread;
+import loggers.LogObject;
+import loggers.LtA;
 
 public class AnalysisController {
 	
@@ -24,12 +26,15 @@ public class AnalysisController {
 	public static AtomicInteger threads;
 	public static Tika tika = new Tika();
 	public static AtomicInteger dirThreadCount;
-	public static ExecutorService executor = Executors.newFixedThreadPool(200);
+	public static ExecutorService scanDefaultExecutor;
+	public static ExecutorService scanFurtherExecutor;
 	public static ArrayList<String> paths;
 	public static int furtherTests;
 	public static long startTime; 
+	static LtA logA = new LogObject();
 	
 	public static int analyseFile(File file) throws IOException, InterruptedException {
+		logA.doLog("AnalysisController", "[A-Controller] Analysis initiated, target = " + file.getAbsolutePath(), "Info");
 		int ret = 0;
 		if (file.isDirectory()) {
 			refreshVariables();
@@ -42,16 +47,22 @@ public class AnalysisController {
 		}
 		Thread.sleep(5000);
 		while (threads.get() != 0 || dirThreadCount.get() != 0) {
-			System.out.println(furtherTests);
+			logA.doLog("AnalysisController", "[A-Controller] Running analysis thread information:	Directories being analysed = " 
+					+ dirThreadCount + " [*]	Files under intense analysis = " + threads, "Info");
+/*			System.out.println(furtherTests);
 			System.out.println(dirThreadCount);
-			System.out.println(threads);
+			System.out.println(threads);*/
 			Thread.sleep(5000);
 		}
-		System.out.println("FINISHED!!!!!");
+		scanDefaultExecutor.shutdown();
+		scanFurtherExecutor.shutdown();
+		logA.doLog("AnalysisController", "[A-Controller] Directory scan complete. Time taken for completion = " 
+				+ ((System.currentTimeMillis() - startTime) / 1000) + " Seconds", "Info");
+		/*System.out.println("FINISHED!!!!!");
 		System.out.println(furtherTests);
 		System.out.println(dirThreadCount);
 		System.out.println(threads);
-		System.out.println(System.currentTimeMillis() - startTime);
+		System.out.println(System.currentTimeMillis() - startTime);*/
 		GUI.jLabel5.setText("Scan Complete");
 		GUI.jLabel5.paintImmediately(GUI.jLabel5.getVisibleRect());
 		GUI.isScanning = 0;
@@ -59,6 +70,8 @@ public class AnalysisController {
 	}
 
 	private static void refreshVariables() {
+		scanDefaultExecutor = Executors.newFixedThreadPool(200);
+		scanFurtherExecutor = Executors.newFixedThreadPool(200);
 		startTime = System.currentTimeMillis();
 		walkedFiles = new HashMap<String, Integer>();
 		paths = new ArrayList<String>();
@@ -90,9 +103,13 @@ public class AnalysisController {
 		    }
 		    
 		} catch (FileNotFoundException fnfE) {
-		    System.out.println("FILE NOT FOUND!!!");
+			logA.doLog("AnalysisController", "[A-Controller] File " + file.getAbsolutePath() + " could not be found." 
+					, "Warning");
+		    //System.out.println("FILE NOT FOUND!!!");
 		} catch (IOException ioE) {
-			System.out.println("FILE READING ISSUE!!!");
+			logA.doLog("AnalysisController", "[A-Controller] File " + file.getAbsolutePath() + " could not be read." 
+					, "Warning");
+			//System.out.println("FILE READING ISSUE!!!");
 		}
 		ret = analyseDistribution(distribution, false);
 		return ret;
@@ -116,27 +133,32 @@ public class AnalysisController {
 			    {
 			    	return 1;
 			    }
-			    if((file.length()/512) < 2000000)
-			    {
-			    	wholeFileCheck = true;
-			    	chunkLimit = file.length() / 512;
-			    }
-			    while (chunkLen != chunkLimit) {
-			    	is.read(chunk);
-			        sortBytes(chunk, distribution);
-			        chunkLen++;
-			    }
+			if ((file.length() / 512) < 2000000) {
+				wholeFileCheck = true;
+				chunkLimit = file.length() / 512;
+			}
+			while (chunkLen != chunkLimit) {
+				is.read(chunk);
+				sortBytes(chunk, distribution);
+				chunkLen++;
+			}
 			    
 			} catch (FileNotFoundException fnfE) {
-			    System.out.println("FILE NOT FOUND!!!");
+				logA.doLog("AnalysisController", "[A-Controller] File " + file.getAbsolutePath() + " could not be found." 
+						, "Warning");
+			    //System.out.println("FILE NOT FOUND!!!");
 			} catch (IOException ioE) {
-				System.out.println("FILE READING ISSUE!!!");
+				logA.doLog("AnalysisController", "[A-Controller] File " + file.getAbsolutePath() + " could not be read." 
+						, "Warning");
+				//System.out.println("FILE READING ISSUE!!!");
 			}
 			ret = analyseDistribution(distribution, wholeFileCheck);
 			if(ret == 0 && GUI.typeOfSearch.equals("dir"))
 			{
 				walkedFiles.put(file.getAbsolutePath(), 1);
-				System.out.println(file.getAbsolutePath());
+				logA.doLog("AnalysisController", "[A-Controller] File " + file.getAbsolutePath() + " identified as likely TC file." 
+						, "Info");
+				//System.out.println(file.getAbsolutePath());
 				if(GUI.jTextArea1.getText().equals(""))
 					GUI.jTextArea1.setText(file.getAbsolutePath() + "	\n");
 				else
@@ -152,7 +174,7 @@ public class AnalysisController {
 	public static void createDefaultTest(String path)
 	{
         Callable<Integer> worker = new AnalysisController.MyAnalysis(path);
-        Future<Integer> thread = AnalysisController.executor.submit(worker);
+        Future<Integer> thread = AnalysisController.scanDefaultExecutor.submit(worker);
         return;
 	}
 	    
@@ -172,7 +194,7 @@ public class AnalysisController {
 			public Integer call() throws InterruptedException, ExecutionException, IOException {
 				Integer x = 1;
 				Integer dv = 1;
-				System.out.println("Path : " + dir);
+				//System.out.println("Path : " + dir);
 				dv = callThread();
 				return x;
 			}
@@ -190,7 +212,7 @@ public class AnalysisController {
 	 public static void createFurtherTest(File f)
 		{
 	        Callable<Integer> worker = new AnalysisController.FurtherAnalysis(f);
-	        Future<Integer> thread = AnalysisController.executor.submit(worker);
+	        Future<Integer> thread = AnalysisController.scanFurtherExecutor.submit(worker);
 	        return;
 		}
 		    
@@ -210,7 +232,7 @@ public class AnalysisController {
 				public Integer call() throws InterruptedException, ExecutionException, IOException {
 					Integer x = 1;
 					Integer dv = 1;
-					System.out.println("Path : " + dir);
+					// System.out.println("Path : " + dir);
 					dv = callThread();
 					furtherTests--;
 					return x;

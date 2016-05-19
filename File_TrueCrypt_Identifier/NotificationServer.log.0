@@ -1,0 +1,194 @@
+INFO 05-19-2016 15:26:02 || [A-Controller] Running thread information : 
+Directories being analysed = 0
+Files being further analysed = 2
+INFO 05-19-2016 15:26:07 || [A-Controller] Running thread information : 
+Directories being analysed = 0
+Files being further analysed = 2
+INFO 05-19-2016 15:26:12 || [A-Controller] Running thread information : 
+Directories being analysed = 0
+Files being further analysed = 2
+INFO 05-19-2016 15:26:17 || [A-Controller] Running thread information : 
+Directories being analysed = 0
+Files being further analysed = 2
+INFO 05-19-2016 15:26:22 || [A-Controller] Running thread information : 
+Directories being analysed = 0
+Files being further analysed = 2
+INFO 05-19-2016 15:26:27 || [A-Controller] Running thread information : 
+Directories being analysed = 0
+Files being further analysed = 2
+INFO 05-19-2016 15:26:32 || [A-Controller] Running thread information : 
+Directories being analysed = 0
+Files being further analysed = 2
+INFO 05-19-2016 15:26:37 || [A-Controller] Running thread information : 
+Directories being analysed = 0
+Files being further analysed = 2
+INFO 05-19-2016 15:26:42 || [A-Controller] Running thread information : 
+Directories being analysed = 0
+Files being further analysed = 2
+INFO 05-19-2016 15:26:42 || [A-Controller] File F:\New folder\testLarge identified as likely TC file.
+INFO 05-19-2016 15:26:43 || [A-Controller] File F:\New folder\superLarge identified as likely TC file.
+INFO 05-19-2016 15:26:47 || [A-Controller] Directory scan complete. Time taken for completion = 50148
+INFO 05-19-2016 15:30:59 || [A-Controller] Analysis initiated, target = F:\New folder
+INFO 05-19-2016 15:31:04 || [A-Controller] Running thread information : Directories being analysed = 0	Flagged files being thoroughly analysed = 2
+INFO 05-19-2016 15:31:09 || [A-Controller] Running thread information : Directories being analysed = 0	Flagged files being thoroughly analysed = 2
+INFO 05-19-2016 15:31:14 || [A-Controller] Running thread information : Directories being analysed = 0	Flagged files being thoroughly analysed = 2
+INFO 05-19-2016 15:31:19 || [A-Controller] Running thread information : Directories being analysed = 0	Flagged files being thoroughly analysed = 2
+INFO 05-19-2016 15:31:24 || [A-Controller] Running thread information : Directories being analysed = 0	Flagged files being thoroughly analysed = 2
+INFO 05-19-2016 15:31:29 || [A-Controller] Running thread information : Directories being analysed = 0	Flagged files being thoroughly analysed = 2
+INFO 05-19-2016 15:31:34 || [A-Controller] Running thread information : Directories being analysed = 0	Flagged files being thoroughly analysed = 2
+INFO 05-19-2016 15:31:38 || [A-Controller] File F:\New folder\testLarge identified as likely TC file.
+INFO 05-19-2016 15:31:38 || [A-Controller] File F:\New folder\superLarge identified as likely TC file.
+INFO 05-19-2016 15:31:39 || [A-Controller] Directory scan complete. Time taken for completion = 400 Seconds
+INFO 05-19-2016 15:32:37 || [A-Controller] Analysis initiated, target = F:\New folder
+INFO 05-19-2016 15:32:42 || [A-Controller] Running analysis thread information:	Directories being analysed = 0 ||		Flagged files being thoroughly analysed = 2
+INFO 05-19-2016 15:32:47 || [A-Controller] Running analysis thread information:	Directories being analysed = 0 ||		Flagged files being thoroughly analysed = 2
+INFO 05-19-2016 15:32:52 || [A-Controller] Running analysis thread information:	Directories being analysed = 0 ||		Flagged files being thoroughly analysed = 2
+INFO 05-19-2016 15:33:06 || [A-Controller] Analysis initiated, target = F:\New folder
+INFO 05-19-2016 15:33:11 || [A-Controller] Running analysis thread information:	Directories being analysed = 0 ||	Flagged files being thoroughly analysed = 2
+INFO 05-19-2016 15:34:09 || [A-Controller] Analysis initiated, target = F:\
+INFO 05-19-2016 15:34:14 || [A-Controller] Running analysis thread information:	Directories being analysed = 76	Files under intense analysis = 2
+INFO 05-19-2016 15:34:19 || [A-Controller] Running analysis thread information:	Directories being analysed = 141	Files under intense analysis = 2
+INFO 05-19-2016 15:34:24 || [A-Controller] Running analysis thread information:	Directories being analysed = 147	Files under intense analysis = 2
+INFO 05-19-2016 15:34:29 || [A-Controller] Running analysis thread information:	Directories being analysed = 166	Files under intense analysis = 2
+INFO 05-19-2016 15:34:34 || [A-Controller] Running analysis thread information:	Directories being analysed = 197	Files under intense analysis = 2
+INFO 05-19-2016 15:34:39 || [A-Controller] Running analysis thread information:	Directories being analysed = 191	Files under intense analysis = 2
+INFO 05-19-2016 15:34:44 || [A-Controller] Running analysis thread information:	Directories being analysed = 162	Files under intense analysis = 2
+INFO 05-19-2016 15:34:49 || [A-Controller] Running analysis thread information:	Directories being analysed = 178	Files under intense analysis = 2
+INFO 05-19-2016 15:34:54 || [A-Controller] File F:\New folder\superLarge identified as likely TC file.
+INFO 05-19-2016 15:34:54 || [A-Controller] File F:\New folder\testLarge identified as likely TC file.
+INFO 05-19-2016 15:34:54 || [A-Controller] Running analysis thread information:	Directories being analysed = 162	Files under intense analysis = 0
+INFO 05-19-2016 15:34:59 || [A-Controller] Running analysis thread information:	Directories being analysed = 156	Files under intense analysis = 0
+INFO 05-19-2016 15:35:04 || [A-Controller] Running analysis thread information:	Directories being analysed = 167	Files under intense analysis = 0
+INFO 05-19-2016 15:35:09 || [A-Controller] Running analysis thread information:	Directories being analysed = 167	Files under intense analysis = 0
+INFO 05-19-2016 15:35:14 || [A-Controller] Running analysis thread information:	Directories being analysed = 153	Files under intense analysis = 0
+INFO 05-19-2016 15:35:19 || [A-Controller] Running analysis thread information:	Directories being analysed = 149	Files under intense analysis = 0
+INFO 05-19-2016 15:35:24 || [A-Controller] Running analysis thread information:	Directories being analysed = 144	Files under intense analysis = 0
+INFO 05-19-2016 15:35:29 || [A-Controller] Running analysis thread information:	Directories being analysed = 141	Files under intense analysis = 0
+INFO 05-19-2016 15:35:34 || [A-Controller] Running analysis thread information:	Directories being analysed = 198	Files under intense analysis = 0
+INFO 05-19-2016 15:35:39 || [A-Controller] Running analysis thread information:	Directories being analysed = 200	Files under intense analysis = 0
+INFO 05-19-2016 15:35:44 || [A-Controller] Running analysis thread information:	Directories being analysed = 200	Files under intense analysis = 0
+INFO 05-19-2016 15:35:49 || [A-Controller] Running analysis thread information:	Directories being analysed = 200	Files under intense analysis = 0
+INFO 05-19-2016 15:35:54 || [A-Controller] Running analysis thread information:	Directories being analysed = 200	Files under intense analysis = 0
+INFO 05-19-2016 15:35:59 || [A-Controller] Running analysis thread information:	Directories being analysed = 200	Files under intense analysis = 0
+INFO 05-19-2016 15:36:04 || [A-Controller] Running analysis thread information:	Directories being analysed = 200	Files under intense analysis = 0
+INFO 05-19-2016 15:36:09 || [A-Controller] Running analysis thread information:	Directories being analysed = 200	Files under intense analysis = 0
+INFO 05-19-2016 15:36:14 || [A-Controller] Running analysis thread information:	Directories being analysed = 200	Files under intense analysis = 0
+INFO 05-19-2016 15:36:19 || [A-Controller] Running analysis thread information:	Directories being analysed = 200	Files under intense analysis = 0
+INFO 05-19-2016 15:36:24 || [A-Controller] Running analysis thread information:	Directories being analysed = 200	Files under intense analysis = 0
+INFO 05-19-2016 15:36:29 || [A-Controller] Running analysis thread information:	Directories being analysed = 200	Files under intense analysis = 0
+INFO 05-19-2016 15:36:34 || [A-Controller] Running analysis thread information:	Directories being analysed = 200	Files under intense analysis = 0
+INFO 05-19-2016 15:36:39 || [A-Controller] Running analysis thread information:	Directories being analysed = 200	Files under intense analysis = 0
+INFO 05-19-2016 15:36:44 || [A-Controller] Running analysis thread information:	Directories being analysed = 200	Files under intense analysis = 0
+INFO 05-19-2016 15:36:49 || [A-Controller] Running analysis thread information:	Directories being analysed = 200	Files under intense analysis = 0
+INFO 05-19-2016 15:36:54 || [A-Controller] Running analysis thread information:	Directories being analysed = 200	Files under intense analysis = 0
+INFO 05-19-2016 15:36:59 || [A-Controller] Running analysis thread information:	Directories being analysed = 200	Files under intense analysis = 0
+INFO 05-19-2016 15:37:04 || [A-Controller] Running analysis thread information:	Directories being analysed = 200	Files under intense analysis = 0
+INFO 05-19-2016 15:37:09 || [A-Controller] Running analysis thread information:	Directories being analysed = 200	Files under intense analysis = 0
+INFO 05-19-2016 15:37:14 || [A-Controller] Running analysis thread information:	Directories being analysed = 200	Files under intense analysis = 0
+INFO 05-19-2016 15:37:19 || [A-Controller] Running analysis thread information:	Directories being analysed = 193	Files under intense analysis = 0
+INFO 05-19-2016 15:37:24 || [A-Controller] Running analysis thread information:	Directories being analysed = 173	Files under intense analysis = 0
+INFO 05-19-2016 15:37:29 || [A-Controller] Running analysis thread information:	Directories being analysed = 200	Files under intense analysis = 0
+INFO 05-19-2016 15:37:34 || [A-Controller] Running analysis thread information:	Directories being analysed = 177	Files under intense analysis = 0
+INFO 05-19-2016 15:37:39 || [A-Controller] Running analysis thread information:	Directories being analysed = 160	Files under intense analysis = 0
+INFO 05-19-2016 15:37:44 || [A-Controller] Running analysis thread information:	Directories being analysed = 151	Files under intense analysis = 0
+INFO 05-19-2016 15:37:49 || [A-Controller] Running analysis thread information:	Directories being analysed = 141	Files under intense analysis = 0
+INFO 05-19-2016 15:37:54 || [A-Controller] Running analysis thread information:	Directories being analysed = 132	Files under intense analysis = 0
+INFO 05-19-2016 15:37:59 || [A-Controller] Running analysis thread information:	Directories being analysed = 125	Files under intense analysis = 0
+INFO 05-19-2016 15:38:04 || [A-Controller] Running analysis thread information:	Directories being analysed = 118	Files under intense analysis = 0
+INFO 05-19-2016 15:38:09 || [A-Controller] Running analysis thread information:	Directories being analysed = 109	Files under intense analysis = 0
+INFO 05-19-2016 15:38:14 || [A-Controller] Running analysis thread information:	Directories being analysed = 102	Files under intense analysis = 0
+INFO 05-19-2016 15:38:19 || [A-Controller] Running analysis thread information:	Directories being analysed = 96	Files under intense analysis = 0
+INFO 05-19-2016 15:38:24 || [A-Controller] Running analysis thread information:	Directories being analysed = 92	Files under intense analysis = 0
+INFO 05-19-2016 15:38:29 || [A-Controller] Running analysis thread information:	Directories being analysed = 87	Files under intense analysis = 0
+INFO 05-19-2016 15:38:34 || [A-Controller] Running analysis thread information:	Directories being analysed = 82	Files under intense analysis = 0
+INFO 05-19-2016 15:38:39 || [A-Controller] Running analysis thread information:	Directories being analysed = 75	Files under intense analysis = 0
+INFO 05-19-2016 15:38:44 || [A-Controller] Running analysis thread information:	Directories being analysed = 76	Files under intense analysis = 0
+INFO 05-19-2016 15:38:49 || [A-Controller] Running analysis thread information:	Directories being analysed = 74	Files under intense analysis = 0
+INFO 05-19-2016 15:38:54 || [A-Controller] Running analysis thread information:	Directories being analysed = 74	Files under intense analysis = 0
+INFO 05-19-2016 15:38:59 || [A-Controller] Running analysis thread information:	Directories being analysed = 68	Files under intense analysis = 0
+INFO 05-19-2016 15:39:04 || [A-Controller] Running analysis thread information:	Directories being analysed = 69	Files under intense analysis = 0
+INFO 05-19-2016 15:39:09 || [A-Controller] Running analysis thread information:	Directories being analysed = 64	Files under intense analysis = 0
+INFO 05-19-2016 15:39:14 || [A-Controller] Running analysis thread information:	Directories being analysed = 63	Files under intense analysis = 0
+INFO 05-19-2016 15:39:19 || [A-Controller] Running analysis thread information:	Directories being analysed = 68	Files under intense analysis = 0
+INFO 05-19-2016 15:39:24 || [A-Controller] Running analysis thread information:	Directories being analysed = 58	Files under intense analysis = 0
+INFO 05-19-2016 15:39:29 || [A-Controller] Running analysis thread information:	Directories being analysed = 54	Files under intense analysis = 0
+INFO 05-19-2016 15:39:34 || [A-Controller] Running analysis thread information:	Directories being analysed = 50	Files under intense analysis = 0
+INFO 05-19-2016 15:39:39 || [A-Controller] Running analysis thread information:	Directories being analysed = 50	Files under intense analysis = 0
+INFO 05-19-2016 15:39:44 || [A-Controller] Running analysis thread information:	Directories being analysed = 49	Files under intense analysis = 0
+INFO 05-19-2016 15:39:49 || [A-Controller] Running analysis thread information:	Directories being analysed = 48	Files under intense analysis = 0
+INFO 05-19-2016 15:39:54 || [A-Controller] Running analysis thread information:	Directories being analysed = 47	Files under intense analysis = 0
+INFO 05-19-2016 15:39:59 || [A-Controller] Running analysis thread information:	Directories being analysed = 47	Files under intense analysis = 0
+INFO 05-19-2016 15:40:04 || [A-Controller] Running analysis thread information:	Directories being analysed = 46	Files under intense analysis = 0
+INFO 05-19-2016 15:40:09 || [A-Controller] Running analysis thread information:	Directories being analysed = 43	Files under intense analysis = 0
+INFO 05-19-2016 15:40:14 || [A-Controller] Running analysis thread information:	Directories being analysed = 46	Files under intense analysis = 0
+INFO 05-19-2016 15:40:19 || [A-Controller] Running analysis thread information:	Directories being analysed = 41	Files under intense analysis = 0
+INFO 05-19-2016 15:40:24 || [A-Controller] Running analysis thread information:	Directories being analysed = 39	Files under intense analysis = 0
+INFO 05-19-2016 15:40:29 || [A-Controller] Running analysis thread information:	Directories being analysed = 37	Files under intense analysis = 0
+INFO 05-19-2016 15:40:34 || [A-Controller] Running analysis thread information:	Directories being analysed = 37	Files under intense analysis = 0
+INFO 05-19-2016 15:40:39 || [A-Controller] Running analysis thread information:	Directories being analysed = 37	Files under intense analysis = 0
+INFO 05-19-2016 15:40:44 || [A-Controller] Running analysis thread information:	Directories being analysed = 35	Files under intense analysis = 0
+INFO 05-19-2016 15:40:49 || [A-Controller] Running analysis thread information:	Directories being analysed = 34	Files under intense analysis = 0
+INFO 05-19-2016 15:40:54 || [A-Controller] Running analysis thread information:	Directories being analysed = 33	Files under intense analysis = 0
+INFO 05-19-2016 15:40:59 || [A-Controller] Running analysis thread information:	Directories being analysed = 32	Files under intense analysis = 0
+INFO 05-19-2016 15:41:04 || [A-Controller] Running analysis thread information:	Directories being analysed = 33	Files under intense analysis = 0
+INFO 05-19-2016 15:41:09 || [A-Controller] Running analysis thread information:	Directories being analysed = 31	Files under intense analysis = 0
+INFO 05-19-2016 15:41:14 || [A-Controller] Running analysis thread information:	Directories being analysed = 31	Files under intense analysis = 0
+INFO 05-19-2016 15:41:19 || [A-Controller] Running analysis thread information:	Directories being analysed = 30	Files under intense analysis = 0
+INFO 05-19-2016 15:41:24 || [A-Controller] Running analysis thread information:	Directories being analysed = 30	Files under intense analysis = 0
+INFO 05-19-2016 15:41:29 || [A-Controller] Running analysis thread information:	Directories being analysed = 30	Files under intense analysis = 0
+INFO 05-19-2016 15:41:34 || [A-Controller] Running analysis thread information:	Directories being analysed = 30	Files under intense analysis = 0
+INFO 05-19-2016 15:41:39 || [A-Controller] Running analysis thread information:	Directories being analysed = 30	Files under intense analysis = 0
+INFO 05-19-2016 15:41:44 || [A-Controller] Running analysis thread information:	Directories being analysed = 30	Files under intense analysis = 0
+INFO 05-19-2016 15:41:49 || [A-Controller] Running analysis thread information:	Directories being analysed = 30	Files under intense analysis = 0
+INFO 05-19-2016 15:41:54 || [A-Controller] Running analysis thread information:	Directories being analysed = 30	Files under intense analysis = 0
+INFO 05-19-2016 15:41:59 || [A-Controller] Running analysis thread information:	Directories being analysed = 30	Files under intense analysis = 0
+INFO 05-19-2016 15:42:04 || [A-Controller] Running analysis thread information:	Directories being analysed = 29	Files under intense analysis = 0
+INFO 05-19-2016 15:42:09 || [A-Controller] Running analysis thread information:	Directories being analysed = 28	Files under intense analysis = 0
+INFO 05-19-2016 15:42:14 || [A-Controller] Running analysis thread information:	Directories being analysed = 28	Files under intense analysis = 0
+INFO 05-19-2016 15:42:19 || [A-Controller] Running analysis thread information:	Directories being analysed = 30	Files under intense analysis = 0
+INFO 05-19-2016 15:42:24 || [A-Controller] Running analysis thread information:	Directories being analysed = 28	Files under intense analysis = 0
+INFO 05-19-2016 15:42:29 || [A-Controller] Running analysis thread information:	Directories being analysed = 26	Files under intense analysis = 0
+INFO 05-19-2016 15:42:34 || [A-Controller] Running analysis thread information:	Directories being analysed = 26	Files under intense analysis = 0
+INFO 05-19-2016 15:42:39 || [A-Controller] Running analysis thread information:	Directories being analysed = 27	Files under intense analysis = 0
+INFO 05-19-2016 15:42:44 || [A-Controller] Running analysis thread information:	Directories being analysed = 25	Files under intense analysis = 0
+INFO 05-19-2016 15:42:49 || [A-Controller] Running analysis thread information:	Directories being analysed = 24	Files under intense analysis = 0
+INFO 05-19-2016 15:42:54 || [A-Controller] Running analysis thread information:	Directories being analysed = 25	Files under intense analysis = 0
+INFO 05-19-2016 15:42:59 || [A-Controller] Running analysis thread information:	Directories being analysed = 26	Files under intense analysis = 0
+INFO 05-19-2016 15:43:04 || [A-Controller] Running analysis thread information:	Directories being analysed = 23	Files under intense analysis = 0
+INFO 05-19-2016 15:43:09 || [A-Controller] Running analysis thread information:	Directories being analysed = 24	Files under intense analysis = 0
+INFO 05-19-2016 15:43:14 || [A-Controller] Running analysis thread information:	Directories being analysed = 23	Files under intense analysis = 0
+INFO 05-19-2016 15:43:19 || [A-Controller] Running analysis thread information:	Directories being analysed = 22	Files under intense analysis = 0
+INFO 05-19-2016 15:43:24 || [A-Controller] Running analysis thread information:	Directories being analysed = 19	Files under intense analysis = 0
+INFO 05-19-2016 15:43:29 || [A-Controller] Running analysis thread information:	Directories being analysed = 18	Files under intense analysis = 0
+INFO 05-19-2016 15:43:34 || [A-Controller] Running analysis thread information:	Directories being analysed = 18	Files under intense analysis = 0
+INFO 05-19-2016 15:43:39 || [A-Controller] Running analysis thread information:	Directories being analysed = 16	Files under intense analysis = 0
+INFO 05-19-2016 15:43:44 || [A-Controller] Running analysis thread information:	Directories being analysed = 16	Files under intense analysis = 0
+INFO 05-19-2016 15:43:49 || [A-Controller] Running analysis thread information:	Directories being analysed = 14	Files under intense analysis = 0
+INFO 05-19-2016 15:43:54 || [A-Controller] Running analysis thread information:	Directories being analysed = 13	Files under intense analysis = 0
+INFO 05-19-2016 15:43:59 || [A-Controller] Running analysis thread information:	Directories being analysed = 13	Files under intense analysis = 0
+INFO 05-19-2016 15:44:04 || [A-Controller] Running analysis thread information:	Directories being analysed = 13	Files under intense analysis = 0
+INFO 05-19-2016 15:44:09 || [A-Controller] Running analysis thread information:	Directories being analysed = 13	Files under intense analysis = 0
+INFO 05-19-2016 15:44:14 || [A-Controller] Running analysis thread information:	Directories being analysed = 12	Files under intense analysis = 0
+INFO 05-19-2016 15:44:19 || [A-Controller] Running analysis thread information:	Directories being analysed = 11	Files under intense analysis = 0
+INFO 05-19-2016 15:44:24 || [A-Controller] Running analysis thread information:	Directories being analysed = 10	Files under intense analysis = 0
+INFO 05-19-2016 15:44:29 || [A-Controller] Running analysis thread information:	Directories being analysed = 10	Files under intense analysis = 0
+INFO 05-19-2016 15:44:34 || [A-Controller] Running analysis thread information:	Directories being analysed = 10	Files under intense analysis = 0
+INFO 05-19-2016 15:44:39 || [A-Controller] Running analysis thread information:	Directories being analysed = 9	Files under intense analysis = 0
+INFO 05-19-2016 15:44:44 || [A-Controller] Running analysis thread information:	Directories being analysed = 9	Files under intense analysis = 0
+INFO 05-19-2016 15:44:49 || [A-Controller] Running analysis thread information:	Directories being analysed = 9	Files under intense analysis = 0
+INFO 05-19-2016 15:44:54 || [A-Controller] Running analysis thread information:	Directories being analysed = 9	Files under intense analysis = 0
+INFO 05-19-2016 15:44:59 || [A-Controller] Running analysis thread information:	Directories being analysed = 9	Files under intense analysis = 0
+INFO 05-19-2016 15:45:04 || [A-Controller] Running analysis thread information:	Directories being analysed = 7	Files under intense analysis = 0
+INFO 05-19-2016 15:45:09 || [A-Controller] Running analysis thread information:	Directories being analysed = 6	Files under intense analysis = 0
+INFO 05-19-2016 15:45:14 || [A-Controller] Running analysis thread information:	Directories being analysed = 6	Files under intense analysis = 0
+INFO 05-19-2016 15:45:19 || [A-Controller] Running analysis thread information:	Directories being analysed = 6	Files under intense analysis = 0
+INFO 05-19-2016 15:45:24 || [A-Controller] Running analysis thread information:	Directories being analysed = 5	Files under intense analysis = 0
+INFO 05-19-2016 15:45:29 || [A-Controller] Running analysis thread information:	Directories being analysed = 5	Files under intense analysis = 0
+INFO 05-19-2016 15:45:34 || [A-Controller] Running analysis thread information:	Directories being analysed = 5	Files under intense analysis = 0
+INFO 05-19-2016 15:45:39 || [A-Controller] Running analysis thread information:	Directories being analysed = 4	Files under intense analysis = 0
+INFO 05-19-2016 15:45:44 || [A-Controller] Running analysis thread information:	Directories being analysed = 4	Files under intense analysis = 0
+INFO 05-19-2016 15:45:49 || [A-Controller] Running analysis thread information:	Directories being analysed = 4	Files under intense analysis = 0
+INFO 05-19-2016 15:45:54 || [A-Controller] Running analysis thread information:	Directories being analysed = 1	Files under intense analysis = 0
+INFO 05-19-2016 15:45:59 || [A-Controller] Running analysis thread information:	Directories being analysed = 1	Files under intense analysis = 0
+INFO 05-19-2016 15:46:04 || [A-Controller] Running analysis thread information:	Directories being analysed = 1	Files under intense analysis = 0
+INFO 05-19-2016 15:46:09 || [A-Controller] Directory scan complete. Time taken for completion = 7201 Seconds
