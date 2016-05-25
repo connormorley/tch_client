@@ -32,12 +32,13 @@ public class AnalysisController {
 	public static int furtherTests;
 	public static long startTime; 
 	static LtA logA = new LogObject();
+	public static ArrayList<Integer> mcTest = new ArrayList<Integer>();
 	
 	public static int analyseFile(File file) throws IOException, InterruptedException {
 		logA.doLog("AnalysisController", "[A-Controller] Analysis initiated, target = " + file.getAbsolutePath(), "Info");
 		int ret = 0;
+		refreshVariables();
 		if (file.isDirectory()) {
-			refreshVariables();
 			paths.add(file.getAbsolutePath());
 			createDefaultTest(file.getAbsolutePath());
 		} else {
@@ -46,23 +47,18 @@ public class AnalysisController {
 				ret = doubleCheck(file);
 		}
 		Thread.sleep(5000);
-		while (threads.get() != 0 || dirThreadCount.get() != 0) {
-			logA.doLog("AnalysisController", "[A-Controller] Running analysis thread information:	Directories being analysed = " 
-					+ dirThreadCount + " [*]	Files under intense analysis = " + threads, "Info");
-/*			System.out.println(furtherTests);
-			System.out.println(dirThreadCount);
-			System.out.println(threads);*/
-			Thread.sleep(5000);
+		if(file.isDirectory())
+		{
+			while (threads.get() != 0 || dirThreadCount.get() != 0) {
+				logA.doLog("AnalysisController", "[A-Controller] Running analysis thread information:	Directories being analysed = " 
+						+ dirThreadCount + " [*]	Files under intense analysis = " + threads, "Info");
+				Thread.sleep(5000);
+			}
+			scanDefaultExecutor.shutdown();
+			scanFurtherExecutor.shutdown();
 		}
-		scanDefaultExecutor.shutdown();
-		scanFurtherExecutor.shutdown();
 		logA.doLog("AnalysisController", "[A-Controller] Directory scan complete. Time taken for completion = " 
 				+ ((System.currentTimeMillis() - startTime) / 1000) + " Seconds", "Info");
-		/*System.out.println("FINISHED!!!!!");
-		System.out.println(furtherTests);
-		System.out.println(dirThreadCount);
-		System.out.println(threads);
-		System.out.println(System.currentTimeMillis() - startTime);*/
 		GUI.jLabel5.setText("Scan Complete");
 		GUI.jLabel5.paintImmediately(GUI.jLabel5.getVisibleRect());
 		GUI.isScanning = 0;
@@ -105,13 +101,13 @@ public class AnalysisController {
 		} catch (FileNotFoundException fnfE) {
 			logA.doLog("AnalysisController", "[A-Controller] File " + file.getAbsolutePath() + " could not be found." 
 					, "Warning");
-		    //System.out.println("FILE NOT FOUND!!!");
 		} catch (IOException ioE) {
 			logA.doLog("AnalysisController", "[A-Controller] File " + file.getAbsolutePath() + " could not be read." 
 					, "Warning");
-			//System.out.println("FILE READING ISSUE!!!");
 		}
 		ret = analyseDistribution(distribution, false);
+		chiSquareTest(distribution);
+		//monteCarloTest();
 		return ret;
 	}
 	
@@ -146,11 +142,9 @@ public class AnalysisController {
 			} catch (FileNotFoundException fnfE) {
 				logA.doLog("AnalysisController", "[A-Controller] File " + file.getAbsolutePath() + " could not be found." 
 						, "Warning");
-			    //System.out.println("FILE NOT FOUND!!!");
 			} catch (IOException ioE) {
 				logA.doLog("AnalysisController", "[A-Controller] File " + file.getAbsolutePath() + " could not be read." 
 						, "Warning");
-				//System.out.println("FILE READING ISSUE!!!");
 			}
 			ret = analyseDistribution(distribution, wholeFileCheck);
 			if(ret == 0 && GUI.typeOfSearch.equals("dir"))
@@ -158,7 +152,6 @@ public class AnalysisController {
 				walkedFiles.put(file.getAbsolutePath(), 1);
 				logA.doLog("AnalysisController", "[A-Controller] File " + file.getAbsolutePath() + " identified as likely TC file." 
 						, "Info");
-				//System.out.println(file.getAbsolutePath());
 				if(GUI.jTextArea1.getText().equals(""))
 					GUI.jTextArea1.setText(file.getAbsolutePath() + "	\n");
 				else
@@ -194,7 +187,6 @@ public class AnalysisController {
 			public Integer call() throws InterruptedException, ExecutionException, IOException {
 				Integer x = 1;
 				Integer dv = 1;
-				//System.out.println("Path : " + dir);
 				dv = callThread();
 				return x;
 			}
@@ -232,7 +224,6 @@ public class AnalysisController {
 				public Integer call() throws InterruptedException, ExecutionException, IOException {
 					Integer x = 1;
 					Integer dv = 1;
-					// System.out.println("Path : " + dir);
 					dv = callThread();
 					furtherTests--;
 					return x;
@@ -249,11 +240,24 @@ public class AnalysisController {
 	
 	private static void sortBytes(byte[] b, Map<Byte, Integer> distribution)
 	{
+		int sum = 0;
+		int count = 0;
 		for(byte bite : b)
 		{
 			if(!distribution.containsKey(bite))
 				distribution.put(bite,0);
 			distribution.put(bite, distribution.get(bite) + 1);
+			/*sum = sum + (bite & 0xff); // Convert the byte to unsigned, prevents negative values in the sum - MONTE CARLO NEEEDED STUFF
+			if((bite & 0xff) == 0)
+				sum = sum + 1;
+			count++;
+			if(count == 8)
+			{
+				count = 0;
+				mcTest.add(sum);
+				sum = 0;
+			}*/
+			
 		}
 	}
 	
@@ -285,5 +289,46 @@ public class AnalysisController {
 					ret = 1;
 			}
 		return ret;
+	}
+	
+	private static double chiSquareTest(Map<Byte, Integer> distribution)
+	{
+		double probability = 0.0039062; // as all the characters have the same probability it is 1 / 256
+		double result = 0;
+		int totalBytes = 0;
+		for(Map.Entry<Byte,Integer> entry : distribution.entrySet())
+		{
+			totalBytes = totalBytes + entry.getValue();
+		}
+		probability = totalBytes * probability; // 
+		
+		for(Map.Entry<Byte,Integer> entry : distribution.entrySet())
+		{
+			result = result + (Math.pow((entry.getValue() - probability) , 2) / probability);
+		}
+		System.out.println(result);
+		return result;
+	}
+	
+	
+	
+	private static double monteCarloTest() // Test doesnt work!!!
+	{
+		int totalCoords = mcTest.size();
+		int countWithinRange = 0;
+		int entriesUsed = 0;
+		while(entriesUsed < totalCoords)
+		{
+			double sum1 = mcTest.get(entriesUsed);
+			entriesUsed++;
+			double sum2 = mcTest.get(entriesUsed);
+			entriesUsed++;
+			if(Math.hypot(sum1, sum2) < 2046)
+			{
+				countWithinRange++;
+			}
+		}
+		double piEst = (4 * countWithinRange / (entriesUsed / 2));
+		return 0;
 	}
 }

@@ -26,7 +26,7 @@ public class JobPollThread {
 	        sending.add(new PostKey("password", "test"));
 	        sending.add(new PostKey("deviceid", macAddress));
 	        String result = TransmissionController.sendToServer(sending, "jobCheck");
-	        if(Integer.parseInt(result) == 1)
+	        if(Integer.parseInt(result) == 1) // If return from server is positive, indicating waiting job, break loop and start analysis or something
 	        	break;
 	        Thread.currentThread().sleep(5000); // Poll every 5 seconds, this can be an options in properties file or options panel.
 		}

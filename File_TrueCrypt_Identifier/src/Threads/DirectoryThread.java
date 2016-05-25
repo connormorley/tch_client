@@ -55,7 +55,6 @@ public class DirectoryThread {
 		} else {
 			logA.doLog("DirecotryThread", "[D-Thread] Directory " + f.getAbsolutePath() + " has been put through for analysis twice. Directory check failure."
 					, "Critical");
-			//System.out.println("Duplicate DIR somehow");
 		}
 	}
 
@@ -69,7 +68,6 @@ public class DirectoryThread {
 			} else {
 				logA.doLog("DirecotryThread", "[D-Thread] File " + f.getAbsolutePath() + " has been put through for analysis twice. File check failure."
 						, "Critical");
-				//System.out.println("Duplicate check somehow");
 			}
 		}
 	}
