@@ -12,6 +12,9 @@ import java.util.concurrent.ExecutionException;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
+import java.util.concurrent.LinkedBlockingQueue;
+import java.util.concurrent.ThreadPoolExecutor;
+import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicInteger;
 import org.apache.tika.Tika;
 
@@ -29,15 +32,17 @@ public class AnalysisController {
 	public static ExecutorService scanDefaultExecutor;
 	public static ExecutorService scanFurtherExecutor;
 	public static ArrayList<String> paths;
-	public static int furtherTests;
+	public static AtomicInteger furtherTests;
 	public static long startTime; 
 	static LtA logA = new LogObject();
 	public static ArrayList<Integer> mcTest = new ArrayList<Integer>();
+	public static AtomicInteger totalFiles;
 	
 	public static int analyseFile(File file) throws IOException, InterruptedException {
 		logA.doLog("AnalysisController", "[A-Controller] Analysis initiated, target = " + file.getAbsolutePath(), "Info");
 		int ret = 0;
-		refreshVariables();
+		refreshVariables(); //Reset class variables for fresh analysis of new selection
+		
 		if (file.isDirectory()) {
 			paths.add(file.getAbsolutePath());
 			createDefaultTest(file.getAbsolutePath());
@@ -46,17 +51,23 @@ public class AnalysisController {
 			if (ret == 0)
 				ret = doubleCheck(file);
 		}
+		
 		Thread.sleep(5000);
+		
 		if(file.isDirectory())
 		{
 			while (threads.get() != 0 || dirThreadCount.get() != 0) {
 				logA.doLog("AnalysisController", "[A-Controller] Running analysis thread information:	Directories being analysed = " 
 						+ dirThreadCount + " [*]	Files under intense analysis = " + threads, "Info");
+				/*logA.doLog("AnalysisController", "[A-Controller] Running analysis thread information:	Directories being analysed = " 
+						+ ((ThreadPoolExecutor) scanDefaultExecutor).getActiveCount() + "::" + dirThreadCount +  " [*]	Files under intense analysis = " + threads, "Info");*/
+				
 				Thread.sleep(5000);
 			}
 			scanDefaultExecutor.shutdown();
 			scanFurtherExecutor.shutdown();
 		}
+		
 		logA.doLog("AnalysisController", "[A-Controller] Directory scan complete. Time taken for completion = " 
 				+ ((System.currentTimeMillis() - startTime) / 1000) + " Seconds", "Info");
 		GUI.jLabel5.setText("Scan Complete");
@@ -66,15 +77,19 @@ public class AnalysisController {
 	}
 
 	private static void refreshVariables() {
-		scanDefaultExecutor = Executors.newFixedThreadPool(200);
-		scanFurtherExecutor = Executors.newFixedThreadPool(200);
+		//ExecutorService tp = new ThreadPoolExecutor(10, 50, 5*60, TimeUnit.SECONDS, new LinkedBlockingQueue<>());
+		scanDefaultExecutor = Executors.newFixedThreadPool(100);
+		scanFurtherExecutor = Executors.newFixedThreadPool(100);
+		//scanDefaultExecutor = new ThreadPoolExecutor(100, 100, 5*60, TimeUnit.SECONDS, new LinkedBlockingQueue<>());
+		//scanFurtherExecutor = new ThreadPoolExecutor(100, 100, 5*60, TimeUnit.SECONDS, new LinkedBlockingQueue<>());
 		startTime = System.currentTimeMillis();
 		walkedFiles = new HashMap<String, Integer>();
 		paths = new ArrayList<String>();
 		dirThreadCount = new AtomicInteger(0);
-		furtherTests = 0;
+		furtherTests = new AtomicInteger(0);
 		threads = new AtomicInteger(0);
 		DirectoryThread.newCheck();
+		totalFiles = new AtomicInteger(0);
 	}
 	
 	//////////////////////////////////////////////////////////////////////
@@ -82,17 +97,27 @@ public class AnalysisController {
 
 	public static int processFile(File file) throws IOException {
 		int ret;
+		//System.out.println(file.getAbsolutePath());
+		int now = totalFiles.incrementAndGet();
+		if(now % 20 == 0)
+		{
+		GUI.jLabel7.setText(Integer.toString(now));
+		//GUI.jLabel7.paintImmediately(GUI.jLabel7.getVisibleRect()); // for file scanned counter, shows scanner progression
+		GUI.jLabel7.repaint(); // for file scanned counter, shows scanner progression
+		}
 		Map<Byte, Integer> distribution = new HashMap<Byte, Integer>();
 		try {
 		    FileInputStream is = new FileInputStream(file);
 		    byte[] chunk = new byte[512];
 		    int chunkLen = 0;
 		    long chunkLimit = 809;
+		    if(file.length() < 299008) // Must be at least the minimum size (299008 bytes = 292KB)
+		    	return 1;
 		    if((file.length() % 512) != 0 || !tika.detect(file.toPath()).equals("application/octet-stream")) // TC files are always a size correlating to 512
 		    {
 		    	return 1;
 		    }
-		    while (chunkLen != chunkLimit) { // sums up to 414208 Bytes analyzed as sample block, can also be useed as attack block!!!! 809 is the original
+		    while (chunkLen != chunkLimit) { // sums up to 414208 Bytes analyzed as sample block, can also be used as attack block!!!! 809 is the original
 		    	is.read(chunk);
 		        sortBytes(chunk, distribution);
 		        chunkLen++;
@@ -106,8 +131,8 @@ public class AnalysisController {
 					, "Warning");
 		}
 		ret = analyseDistribution(distribution, false);
-		chiSquareTest(distribution);
-		//monteCarloTest();
+		if(ret == 0)
+		ret = chiSquareTest(distribution);
 		return ret;
 	}
 	
@@ -124,12 +149,12 @@ public class AnalysisController {
 			    FileInputStream is = new FileInputStream(file);
 			    byte[] chunk = new byte[512];
 			    int chunkLen = 0;
-			    long chunkLimit = 2000000L;
+			    long chunkLimit = 3907L; // must match check value 5 lines down
 			    if((file.length() % 512) != 0 || !tika.detect(file.toPath()).equals("application/octet-stream")) // TC files are always a size correlating to 512
 			    {
 			    	return 1;
 			    }
-			if ((file.length() / 512) < 2000000) {
+			if ((file.length() / 512) < 3907) {// sample of either 3907 = 2GB or 16384 = 8.3GB or 32768 = 16.7GB change chunk limit
 				wholeFileCheck = true;
 				chunkLimit = file.length() / 512;
 			}
@@ -147,6 +172,7 @@ public class AnalysisController {
 						, "Warning");
 			}
 			ret = analyseDistribution(distribution, wholeFileCheck);
+			//monteCarloTest();
 			if(ret == 0 && GUI.typeOfSearch.equals("dir"))
 			{
 				walkedFiles.put(file.getAbsolutePath(), 1);
@@ -166,6 +192,15 @@ public class AnalysisController {
 
 	public static void createDefaultTest(String path)
 	{
+/*		while(dirThreadCount.get() >= 100)
+		{
+			try {
+				Thread.sleep(100);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}*/
         Callable<Integer> worker = new AnalysisController.MyAnalysis(path);
         Future<Integer> thread = AnalysisController.scanDefaultExecutor.submit(worker);
         return;
@@ -186,8 +221,15 @@ public class AnalysisController {
 			@Override
 			public Integer call() throws InterruptedException, ExecutionException, IOException {
 				Integer x = 1;
+				try{
+				dirThreadCount.incrementAndGet();
 				Integer dv = 1;
 				dv = callThread();
+				dirThreadCount.decrementAndGet();
+				}catch(Exception e)
+				{
+					e.printStackTrace();
+				}
 				return x;
 			}
 
@@ -224,8 +266,9 @@ public class AnalysisController {
 				public Integer call() throws InterruptedException, ExecutionException, IOException {
 					Integer x = 1;
 					Integer dv = 1;
+					furtherTests.incrementAndGet();
 					dv = callThread();
-					furtherTests--;
+					furtherTests.decrementAndGet();
 					return x;
 				}
 
@@ -247,6 +290,16 @@ public class AnalysisController {
 			if(!distribution.containsKey(bite))
 				distribution.put(bite,0);
 			distribution.put(bite, distribution.get(bite) + 1);
+			
+			/*sum = sum + (bite & 0xff); // This needs to be thread specific you complete MORON!!!!!
+			count++;
+			if(count == 6)
+			{
+				count = 0;
+				mcTest.add(sum);
+				sum = 0;
+			}*/
+			
 			/*sum = sum + (bite & 0xff); // Convert the byte to unsigned, prevents negative values in the sum - MONTE CARLO NEEEDED STUFF
 			if((bite & 0xff) == 0)
 				sum = sum + 1;
@@ -291,7 +344,7 @@ public class AnalysisController {
 		return ret;
 	}
 	
-	private static double chiSquareTest(Map<Byte, Integer> distribution)
+	private static int chiSquareTest(Map<Byte, Integer> distribution)
 	{
 		double probability = 0.0039062; // as all the characters have the same probability it is 1 / 256
 		double result = 0;
@@ -304,17 +357,45 @@ public class AnalysisController {
 		
 		for(Map.Entry<Byte,Integer> entry : distribution.entrySet())
 		{
-			result = result + (Math.pow((entry.getValue() - probability) , 2) / probability);
+			result = result + (Math.pow((entry.getValue() - probability) , 2) / probability);// Math needs adapting to prevent floating math, unnecessary processing power required.
 		}
 		System.out.println(result);
-		return result;
+		int ret = 1;
+		if(result > 190 && result < 325)
+			ret = 0;
+		return ret;
 	}
 	
 	
 	
 	private static double monteCarloTest() // Test doesnt work!!!
 	{
-		int totalCoords = mcTest.size();
+		
+		double totalCoords = mcTest.size();
+		if((totalCoords % 2) != 0)
+			totalCoords = totalCoords - 1;
+		double countWithinRange = 0;
+		int entriesUsed = 0;
+		while(entriesUsed < totalCoords)
+		{
+			double sum1 = (mcTest.get(entriesUsed) * 2) - 1536;
+			entriesUsed++;
+			double sum2 = (mcTest.get(entriesUsed) * 2) - 1536;
+			entriesUsed++;
+			double distance = Math.hypot(sum1, sum2); // calculate distance from point 0,0 of plot
+			if(distance < 768) //If within radius of circle (max range / 2)
+			{
+				countWithinRange++;
+			}
+		}
+		double piEst = (4 * countWithinRange / (totalCoords / 2));
+		System.out.println(piEst);
+		return 0;
+		
+		
+		
+		
+		/*int totalCoords = mcTest.size();
 		int countWithinRange = 0;
 		int entriesUsed = 0;
 		while(entriesUsed < totalCoords)
@@ -329,6 +410,6 @@ public class AnalysisController {
 			}
 		}
 		double piEst = (4 * countWithinRange / (entriesUsed / 2));
-		return 0;
+		return 0;*/
 	}
 }

@@ -26,13 +26,12 @@ public class DirectoryThread {
 	
 	// Increase the known thread count for termination control, if the directory is not empty analyze contents.;
 	public static Integer defaultTest(String path) throws InterruptedException, IOException{
-		AnalysisController.dirThreadCount.incrementAndGet();
 		File root = new File(path);
 		File[] list = root.listFiles();
+		Thread.currentThread().sleep(50);
 		if (list != null) {
 			filterSelection(list);
 		}
-		AnalysisController.dirThreadCount.decrementAndGet();
 		return 0;
  		}
 
@@ -42,9 +41,16 @@ public class DirectoryThread {
 			if (f.isDirectory()) {
 				scanDirectory(f);
 			} else {
+				try {
+					Thread.currentThread().sleep(20);
+				} catch (Exception e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
 				scanFile(f);
 			}
 		}
+		return;
 	}
 
 	// If this is a file path that has not been seen before add it to the known list and run through contents on new Directory
@@ -63,8 +69,7 @@ public class DirectoryThread {
 		if (AnalysisController.processFile(f) == 0) {
 			if (!checkers.contains(f.getAbsolutePath())) {
 				checkers.add(f.getAbsolutePath());
-				AnalysisController.createFurtherTest(f);
-				AnalysisController.furtherTests++;
+				AnalysisController.createFurtherTest(f); // adapt to only do one further test at a time, load handling and collision prevention?????
 			} else {
 				logA.doLog("DirecotryThread", "[D-Thread] File " + f.getAbsolutePath() + " has been put through for analysis twice. File check failure."
 						, "Critical");
@@ -72,12 +77,13 @@ public class DirectoryThread {
 		}
 	}
 	
-	// Indicate on GUI that additional testing is taking place by increasing numerical indicator, run extensive test on 1GB or if smaller whole file analysis
-	public static Integer furtherThread(File f) throws IOException
+	// Indicate on GUI that additional testing is taking place by increasing numerical indicator, run extensive test on sample of file or if a small file then analyze the whole file
+	public static Integer furtherThread(File f) throws IOException, InterruptedException
 	{
 		AnalysisController.threads.incrementAndGet();
 		GUI.jLabel6.setText(Integer.toString(AnalysisController.threads.get()));
 		GUI.jLabel6.paintImmediately(GUI.jLabel6.getVisibleRect());
+		Thread.currentThread().sleep(50);
 		AnalysisController.doubleCheck(f);
 		AnalysisController.threads.decrementAndGet();
 		GUI.jLabel6.setText(Integer.toString(AnalysisController.threads.get()));

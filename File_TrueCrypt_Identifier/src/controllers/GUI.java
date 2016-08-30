@@ -48,6 +48,7 @@ public class GUI extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
         fc = new JFileChooser();
         dc = new JFileChooser();
         dc.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
@@ -97,6 +98,8 @@ public class GUI extends javax.swing.JFrame {
 		jLabel2.setText("Selected:");
 		
 		jLabel6.setText("0");
+		
+		jLabel7.setText("0");
 
 		jLabel5.setHorizontalTextPosition(SwingConstants.LEADING);
 		jLabel5.setAlignmentX(SwingConstants.RIGHT);
@@ -129,7 +132,9 @@ public class GUI extends javax.swing.JFrame {
                                         	.addGap(38,38,38)
                                             .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                                             .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 600, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addGap(150,150,150)
+                                            .addGap(130,130,130) //Original 150 all three
+                                            .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addGap(15,15,15)
                                             .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                                 ))
@@ -143,6 +148,7 @@ public class GUI extends javax.swing.JFrame {
                     .addComponent(jLabel1)
                     .addComponent(jLabel4)
                     .addComponent(jLabel5)
+                    .addComponent(jLabel7)
                     .addComponent(jLabel6))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 492, Short.MAX_VALUE)
@@ -249,7 +255,7 @@ public class GUI extends javax.swing.JFrame {
 						return "Complete";
 					}
 				};
-				Future<String> future = exec.submit(callable);
+				Future<String> future = exec.submit(callable); //Future added for cancellation option to be added!!!!
 			}
 		} else {
 			JOptionPane.showMessageDialog(null, "Scan already in progress, please wait for completion.", "Warning",
@@ -292,6 +298,7 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     public static javax.swing.JLabel jLabel5;
     public static javax.swing.JLabel jLabel6;
+    public static javax.swing.JLabel jLabel7;
     private javax.swing.JRadioButton jRadioButton1;
     private javax.swing.JRadioButton jRadioButton2;
     private javax.swing.JScrollPane jScrollPane1;
