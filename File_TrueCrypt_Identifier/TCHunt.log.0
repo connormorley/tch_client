@@ -8647,3 +8647,705 @@ INFO 08-30-2016 14:01:02 || [A-Controller] Analysis initiated, target = C:\Progr
 INFO 08-30-2016 14:01:08 || [A-Controller] Directory scan complete. Time taken for completion = 5 Seconds
 INFO 08-30-2016 14:01:22 || [A-Controller] Analysis initiated, target = C:\Program Files (x86)\Avira\Antivirus\xbv00003.vdf
 INFO 08-30-2016 14:01:27 || [A-Controller] Directory scan complete. Time taken for completion = 5 Seconds
+INFO 08-30-2016 14:23:08 || [A-Controller] Analysis initiated, target = F:\New folder\tc files\5gb
+INFO 08-30-2016 14:23:13 || [A-Controller] Directory scan complete. Time taken for completion = 5 Seconds
+INFO 08-30-2016 14:23:30 || [A-Controller] Analysis initiated, target = F:\New folder\tc files\5mb
+INFO 08-30-2016 14:23:35 || [A-Controller] Directory scan complete. Time taken for completion = 5 Seconds
+INFO 08-30-2016 14:23:50 || [A-Controller] Analysis initiated, target = F:\New folder\tc files\25mb
+INFO 08-30-2016 14:23:56 || [A-Controller] Directory scan complete. Time taken for completion = 5 Seconds
+INFO 08-30-2016 14:24:05 || [A-Controller] Analysis initiated, target = F:\New folder\tc files\250mb
+INFO 08-30-2016 14:24:10 || [A-Controller] Directory scan complete. Time taken for completion = 5 Seconds
+INFO 08-30-2016 14:24:16 || [A-Controller] Analysis initiated, target = F:\New folder\tc files\500mb
+INFO 08-30-2016 14:24:21 || [A-Controller] Directory scan complete. Time taken for completion = 5 Seconds
+INFO 08-30-2016 14:24:34 || [A-Controller] Analysis initiated, target = F:\New folder\tc files\newTester
+INFO 08-30-2016 14:24:39 || [A-Controller] Directory scan complete. Time taken for completion = 5 Seconds
+INFO 08-30-2016 14:33:32 || [A-Controller] Analysis initiated, target = F:\New folder\tc files\newTester
+INFO 08-30-2016 14:33:38 || [A-Controller] Directory scan complete. Time taken for completion = 5 Seconds
+INFO 08-30-2016 14:33:59 || [A-Controller] Analysis initiated, target = F:\New folder\tc files\5mb
+INFO 08-30-2016 14:34:04 || [A-Controller] Directory scan complete. Time taken for completion = 5 Seconds
+INFO 08-30-2016 14:35:50 || [A-Controller] Analysis initiated, target = F:\New folder\tc files\tester
+INFO 08-30-2016 14:35:56 || [A-Controller] Directory scan complete. Time taken for completion = 5 Seconds
+INFO 08-30-2016 14:36:05 || [A-Controller] Analysis initiated, target = F:\New folder\tc files\25mb
+INFO 08-30-2016 14:36:10 || [A-Controller] Directory scan complete. Time taken for completion = 5 Seconds
+INFO 08-30-2016 14:36:18 || [A-Controller] Analysis initiated, target = F:\New folder\tc files\250mb
+INFO 08-30-2016 14:36:23 || [A-Controller] Directory scan complete. Time taken for completion = 5 Seconds
+INFO 08-30-2016 14:36:31 || [A-Controller] Analysis initiated, target = F:\New folder\tc files\500mb
+INFO 08-30-2016 14:36:36 || [A-Controller] Directory scan complete. Time taken for completion = 5 Seconds
+INFO 08-30-2016 14:36:48 || [A-Controller] Analysis initiated, target = F:\New folder\tc files\testgb
+INFO 08-30-2016 14:36:54 || [A-Controller] Directory scan complete. Time taken for completion = 5 Seconds
+INFO 08-30-2016 14:37:14 || [A-Controller] Analysis initiated, target = F:\New folder\tc files\5gb
+INFO 08-30-2016 14:37:19 || [A-Controller] Directory scan complete. Time taken for completion = 5 Seconds
+INFO 08-30-2016 14:37:32 || [A-Controller] Analysis initiated, target = F:\New folder\tc files\testLarge
+INFO 08-30-2016 14:37:38 || [A-Controller] Directory scan complete. Time taken for completion = 5 Seconds
+INFO 08-30-2016 14:37:45 || [A-Controller] Analysis initiated, target = F:\New folder\tc files\superLarge
+INFO 08-30-2016 14:37:50 || [A-Controller] Directory scan complete. Time taken for completion = 5 Seconds
+INFO 08-30-2016 14:40:32 || [A-Controller] Analysis initiated, target = F:\New folder\tc files\superLarge
+INFO 08-30-2016 14:40:38 || [A-Controller] Directory scan complete. Time taken for completion = 5 Seconds
+INFO 08-30-2016 14:45:29 || [A-Controller] Analysis initiated, target = F:\New folder\tc files\superLarge
+INFO 08-30-2016 14:49:07 || [A-Controller] Analysis initiated, target = F:\New folder\tc files\superLarge
+INFO 08-30-2016 14:49:53 || [A-Controller] Analysis initiated, target = F:\New folder\tc files\5mb
+INFO 08-30-2016 14:50:47 || [A-Controller] Analysis initiated, target = F:\New folder\tc files\5mb
+INFO 08-30-2016 14:52:42 || [A-Controller] Analysis initiated, target = F:\New folder\tc files\5mb
+INFO 08-30-2016 14:53:10 || [A-Controller] Directory scan complete. Time taken for completion = 27 Seconds
+INFO 08-30-2016 14:53:17 || [A-Controller] Analysis initiated, target = F:\New folder\tc files\testgb
+INFO 08-30-2016 14:55:14 || [A-Controller] Analysis initiated, target = F:\New folder\tc files\5mb
+INFO 08-30-2016 14:55:55 || [A-Controller] Directory scan complete. Time taken for completion = 40 Seconds
+INFO 08-30-2016 14:56:01 || [A-Controller] Analysis initiated, target = F:\New folder\tc files\testgb
+INFO 08-30-2016 14:56:38 || [A-Controller] Directory scan complete. Time taken for completion = 37 Seconds
+INFO 08-30-2016 14:56:50 || [A-Controller] Analysis initiated, target = F:\New folder\tc files\5gb
+INFO 08-30-2016 15:07:58 || [A-Controller] Analysis initiated, target = F:\New folder\tc files\testgb
+INFO 08-30-2016 15:09:13 || [A-Controller] Analysis initiated, target = F:\New folder\tc files\testgb
+INFO 08-30-2016 15:19:11 || [A-Controller] Analysis initiated, target = F:\New folder\tc files\5mb
+INFO 08-30-2016 15:19:17 || [A-Controller] Directory scan complete. Time taken for completion = 5 Seconds
+INFO 08-30-2016 15:19:28 || [A-Controller] Analysis initiated, target = F:\New folder\tc files\testgb
+INFO 08-30-2016 15:28:31 || [A-Controller] Analysis initiated, target = F:\New folder\tc files\5mb
+INFO 08-30-2016 15:28:37 || [A-Controller] Directory scan complete. Time taken for completion = 5 Seconds
+INFO 08-30-2016 15:28:57 || [A-Controller] Analysis initiated, target = F:\New folder\tc files\5mb
+INFO 08-30-2016 15:29:03 || [A-Controller] Directory scan complete. Time taken for completion = 5 Seconds
+INFO 08-30-2016 15:33:36 || [A-Controller] Analysis initiated, target = F:\New folder\tc files\5mb
+INFO 08-30-2016 15:33:42 || [A-Controller] Directory scan complete. Time taken for completion = 5 Seconds
+INFO 08-30-2016 15:36:25 || [A-Controller] Analysis initiated, target = F:\New folder\tc files\5mb
+INFO 08-30-2016 15:36:30 || [A-Controller] Directory scan complete. Time taken for completion = 5 Seconds
+INFO 08-30-2016 15:41:54 || [A-Controller] Analysis initiated, target = F:\New folder\tc files\5mb
+INFO 08-30-2016 15:41:59 || [A-Controller] Directory scan complete. Time taken for completion = 5 Seconds
+INFO 08-30-2016 15:42:29 || [A-Controller] Analysis initiated, target = F:\New folder\tc files\5mb
+INFO 08-30-2016 15:42:35 || [A-Controller] Directory scan complete. Time taken for completion = 5 Seconds
+INFO 08-30-2016 15:57:10 || [A-Controller] Analysis initiated, target = F:\New folder\tc files\5mb
+INFO 08-30-2016 15:57:15 || [A-Controller] Directory scan complete. Time taken for completion = 5 Seconds
+INFO 08-30-2016 15:58:30 || [A-Controller] Analysis initiated, target = F:\New folder\tc files\5mb
+INFO 08-30-2016 15:58:36 || [A-Controller] Directory scan complete. Time taken for completion = 5 Seconds
+INFO 08-30-2016 16:01:14 || [A-Controller] Analysis initiated, target = F:\New folder\tc files\5mb
+INFO 08-30-2016 16:04:53 || [A-Controller] Analysis initiated, target = F:\New folder\tc files\5mb
+INFO 08-30-2016 16:05:50 || [A-Controller] Analysis initiated, target = F:\New folder\tc files\5mb
+INFO 08-30-2016 16:05:55 || [A-Controller] Directory scan complete. Time taken for completion = 5 Seconds
+INFO 08-30-2016 16:06:41 || [A-Controller] Analysis initiated, target = F:\New folder\tc files\5mb
+INFO 08-30-2016 16:06:47 || [A-Controller] Directory scan complete. Time taken for completion = 5 Seconds
+INFO 08-30-2016 16:07:46 || [A-Controller] Analysis initiated, target = F:\New folder\tc files\5mb
+INFO 08-30-2016 16:07:52 || [A-Controller] Directory scan complete. Time taken for completion = 5 Seconds
+INFO 08-30-2016 16:13:02 || [A-Controller] Analysis initiated, target = F:\New folder\tc files\5mb
+INFO 08-30-2016 16:13:08 || [A-Controller] Directory scan complete. Time taken for completion = 5 Seconds
+INFO 08-30-2016 16:17:47 || [A-Controller] Analysis initiated, target = F:\New folder\tc files\5mb
+INFO 08-30-2016 16:20:47 || [A-Controller] Analysis initiated, target = F:\New folder\tc files\5mb
+INFO 08-30-2016 16:25:18 || [A-Controller] Analysis initiated, target = F:\New folder\tc files\5mb
+INFO 08-30-2016 16:26:53 || [A-Controller] Analysis initiated, target = F:\New folder\tc files\5mb
+INFO 08-30-2016 16:28:32 || [A-Controller] Analysis initiated, target = F:\New folder\tc files\5mb
+INFO 08-30-2016 16:33:14 || [A-Controller] Analysis initiated, target = F:\New folder\tc files\5mb
+INFO 08-30-2016 16:45:57 || [A-Controller] Analysis initiated, target = F:\New folder\tc files\5mb
+INFO 08-30-2016 16:47:37 || [A-Controller] Analysis initiated, target = F:\New folder\tc files\5mb
+INFO 08-30-2016 16:48:29 || [A-Controller] Analysis initiated, target = F:\New folder\tc files\5mb
+INFO 08-30-2016 16:52:39 || [A-Controller] Analysis initiated, target = F:\New folder\tc files\5mb
+INFO 08-30-2016 16:55:42 || [A-Controller] Analysis initiated, target = F:\New folder\tc files\5mb
+INFO 08-30-2016 16:58:31 || [A-Controller] Analysis initiated, target = F:\New folder\tc files\5mb
+INFO 08-30-2016 16:59:34 || [A-Controller] Analysis initiated, target = F:\New folder\tc files\5mb
+INFO 08-30-2016 17:06:29 || [A-Controller] Analysis initiated, target = F:\New folder\tc files\5mb
+INFO 08-30-2016 17:06:59 || [A-Controller] Analysis initiated, target = F:\New folder\tc files\5mb
+INFO 08-30-2016 17:08:07 || [A-Controller] Analysis initiated, target = F:\New folder\tc files\5mb
+INFO 08-30-2016 17:10:04 || [A-Controller] Analysis initiated, target = F:\New folder\tc files\5mb
+INFO 08-30-2016 17:10:10 || [A-Controller] Directory scan complete. Time taken for completion = 5 Seconds
+INFO 08-30-2016 17:11:36 || [A-Controller] Analysis initiated, target = F:\New folder\tc files\5mb
+INFO 08-30-2016 17:12:50 || [A-Controller] Analysis initiated, target = F:\New folder\tc files\5mb
+INFO 08-30-2016 17:12:56 || [A-Controller] Directory scan complete. Time taken for completion = 5 Seconds
+INFO 08-30-2016 17:14:13 || [A-Controller] Analysis initiated, target = F:\New folder\tc files\5mb
+INFO 08-30-2016 17:14:20 || [A-Controller] Directory scan complete. Time taken for completion = 7 Seconds
+INFO 08-30-2016 17:16:28 || [A-Controller] Analysis initiated, target = F:\New folder\tc files\5mb
+INFO 08-30-2016 17:28:49 || [A-Controller] Analysis initiated, target = F:\New folder\tc files\5mb
+INFO 08-30-2016 17:28:57 || [A-Controller] Directory scan complete. Time taken for completion = 7 Seconds
+INFO 08-30-2016 17:43:41 || [A-Controller] Analysis initiated, target = F:\New folder\tc files\5mb
+INFO 08-30-2016 17:54:25 || [A-Controller] Analysis initiated, target = F:\New folder\tc files\5mb
+INFO 08-30-2016 17:54:33 || [A-Controller] Directory scan complete. Time taken for completion = 7 Seconds
+INFO 08-30-2016 17:56:24 || [A-Controller] Analysis initiated, target = F:\New folder\tc files\5mb
+INFO 08-30-2016 17:56:32 || [A-Controller] Directory scan complete. Time taken for completion = 7 Seconds
+INFO 08-30-2016 17:58:29 || [A-Controller] Analysis initiated, target = F:\New folder\tc files\5mb
+INFO 08-30-2016 17:58:40 || [A-Controller] Directory scan complete. Time taken for completion = 10 Seconds
+INFO 08-30-2016 17:59:07 || [A-Controller] Analysis initiated, target = F:\New folder\tc files\5mb
+INFO 08-30-2016 17:59:15 || [A-Controller] Directory scan complete. Time taken for completion = 8 Seconds
+INFO 08-30-2016 18:09:16 || [A-Controller] Analysis initiated, target = F:\New folder\tc files\5mb
+INFO 08-30-2016 18:09:23 || [A-Controller] Directory scan complete. Time taken for completion = 7 Seconds
+INFO 08-30-2016 18:10:00 || [A-Controller] Analysis initiated, target = F:\New folder\tc files\5mb
+INFO 08-30-2016 18:17:25 || [A-Controller] Analysis initiated, target = F:\New folder\tc files\testgb
+INFO 08-30-2016 18:17:33 || [A-Controller] Directory scan complete. Time taken for completion = 7 Seconds
+INFO 08-30-2016 18:18:02 || [A-Controller] Analysis initiated, target = F:\New folder\tc files\testgb
+INFO 08-30-2016 18:21:03 || [A-Controller] Analysis initiated, target = F:\New folder\tc files\5mb
+INFO 08-30-2016 18:21:22 || [A-Controller] Directory scan complete. Time taken for completion = 18 Seconds
+INFO 08-30-2016 18:21:55 || [A-Controller] Analysis initiated, target = F:\New folder\tc files\testgb
+INFO 08-30-2016 18:22:13 || [A-Controller] Directory scan complete. Time taken for completion = 18 Seconds
+INFO 08-30-2016 18:27:27 || [A-Controller] Analysis initiated, target = F:\New folder\tc files\5mb
+INFO 08-30-2016 18:32:27 || [A-Controller] Analysis initiated, target = F:\New folder\tc files\5mb
+INFO 08-30-2016 18:33:05 || [A-Controller] Directory scan complete. Time taken for completion = 38 Seconds
+INFO 08-30-2016 18:40:16 || [A-Controller] Analysis initiated, target = F:\New folder\tc files\5mb
+INFO 08-30-2016 18:40:55 || [A-Controller] Directory scan complete. Time taken for completion = 38 Seconds
+INFO 08-30-2016 18:41:51 || [A-Controller] Analysis initiated, target = C:\Users\cmorley\Desktop\KafkaSetup.7z
+INFO 08-30-2016 18:41:56 || [A-Controller] Directory scan complete. Time taken for completion = 5 Seconds
+INFO 08-30-2016 18:42:04 || [A-Controller] Analysis initiated, target = C:\Users\cmorley\Desktop\Helpdesk_Scraper.zip
+INFO 08-30-2016 18:42:09 || [A-Controller] Directory scan complete. Time taken for completion = 5 Seconds
+INFO 08-30-2016 18:42:31 || [A-Controller] Analysis initiated, target = C:\Program Files (x86)\Avira\Antivirus\xbv00000.vdf
+INFO 08-30-2016 18:43:09 || [A-Controller] Directory scan complete. Time taken for completion = 38 Seconds
+INFO 08-30-2016 18:48:35 || [A-Controller] Analysis initiated, target = C:\Program Files (x86)\Avira\Antivirus\local001.vdf
+INFO 08-30-2016 18:49:14 || [A-Controller] Directory scan complete. Time taken for completion = 38 Seconds
+INFO 08-30-2016 18:49:43 || [A-Controller] Analysis initiated, target = F:\New folder\tc files\5mb
+INFO 08-30-2016 18:50:21 || [A-Controller] Directory scan complete. Time taken for completion = 38 Seconds
+INFO 08-30-2016 18:52:27 || [A-Controller] Analysis initiated, target = C:\Program Files (x86)\Avira\Antivirus\local001.vdf
+INFO 08-30-2016 18:53:39 || [A-Controller] Directory scan complete. Time taken for completion = 71 Seconds
+INFO 08-30-2016 18:54:08 || [A-Controller] Analysis initiated, target = F:\New folder\tc files\5mb
+INFO 08-30-2016 18:54:49 || [A-Controller] Directory scan complete. Time taken for completion = 41 Seconds
+INFO 08-30-2016 18:55:42 || [A-Controller] Analysis initiated, target = F:\New folder\tc files\tester
+INFO 08-30-2016 18:56:53 || [A-Controller] Directory scan complete. Time taken for completion = 71 Seconds
+INFO 08-30-2016 19:03:19 || [A-Controller] Analysis initiated, target = F:\New folder\tc files\5mb
+INFO 08-30-2016 19:04:00 || [A-Controller] Directory scan complete. Time taken for completion = 40 Seconds
+INFO 08-30-2016 19:04:21 || [A-Controller] Analysis initiated, target = F:\New folder\tc files\tester
+INFO 08-30-2016 19:05:34 || [A-Controller] Directory scan complete. Time taken for completion = 72 Seconds
+INFO 08-30-2016 19:06:20 || [A-Controller] Analysis initiated, target = C:\Program Files (x86)\Avira\Antivirus\local001.vdf
+INFO 08-30-2016 19:07:33 || [A-Controller] Directory scan complete. Time taken for completion = 72 Seconds
+INFO 08-30-2016 19:08:01 || [A-Controller] Analysis initiated, target = C:\Program Files (x86)\Avira\Antivirus\xbv00000.vdf
+INFO 08-30-2016 19:09:12 || [A-Controller] Directory scan complete. Time taken for completion = 71 Seconds
+INFO 08-30-2016 19:10:26 || [A-Controller] Analysis initiated, target = F:\New folder\tc files\tester
+INFO 08-30-2016 19:11:05 || [A-Controller] Directory scan complete. Time taken for completion = 38 Seconds
+INFO 08-30-2016 19:11:26 || [A-Controller] Analysis initiated, target = C:\Program Files (x86)\Avira\Antivirus\xbv00000.vdf
+INFO 08-30-2016 19:12:04 || [A-Controller] Directory scan complete. Time taken for completion = 38 Seconds
+INFO 08-30-2016 19:12:42 || [A-Controller] Analysis initiated, target = F:\New folder\tc files\25mb
+INFO 08-30-2016 19:13:20 || [A-Controller] Directory scan complete. Time taken for completion = 38 Seconds
+INFO 08-30-2016 19:14:42 || [A-Controller] Analysis initiated, target = C:\Program Files\Common Files\Intel Corporation\WiDiAgent\fwv00100\zbimage-linux-xload.monolithic-factory
+INFO 08-30-2016 19:15:20 || [A-Controller] Directory scan complete. Time taken for completion = 38 Seconds
+INFO 08-30-2016 19:16:18 || [A-Controller] Analysis initiated, target = C:\Program Files\Common Files\Intel Corporation\WiDiAgent\fwv00100\zbimage-linux-xload.monolithic-factory
+INFO 08-30-2016 19:17:29 || [A-Controller] Directory scan complete. Time taken for completion = 70 Seconds
+INFO 08-30-2016 19:19:18 || [A-Controller] Analysis initiated, target = F:\New folder\tc files\5mb
+INFO 08-30-2016 19:19:59 || [A-Controller] Directory scan complete. Time taken for completion = 40 Seconds
+INFO 08-30-2016 19:20:26 || [A-Controller] Analysis initiated, target = F:\New folder\tc files\tester
+INFO 08-30-2016 19:21:41 || [A-Controller] Directory scan complete. Time taken for completion = 74 Seconds
+INFO 08-30-2016 19:22:10 || [A-Controller] Analysis initiated, target = C:\Program Files (x86)\Avira\Antivirus\local001.vdf
+INFO 08-30-2016 19:24:28 || [A-Controller] Directory scan complete. Time taken for completion = 138 Seconds
+INFO 08-30-2016 19:24:51 || [A-Controller] Analysis initiated, target = C:\Program Files\Common Files\Intel Corporation\WiDiAgent\fwv00100\zbimage-linux-xload.monolithic-factory
+INFO 08-30-2016 19:26:02 || [A-Controller] Directory scan complete. Time taken for completion = 71 Seconds
+INFO 08-30-2016 19:28:49 || [A-Controller] Analysis initiated, target = F:\
+INFO 08-30-2016 19:28:54 || [A-Controller] Running analysis thread information:	Directories being analysed = 24 [*]	Files under intense analysis = 0
+INFO 08-30-2016 19:28:59 || [A-Controller] Running analysis thread information:	Directories being analysed = 100 [*]	Files under intense analysis = 5
+INFO 08-30-2016 19:30:58 || [A-Controller] Analysis initiated, target = F:\
+INFO 08-30-2016 19:31:02 || [A-Controller] File F:\New folder\tc files\250mb identified as likely TC file.
+INFO 08-30-2016 19:31:02 || [A-Controller] File F:\New folder\tc files\25mb identified as likely TC file.
+INFO 08-30-2016 19:31:03 || [A-Controller] File F:\New folder\tc files\5mb identified as likely TC file.
+INFO 08-30-2016 19:31:03 || [A-Controller] File F:\New folder\tc files\5gb identified as likely TC file.
+INFO 08-30-2016 19:31:03 || [A-Controller] Running analysis thread information:	Directories being analysed = 100 [*]	Files under intense analysis = 5
+INFO 08-30-2016 19:31:05 || [A-Controller] File F:\New folder\tc files\tester identified as likely TC file.
+INFO 08-30-2016 19:31:05 || [A-Controller] File F:\New folder\tc files\testgb identified as likely TC file.
+INFO 08-30-2016 19:31:08 || [A-Controller] Running analysis thread information:	Directories being analysed = 100 [*]	Files under intense analysis = 3
+INFO 08-30-2016 19:31:10 || [A-Controller] File F:\New folder\tc files\500mb identified as likely TC file.
+INFO 08-30-2016 19:31:13 || [A-Controller] Running analysis thread information:	Directories being analysed = 100 [*]	Files under intense analysis = 2
+INFO 08-30-2016 19:31:17 || [A-Controller] File F:\New folder\tc files\testLarge identified as likely TC file.
+INFO 08-30-2016 19:31:17 || [A-Controller] File F:\New folder\tc files\superLarge identified as likely TC file.
+INFO 08-30-2016 19:31:18 || [A-Controller] Running analysis thread information:	Directories being analysed = 100 [*]	Files under intense analysis = 0
+INFO 08-30-2016 19:31:23 || [A-Controller] Running analysis thread information:	Directories being analysed = 100 [*]	Files under intense analysis = 0
+INFO 08-30-2016 19:31:28 || [A-Controller] Running analysis thread information:	Directories being analysed = 100 [*]	Files under intense analysis = 0
+INFO 08-30-2016 19:31:33 || [A-Controller] Running analysis thread information:	Directories being analysed = 100 [*]	Files under intense analysis = 0
+INFO 08-30-2016 19:31:38 || [A-Controller] Running analysis thread information:	Directories being analysed = 100 [*]	Files under intense analysis = 0
+INFO 08-30-2016 19:31:43 || [A-Controller] Running analysis thread information:	Directories being analysed = 100 [*]	Files under intense analysis = 0
+INFO 08-30-2016 19:31:48 || [A-Controller] Running analysis thread information:	Directories being analysed = 100 [*]	Files under intense analysis = 0
+INFO 08-30-2016 19:31:53 || [A-Controller] Running analysis thread information:	Directories being analysed = 100 [*]	Files under intense analysis = 0
+INFO 08-30-2016 19:31:58 || [A-Controller] Running analysis thread information:	Directories being analysed = 100 [*]	Files under intense analysis = 0
+INFO 08-30-2016 19:32:03 || [A-Controller] Running analysis thread information:	Directories being analysed = 100 [*]	Files under intense analysis = 0
+INFO 08-30-2016 19:32:08 || [A-Controller] Running analysis thread information:	Directories being analysed = 100 [*]	Files under intense analysis = 0
+INFO 08-30-2016 19:32:13 || [A-Controller] Running analysis thread information:	Directories being analysed = 100 [*]	Files under intense analysis = 0
+INFO 08-30-2016 19:32:18 || [A-Controller] Running analysis thread information:	Directories being analysed = 100 [*]	Files under intense analysis = 0
+INFO 08-30-2016 19:32:23 || [A-Controller] Running analysis thread information:	Directories being analysed = 100 [*]	Files under intense analysis = 0
+INFO 08-30-2016 19:32:28 || [A-Controller] Running analysis thread information:	Directories being analysed = 100 [*]	Files under intense analysis = 0
+INFO 08-30-2016 19:32:33 || [A-Controller] Running analysis thread information:	Directories being analysed = 100 [*]	Files under intense analysis = 0
+INFO 08-30-2016 19:32:38 || [A-Controller] Running analysis thread information:	Directories being analysed = 100 [*]	Files under intense analysis = 0
+INFO 08-30-2016 19:32:43 || [A-Controller] Running analysis thread information:	Directories being analysed = 100 [*]	Files under intense analysis = 0
+INFO 08-30-2016 19:32:48 || [A-Controller] Running analysis thread information:	Directories being analysed = 99 [*]	Files under intense analysis = 0
+INFO 08-30-2016 19:32:53 || [A-Controller] Running analysis thread information:	Directories being analysed = 56 [*]	Files under intense analysis = 0
+INFO 08-30-2016 19:32:58 || [A-Controller] Running analysis thread information:	Directories being analysed = 26 [*]	Files under intense analysis = 0
+INFO 08-30-2016 19:33:03 || [A-Controller] Running analysis thread information:	Directories being analysed = 21 [*]	Files under intense analysis = 0
+INFO 08-30-2016 19:33:08 || [A-Controller] Running analysis thread information:	Directories being analysed = 17 [*]	Files under intense analysis = 0
+INFO 08-30-2016 19:33:13 || [A-Controller] Running analysis thread information:	Directories being analysed = 16 [*]	Files under intense analysis = 0
+INFO 08-30-2016 19:33:18 || [A-Controller] Running analysis thread information:	Directories being analysed = 16 [*]	Files under intense analysis = 0
+INFO 08-30-2016 19:33:23 || [A-Controller] Running analysis thread information:	Directories being analysed = 16 [*]	Files under intense analysis = 0
+INFO 08-30-2016 19:33:28 || [A-Controller] Running analysis thread information:	Directories being analysed = 16 [*]	Files under intense analysis = 0
+INFO 08-30-2016 19:33:33 || [A-Controller] Running analysis thread information:	Directories being analysed = 16 [*]	Files under intense analysis = 0
+INFO 08-30-2016 19:33:38 || [A-Controller] Running analysis thread information:	Directories being analysed = 15 [*]	Files under intense analysis = 0
+INFO 08-30-2016 19:33:43 || [A-Controller] Running analysis thread information:	Directories being analysed = 4 [*]	Files under intense analysis = 0
+INFO 08-30-2016 19:33:48 || [A-Controller] Running analysis thread information:	Directories being analysed = 3 [*]	Files under intense analysis = 0
+INFO 08-30-2016 19:33:53 || [A-Controller] Running analysis thread information:	Directories being analysed = 3 [*]	Files under intense analysis = 0
+INFO 08-30-2016 19:33:58 || [A-Controller] Running analysis thread information:	Directories being analysed = 3 [*]	Files under intense analysis = 0
+INFO 08-30-2016 19:34:03 || [A-Controller] Running analysis thread information:	Directories being analysed = 2 [*]	Files under intense analysis = 0
+INFO 08-30-2016 19:34:08 || [A-Controller] Running analysis thread information:	Directories being analysed = 1 [*]	Files under intense analysis = 0
+INFO 08-30-2016 19:34:13 || [A-Controller] Running analysis thread information:	Directories being analysed = 1 [*]	Files under intense analysis = 0
+INFO 08-30-2016 19:34:18 || [A-Controller] Directory scan complete. Time taken for completion = 200 Seconds
+INFO 08-30-2016 19:34:27 || [A-Controller] Analysis initiated, target = C:\
+WARNING 08-30-2016 19:34:27 || [A-Controller] File C:\hiberfil.sys could not be found.
+WARNING 08-30-2016 19:34:27 || [A-Controller] File C:\pagefile.sys could not be found.
+WARNING 08-30-2016 19:34:27 || [A-Controller] File C:\swapfile.sys could not be found.
+WARNING 08-30-2016 19:34:28 || [A-Controller] File C:\ProgramData\Avira\Launcher\settings.avdata could not be found.
+INFO 08-30-2016 19:34:32 || [A-Controller] Running analysis thread information:	Directories being analysed = 100 [*]	Files under intense analysis = 0
+WARNING 08-30-2016 19:34:34 || [A-Controller] File C:\Users\cmorley\NTUSER.DAT could not be found.
+WARNING 08-30-2016 19:34:34 || [A-Controller] File C:\Users\cmorley\ntuser.dat.LOG1 could not be found.
+WARNING 08-30-2016 19:34:34 || [A-Controller] File C:\Users\cmorley\ntuser.dat.LOG2 could not be found.
+INFO 08-30-2016 19:34:37 || [A-Controller] Running analysis thread information:	Directories being analysed = 100 [*]	Files under intense analysis = 0
+INFO 08-30-2016 19:34:42 || [A-Controller] Running analysis thread information:	Directories being analysed = 100 [*]	Files under intense analysis = 0
+INFO 08-30-2016 19:34:47 || [A-Controller] Running analysis thread information:	Directories being analysed = 100 [*]	Files under intense analysis = 0
+INFO 08-30-2016 19:34:52 || [A-Controller] Running analysis thread information:	Directories being analysed = 100 [*]	Files under intense analysis = 0
+INFO 08-30-2016 19:34:57 || [A-Controller] Running analysis thread information:	Directories being analysed = 100 [*]	Files under intense analysis = 0
+WARNING 08-30-2016 19:35:02 || [A-Controller] File C:\ProgramData\Google\Chrome Remote Desktop\host.json could not be found.
+INFO 08-30-2016 19:35:02 || [A-Controller] Running analysis thread information:	Directories being analysed = 100 [*]	Files under intense analysis = 0
+WARNING 08-30-2016 19:35:06 || [A-Controller] File C:\ProgramData\Microsoft\User Account Pictures\admin.dat could not be found.
+INFO 08-30-2016 19:35:07 || [A-Controller] Running analysis thread information:	Directories being analysed = 100 [*]	Files under intense analysis = 0
+WARNING 08-30-2016 19:35:08 || [A-Controller] File C:\ProgramData\Microsoft\User Account Pictures\IIS APPPOOL+DefaultAppPool.dat could not be found.
+WARNING 08-30-2016 19:35:08 || [A-Controller] File C:\ProgramData\Microsoft\User Account Pictures\LDN+jdsouza.dat could not be found.
+WARNING 08-30-2016 19:35:08 || [A-Controller] File C:\ProgramData\Microsoft\User Account Pictures\NT SERVICE+MSSQL$SQLEXPRESS.dat could not be found.
+WARNING 08-30-2016 19:35:08 || [A-Controller] File C:\ProgramData\Microsoft\User Account Pictures\postgres.dat could not be found.
+WARNING 08-30-2016 19:35:10 || [A-Controller] File C:\ProgramData\Malwarebytes\Malwarebytes Anti-Malware\S-1-5-18-0-ntuser.dat could not be found.
+WARNING 08-30-2016 19:35:10 || [A-Controller] File C:\ProgramData\Malwarebytes\Malwarebytes Anti-Malware\S-1-5-18-0-ntuser.dat.LOG1 could not be found.
+WARNING 08-30-2016 19:35:10 || [A-Controller] File C:\ProgramData\Malwarebytes\Malwarebytes Anti-Malware\S-1-5-18-0-ntuser.dat.LOG2 could not be found.
+INFO 08-30-2016 19:35:12 || [A-Controller] Running analysis thread information:	Directories being analysed = 100 [*]	Files under intense analysis = 0
+WARNING 08-30-2016 19:35:16 || [A-Controller] File C:\ProgramData\Avira\Launcher\apps\manifest.avdata could not be found.
+INFO 08-30-2016 19:35:17 || [A-Controller] Running analysis thread information:	Directories being analysed = 100 [*]	Files under intense analysis = 0
+WARNING 08-30-2016 19:35:18 || [A-Controller] File C:\ProgramData\Malwarebytes\Malwarebytes Anti-Malware\S-1-5-19-0-ntuser.dat could not be found.
+WARNING 08-30-2016 19:35:18 || [A-Controller] File C:\ProgramData\Malwarebytes\Malwarebytes Anti-Malware\S-1-5-19-0-ntuser.dat.LOG1 could not be found.
+WARNING 08-30-2016 19:35:18 || [A-Controller] File C:\ProgramData\Malwarebytes\Malwarebytes Anti-Malware\S-1-5-19-0-ntuser.dat.LOG2 could not be found.
+INFO 08-30-2016 19:35:22 || [A-Controller] Running analysis thread information:	Directories being analysed = 100 [*]	Files under intense analysis = 0
+INFO 08-30-2016 19:35:27 || [A-Controller] Running analysis thread information:	Directories being analysed = 100 [*]	Files under intense analysis = 0
+INFO 08-30-2016 19:35:32 || [A-Controller] Running analysis thread information:	Directories being analysed = 100 [*]	Files under intense analysis = 0
+WARNING 08-30-2016 19:35:35 || [A-Controller] File C:\ProgramData\Malwarebytes\Malwarebytes Anti-Malware\S-1-5-20-0-ntuser.dat could not be found.
+WARNING 08-30-2016 19:35:35 || [A-Controller] File C:\ProgramData\Malwarebytes\Malwarebytes Anti-Malware\S-1-5-20-0-ntuser.dat.LOG1 could not be found.
+WARNING 08-30-2016 19:35:35 || [A-Controller] File C:\ProgramData\Malwarebytes\Malwarebytes Anti-Malware\S-1-5-20-0-ntuser.dat.LOG2 could not be found.
+INFO 08-30-2016 19:35:37 || [A-Controller] Running analysis thread information:	Directories being analysed = 100 [*]	Files under intense analysis = 0
+INFO 08-30-2016 19:35:42 || [A-Controller] Running analysis thread information:	Directories being analysed = 100 [*]	Files under intense analysis = 0
+INFO 08-30-2016 19:35:47 || [A-Controller] Running analysis thread information:	Directories being analysed = 100 [*]	Files under intense analysis = 0
+INFO 08-30-2016 19:35:52 || [A-Controller] Running analysis thread information:	Directories being analysed = 100 [*]	Files under intense analysis = 1
+INFO 08-30-2016 19:35:57 || [A-Controller] Running analysis thread information:	Directories being analysed = 100 [*]	Files under intense analysis = 0
+INFO 08-30-2016 19:36:02 || [A-Controller] Running analysis thread information:	Directories being analysed = 100 [*]	Files under intense analysis = 1
+INFO 08-30-2016 19:36:07 || [A-Controller] Running analysis thread information:	Directories being analysed = 100 [*]	Files under intense analysis = 0
+WARNING 08-30-2016 19:36:08 || [A-Controller] File C:\ProgramData\Malwarebytes\Malwarebytes Anti-Malware\S-1-5-21-299502267-583907252-725345543-7069-0-ntuser.dat could not be found.
+WARNING 08-30-2016 19:36:08 || [A-Controller] File C:\ProgramData\Malwarebytes\Malwarebytes Anti-Malware\S-1-5-21-299502267-583907252-725345543-7069-0-ntuser.dat.LOG1 could not be found.
+WARNING 08-30-2016 19:36:08 || [A-Controller] File C:\ProgramData\Malwarebytes\Malwarebytes Anti-Malware\S-1-5-21-299502267-583907252-725345543-7069-0-ntuser.dat.LOG2 could not be found.
+INFO 08-30-2016 19:36:12 || [A-Controller] Running analysis thread information:	Directories being analysed = 100 [*]	Files under intense analysis = 0
+WARNING 08-30-2016 19:36:15 || [A-Controller] File C:\ProgramData\Malwarebytes\Malwarebytes Anti-Malware\S-1-5-21-4143503679-2588418163-2713378358-1004-0-ntuser.dat could not be found.
+WARNING 08-30-2016 19:36:15 || [A-Controller] File C:\ProgramData\Malwarebytes\Malwarebytes Anti-Malware\S-1-5-21-4143503679-2588418163-2713378358-1004-0-ntuser.dat.LOG1 could not be found.
+WARNING 08-30-2016 19:36:15 || [A-Controller] File C:\ProgramData\Malwarebytes\Malwarebytes Anti-Malware\S-1-5-21-4143503679-2588418163-2713378358-1004-0-ntuser.dat.LOG2 could not be found.
+INFO 08-30-2016 19:36:17 || [A-Controller] Running analysis thread information:	Directories being analysed = 100 [*]	Files under intense analysis = 0
+WARNING 08-30-2016 19:36:18 || [A-Controller] File C:\ProgramData\Malwarebytes\Malwarebytes Anti-Malware\S-1-5-80-3880006512-4290199581-1648723128-3569869737-3631323133-0-ntuser.dat could not be found.
+WARNING 08-30-2016 19:36:18 || [A-Controller] File C:\ProgramData\Malwarebytes\Malwarebytes Anti-Malware\S-1-5-80-3880006512-4290199581-1648723128-3569869737-3631323133-0-ntuser.dat.LOG1 could not be found.
+WARNING 08-30-2016 19:36:18 || [A-Controller] File C:\ProgramData\Malwarebytes\Malwarebytes Anti-Malware\S-1-5-80-3880006512-4290199581-1648723128-3569869737-3631323133-0-ntuser.dat.LOG2 could not be found.
+INFO 08-30-2016 19:36:22 || [A-Controller] Running analysis thread information:	Directories being analysed = 100 [*]	Files under intense analysis = 0
+WARNING 08-30-2016 19:36:23 || [A-Controller] File C:\ProgramData\Avira\Antivirus\EVENTDB\gavi3.db could not be found.
+WARNING 08-30-2016 19:36:23 || [A-Controller] File C:\ProgramData\Avira\Antivirus\TEMP\scaninfo(4268).tmp could not be found.
+INFO 08-30-2016 19:36:27 || [A-Controller] Running analysis thread information:	Directories being analysed = 100 [*]	Files under intense analysis = 0
+INFO 08-30-2016 19:36:32 || [A-Controller] Running analysis thread information:	Directories being analysed = 100 [*]	Files under intense analysis = 0
+INFO 08-30-2016 19:36:37 || [A-Controller] Running analysis thread information:	Directories being analysed = 100 [*]	Files under intense analysis = 0
+INFO 08-30-2016 19:36:42 || [A-Controller] Running analysis thread information:	Directories being analysed = 100 [*]	Files under intense analysis = 0
+INFO 08-30-2016 19:36:47 || [A-Controller] Running analysis thread information:	Directories being analysed = 100 [*]	Files under intense analysis = 0
+INFO 08-30-2016 19:36:52 || [A-Controller] Running analysis thread information:	Directories being analysed = 100 [*]	Files under intense analysis = 0
+INFO 08-30-2016 19:36:57 || [A-Controller] Running analysis thread information:	Directories being analysed = 100 [*]	Files under intense analysis = 0
+INFO 08-30-2016 19:37:02 || [A-Controller] Running analysis thread information:	Directories being analysed = 100 [*]	Files under intense analysis = 0
+INFO 08-30-2016 19:37:07 || [A-Controller] Running analysis thread information:	Directories being analysed = 100 [*]	Files under intense analysis = 0
+INFO 08-30-2016 19:37:12 || [A-Controller] Running analysis thread information:	Directories being analysed = 100 [*]	Files under intense analysis = 0
+INFO 08-30-2016 19:37:17 || [A-Controller] Running analysis thread information:	Directories being analysed = 100 [*]	Files under intense analysis = 0
+INFO 08-30-2016 19:37:22 || [A-Controller] Running analysis thread information:	Directories being analysed = 100 [*]	Files under intense analysis = 0
+INFO 08-30-2016 19:37:27 || [A-Controller] Running analysis thread information:	Directories being analysed = 100 [*]	Files under intense analysis = 0
+INFO 08-30-2016 19:37:32 || [A-Controller] Running analysis thread information:	Directories being analysed = 100 [*]	Files under intense analysis = 0
+INFO 08-30-2016 19:37:37 || [A-Controller] File C:\Program Files (x86)\Avira\Antivirus\local001.vdf identified as likely TC file.
+INFO 08-30-2016 19:37:37 || [A-Controller] Running analysis thread information:	Directories being analysed = 100 [*]	Files under intense analysis = 0
+INFO 08-30-2016 19:37:42 || [A-Controller] Running analysis thread information:	Directories being analysed = 100 [*]	Files under intense analysis = 0
+INFO 08-30-2016 19:37:47 || [A-Controller] Running analysis thread information:	Directories being analysed = 100 [*]	Files under intense analysis = 0
+INFO 08-30-2016 19:37:52 || [A-Controller] Running analysis thread information:	Directories being analysed = 100 [*]	Files under intense analysis = 0
+INFO 08-30-2016 19:37:57 || [A-Controller] Running analysis thread information:	Directories being analysed = 100 [*]	Files under intense analysis = 0
+INFO 08-30-2016 19:38:02 || [A-Controller] Running analysis thread information:	Directories being analysed = 100 [*]	Files under intense analysis = 4
+INFO 08-30-2016 19:38:03 || [A-Controller] File C:\Program Files (x86)\Avira\Antivirus\xbv00000.vdf identified as likely TC file.
+INFO 08-30-2016 19:38:03 || [A-Controller] File C:\Program Files (x86)\Avira\Antivirus\xbv00001.vdf identified as likely TC file.
+INFO 08-30-2016 19:38:03 || [A-Controller] File C:\Program Files (x86)\Avira\Antivirus\xbv00002.vdf identified as likely TC file.
+INFO 08-30-2016 19:38:03 || [A-Controller] File C:\Program Files (x86)\Avira\Antivirus\xbv00003.vdf identified as likely TC file.
+INFO 08-30-2016 19:38:07 || [A-Controller] Running analysis thread information:	Directories being analysed = 100 [*]	Files under intense analysis = 0
+INFO 08-30-2016 19:38:12 || [A-Controller] Running analysis thread information:	Directories being analysed = 100 [*]	Files under intense analysis = 0
+INFO 08-30-2016 19:38:17 || [A-Controller] Running analysis thread information:	Directories being analysed = 100 [*]	Files under intense analysis = 0
+INFO 08-30-2016 19:38:22 || [A-Controller] Running analysis thread information:	Directories being analysed = 100 [*]	Files under intense analysis = 0
+INFO 08-30-2016 19:38:27 || [A-Controller] Running analysis thread information:	Directories being analysed = 100 [*]	Files under intense analysis = 0
+INFO 08-30-2016 19:38:32 || [A-Controller] Running analysis thread information:	Directories being analysed = 100 [*]	Files under intense analysis = 0
+INFO 08-30-2016 19:38:37 || [A-Controller] Running analysis thread information:	Directories being analysed = 100 [*]	Files under intense analysis = 0
+INFO 08-30-2016 19:38:42 || [A-Controller] Running analysis thread information:	Directories being analysed = 100 [*]	Files under intense analysis = 0
+INFO 08-30-2016 19:38:47 || [A-Controller] Running analysis thread information:	Directories being analysed = 100 [*]	Files under intense analysis = 0
+INFO 08-30-2016 19:38:52 || [A-Controller] Running analysis thread information:	Directories being analysed = 100 [*]	Files under intense analysis = 0
+INFO 08-30-2016 19:38:57 || [A-Controller] Running analysis thread information:	Directories being analysed = 100 [*]	Files under intense analysis = 0
+INFO 08-30-2016 19:39:02 || [A-Controller] Running analysis thread information:	Directories being analysed = 100 [*]	Files under intense analysis = 0
+WARNING 08-30-2016 19:39:05 || [A-Controller] File C:\ProgramData\Microsoft\Crypto\Keys\597367cc37b886d7ee6c493e3befb421_5cc9a30d-1da8-4c8e-8789-77b368c647af could not be found.
+WARNING 08-30-2016 19:39:05 || [A-Controller] File C:\ProgramData\Microsoft\Crypto\Keys\f0e91f6485ac2d09485e4ec18135601e_5cc9a30d-1da8-4c8e-8789-77b368c647af could not be found.
+INFO 08-30-2016 19:39:07 || [A-Controller] Running analysis thread information:	Directories being analysed = 100 [*]	Files under intense analysis = 0
+WARNING 08-30-2016 19:39:11 || [A-Controller] File C:\Windows\Tasks\Adobe Flash Player Updater.job could not be found.
+WARNING 08-30-2016 19:39:11 || [A-Controller] File C:\Windows\Tasks\ASC9_SkipUac_cmorley.job could not be found.
+WARNING 08-30-2016 19:39:12 || [A-Controller] File C:\Windows\Tasks\GoogleUpdateTaskMachineCore.job could not be found.
+WARNING 08-30-2016 19:39:12 || [A-Controller] File C:\Windows\Tasks\GoogleUpdateTaskMachineUA.job could not be found.
+WARNING 08-30-2016 19:39:12 || [A-Controller] File C:\Windows\Tasks\Uninstaller_SkipUac_cmorley.job could not be found.
+INFO 08-30-2016 19:39:12 || [A-Controller] Running analysis thread information:	Directories being analysed = 100 [*]	Files under intense analysis = 0
+INFO 08-30-2016 19:39:17 || [A-Controller] Running analysis thread information:	Directories being analysed = 100 [*]	Files under intense analysis = 0
+INFO 08-30-2016 19:39:22 || [A-Controller] Running analysis thread information:	Directories being analysed = 100 [*]	Files under intense analysis = 0
+INFO 08-30-2016 19:39:27 || [A-Controller] Running analysis thread information:	Directories being analysed = 100 [*]	Files under intense analysis = 0
+INFO 08-30-2016 19:39:32 || [A-Controller] Running analysis thread information:	Directories being analysed = 100 [*]	Files under intense analysis = 0
+INFO 08-30-2016 19:39:37 || [A-Controller] Running analysis thread information:	Directories being analysed = 100 [*]	Files under intense analysis = 0
+INFO 08-30-2016 19:39:42 || [A-Controller] Running analysis thread information:	Directories being analysed = 100 [*]	Files under intense analysis = 0
+INFO 08-30-2016 19:39:47 || [A-Controller] Running analysis thread information:	Directories being analysed = 100 [*]	Files under intense analysis = 0
+INFO 08-30-2016 19:39:52 || [A-Controller] Running analysis thread information:	Directories being analysed = 100 [*]	Files under intense analysis = 0
+INFO 08-30-2016 19:39:57 || [A-Controller] Running analysis thread information:	Directories being analysed = 100 [*]	Files under intense analysis = 0
+INFO 08-30-2016 19:40:02 || [A-Controller] Running analysis thread information:	Directories being analysed = 100 [*]	Files under intense analysis = 0
+INFO 08-30-2016 19:40:07 || [A-Controller] Running analysis thread information:	Directories being analysed = 100 [*]	Files under intense analysis = 0
+INFO 08-30-2016 19:40:12 || [A-Controller] Running analysis thread information:	Directories being analysed = 100 [*]	Files under intense analysis = 0
+INFO 08-30-2016 19:40:17 || [A-Controller] Running analysis thread information:	Directories being analysed = 100 [*]	Files under intense analysis = 0
+INFO 08-30-2016 19:40:22 || [A-Controller] Running analysis thread information:	Directories being analysed = 100 [*]	Files under intense analysis = 0
+WARNING 08-30-2016 19:40:24 || [A-Controller] File C:\Users\All Users\Avira\Launcher\settings.avdata could not be found.
+WARNING 08-30-2016 19:40:27 || [A-Controller] File C:\Users\All Users\Google\Chrome Remote Desktop\host.json could not be found.
+INFO 08-30-2016 19:40:27 || [A-Controller] Running analysis thread information:	Directories being analysed = 100 [*]	Files under intense analysis = 0
+WARNING 08-30-2016 19:40:28 || [A-Controller] File C:\Users\All Users\Malwarebytes\Malwarebytes Anti-Malware\S-1-5-18-0-ntuser.dat could not be found.
+WARNING 08-30-2016 19:40:28 || [A-Controller] File C:\Users\All Users\Malwarebytes\Malwarebytes Anti-Malware\S-1-5-18-0-ntuser.dat.LOG1 could not be found.
+WARNING 08-30-2016 19:40:28 || [A-Controller] File C:\Users\All Users\Malwarebytes\Malwarebytes Anti-Malware\S-1-5-18-0-ntuser.dat.LOG2 could not be found.
+WARNING 08-30-2016 19:40:28 || [A-Controller] File C:\Users\All Users\Microsoft\User Account Pictures\admin.dat could not be found.
+WARNING 08-30-2016 19:40:28 || [A-Controller] File C:\Users\All Users\Microsoft\User Account Pictures\IIS APPPOOL+DefaultAppPool.dat could not be found.
+WARNING 08-30-2016 19:40:28 || [A-Controller] File C:\Users\All Users\Microsoft\User Account Pictures\LDN+jdsouza.dat could not be found.
+WARNING 08-30-2016 19:40:28 || [A-Controller] File C:\Users\All Users\Microsoft\User Account Pictures\NT SERVICE+MSSQL$SQLEXPRESS.dat could not be found.
+WARNING 08-30-2016 19:40:28 || [A-Controller] File C:\Users\All Users\Microsoft\User Account Pictures\postgres.dat could not be found.
+INFO 08-30-2016 19:40:32 || [A-Controller] File C:\Program Files\Common Files\Intel Corporation\WiDiAgent\fwv00100\zbimage-linux-xload.monolithic-factory identified as likely TC file.
+INFO 08-30-2016 19:40:32 || [A-Controller] Running analysis thread information:	Directories being analysed = 100 [*]	Files under intense analysis = 0
+WARNING 08-30-2016 19:40:35 || [A-Controller] File C:\Users\All Users\Malwarebytes\Malwarebytes Anti-Malware\S-1-5-19-0-ntuser.dat could not be found.
+WARNING 08-30-2016 19:40:35 || [A-Controller] File C:\Users\All Users\Malwarebytes\Malwarebytes Anti-Malware\S-1-5-19-0-ntuser.dat.LOG1 could not be found.
+WARNING 08-30-2016 19:40:35 || [A-Controller] File C:\Users\All Users\Malwarebytes\Malwarebytes Anti-Malware\S-1-5-19-0-ntuser.dat.LOG2 could not be found.
+INFO 08-30-2016 19:40:37 || [A-Controller] Running analysis thread information:	Directories being analysed = 100 [*]	Files under intense analysis = 0
+INFO 08-30-2016 19:40:42 || [A-Controller] Running analysis thread information:	Directories being analysed = 100 [*]	Files under intense analysis = 1
+INFO 08-30-2016 19:40:47 || [A-Controller] Running analysis thread information:	Directories being analysed = 100 [*]	Files under intense analysis = 1
+INFO 08-30-2016 19:40:51 || [A-Controller] File C:\Program Files\Common Files\Intel Corporation\WiDiAgent\fwv00300\zbimage-linux-xload.monolithic identified as likely TC file.
+INFO 08-30-2016 19:40:52 || [A-Controller] Running analysis thread information:	Directories being analysed = 100 [*]	Files under intense analysis = 0
+INFO 08-30-2016 19:40:57 || [A-Controller] Running analysis thread information:	Directories being analysed = 100 [*]	Files under intense analysis = 0
+WARNING 08-30-2016 19:40:59 || [A-Controller] File C:\Users\All Users\Malwarebytes\Malwarebytes Anti-Malware\S-1-5-20-0-ntuser.dat could not be found.
+WARNING 08-30-2016 19:40:59 || [A-Controller] File C:\Users\All Users\Malwarebytes\Malwarebytes Anti-Malware\S-1-5-20-0-ntuser.dat.LOG1 could not be found.
+WARNING 08-30-2016 19:40:59 || [A-Controller] File C:\Users\All Users\Malwarebytes\Malwarebytes Anti-Malware\S-1-5-20-0-ntuser.dat.LOG2 could not be found.
+INFO 08-30-2016 19:41:02 || [A-Controller] Running analysis thread information:	Directories being analysed = 100 [*]	Files under intense analysis = 0
+INFO 08-30-2016 19:41:07 || [A-Controller] Running analysis thread information:	Directories being analysed = 100 [*]	Files under intense analysis = 0
+INFO 08-30-2016 19:41:12 || [A-Controller] Running analysis thread information:	Directories being analysed = 100 [*]	Files under intense analysis = 0
+WARNING 08-30-2016 19:41:13 || [A-Controller] File C:\ProgramData\Avira\Antivirus\EVENTDB\Logs\edb.log could not be found.
+INFO 08-30-2016 19:41:17 || [A-Controller] Running analysis thread information:	Directories being analysed = 100 [*]	Files under intense analysis = 0
+INFO 08-30-2016 19:41:20 || [A-Controller] File C:\ProgramData\Avira\Antivirus\TEMP\UPDATE\local000.vdf identified as likely TC file.
+INFO 08-30-2016 19:41:22 || [A-Controller] Running analysis thread information:	Directories being analysed = 100 [*]	Files under intense analysis = 0
+INFO 08-30-2016 19:41:27 || [A-Controller] Running analysis thread information:	Directories being analysed = 100 [*]	Files under intense analysis = 0
+INFO 08-30-2016 19:41:32 || [A-Controller] Running analysis thread information:	Directories being analysed = 100 [*]	Files under intense analysis = 0
+INFO 08-30-2016 19:41:37 || [A-Controller] Running analysis thread information:	Directories being analysed = 100 [*]	Files under intense analysis = 0
+INFO 08-30-2016 19:41:42 || [A-Controller] Running analysis thread information:	Directories being analysed = 100 [*]	Files under intense analysis = 0
+INFO 08-30-2016 19:41:47 || [A-Controller] Running analysis thread information:	Directories being analysed = 100 [*]	Files under intense analysis = 0
+INFO 08-30-2016 19:41:52 || [A-Controller] Running analysis thread information:	Directories being analysed = 100 [*]	Files under intense analysis = 1
+INFO 08-30-2016 19:41:57 || [A-Controller] Running analysis thread information:	Directories being analysed = 100 [*]	Files under intense analysis = 3
+INFO 08-30-2016 19:42:02 || [A-Controller] Running analysis thread information:	Directories being analysed = 100 [*]	Files under intense analysis = 4
+INFO 08-30-2016 19:42:07 || [A-Controller] Running analysis thread information:	Directories being analysed = 100 [*]	Files under intense analysis = 3
+INFO 08-30-2016 19:42:11 || [A-Controller] File C:\Users\cmorley\Desktop\tc tests\testGB600000 identified as likely TC file.
+INFO 08-30-2016 19:42:12 || [A-Controller] Running analysis thread information:	Directories being analysed = 100 [*]	Files under intense analysis = 2
+INFO 08-30-2016 19:42:16 || [A-Controller] File C:\Users\cmorley\Desktop\tc tests\tester identified as likely TC file.
+INFO 08-30-2016 19:42:17 || [A-Controller] Running analysis thread information:	Directories being analysed = 100 [*]	Files under intense analysis = 1
+INFO 08-30-2016 19:42:22 || [A-Controller] Running analysis thread information:	Directories being analysed = 100 [*]	Files under intense analysis = 1
+INFO 08-30-2016 19:42:23 || [A-Controller] File C:\Users\cmorley\Desktop\tc tests\testgb identified as likely TC file.
+INFO 08-30-2016 19:42:27 || [A-Controller] Running analysis thread information:	Directories being analysed = 100 [*]	Files under intense analysis = 0
+INFO 08-30-2016 19:42:32 || [A-Controller] Running analysis thread information:	Directories being analysed = 100 [*]	Files under intense analysis = 0
+WARNING 08-30-2016 19:42:33 || [A-Controller] File C:\Users\All Users\Malwarebytes\Malwarebytes Anti-Malware\S-1-5-21-299502267-583907252-725345543-7069-0-ntuser.dat could not be found.
+WARNING 08-30-2016 19:42:33 || [A-Controller] File C:\Users\All Users\Malwarebytes\Malwarebytes Anti-Malware\S-1-5-21-299502267-583907252-725345543-7069-0-ntuser.dat.LOG1 could not be found.
+WARNING 08-30-2016 19:42:33 || [A-Controller] File C:\Users\All Users\Malwarebytes\Malwarebytes Anti-Malware\S-1-5-21-299502267-583907252-725345543-7069-0-ntuser.dat.LOG2 could not be found.
+INFO 08-30-2016 19:42:37 || [A-Controller] Running analysis thread information:	Directories being analysed = 100 [*]	Files under intense analysis = 0
+WARNING 08-30-2016 19:42:38 || [A-Controller] File C:\Users\All Users\Malwarebytes\Malwarebytes Anti-Malware\S-1-5-21-4143503679-2588418163-2713378358-1004-0-ntuser.dat could not be found.
+WARNING 08-30-2016 19:42:38 || [A-Controller] File C:\Users\All Users\Malwarebytes\Malwarebytes Anti-Malware\S-1-5-21-4143503679-2588418163-2713378358-1004-0-ntuser.dat.LOG1 could not be found.
+WARNING 08-30-2016 19:42:38 || [A-Controller] File C:\Users\All Users\Malwarebytes\Malwarebytes Anti-Malware\S-1-5-21-4143503679-2588418163-2713378358-1004-0-ntuser.dat.LOG2 could not be found.
+WARNING 08-30-2016 19:42:42 || [A-Controller] File C:\Users\All Users\Malwarebytes\Malwarebytes Anti-Malware\S-1-5-80-3880006512-4290199581-1648723128-3569869737-3631323133-0-ntuser.dat could not be found.
+WARNING 08-30-2016 19:42:42 || [A-Controller] File C:\Users\All Users\Malwarebytes\Malwarebytes Anti-Malware\S-1-5-80-3880006512-4290199581-1648723128-3569869737-3631323133-0-ntuser.dat.LOG1 could not be found.
+WARNING 08-30-2016 19:42:42 || [A-Controller] File C:\Users\All Users\Malwarebytes\Malwarebytes Anti-Malware\S-1-5-80-3880006512-4290199581-1648723128-3569869737-3631323133-0-ntuser.dat.LOG2 could not be found.
+INFO 08-30-2016 19:42:42 || [A-Controller] Running analysis thread information:	Directories being analysed = 100 [*]	Files under intense analysis = 0
+WARNING 08-30-2016 19:42:43 || [A-Controller] File C:\Program Files\Microsoft SQL Server\MSSQL12.SQLEXPRESS\MSSQL\Template Data\MS_AgentSigningCertificate.cer could not be found.
+WARNING 08-30-2016 19:42:43 || [A-Controller] File C:\Program Files\Microsoft SQL Server\MSSQL12.SQLEXPRESS\MSSQL\Template Data\tempdb.mdf could not be found.
+WARNING 08-30-2016 19:42:43 || [A-Controller] File C:\Program Files\Microsoft SQL Server\MSSQL12.SQLEXPRESS\MSSQL\Template Data\templog.ldf could not be found.
+INFO 08-30-2016 19:42:47 || [A-Controller] Running analysis thread information:	Directories being analysed = 100 [*]	Files under intense analysis = 0
+INFO 08-30-2016 19:42:52 || [A-Controller] Running analysis thread information:	Directories being analysed = 100 [*]	Files under intense analysis = 0
+INFO 08-30-2016 19:42:57 || [A-Controller] Running analysis thread information:	Directories being analysed = 100 [*]	Files under intense analysis = 0
+INFO 08-30-2016 19:43:02 || [A-Controller] Running analysis thread information:	Directories being analysed = 100 [*]	Files under intense analysis = 0
+INFO 08-30-2016 19:43:07 || [A-Controller] Running analysis thread information:	Directories being analysed = 100 [*]	Files under intense analysis = 0
+INFO 08-30-2016 19:43:12 || [A-Controller] Running analysis thread information:	Directories being analysed = 100 [*]	Files under intense analysis = 0
+INFO 08-30-2016 19:43:17 || [A-Controller] Running analysis thread information:	Directories being analysed = 100 [*]	Files under intense analysis = 0
+INFO 08-30-2016 19:43:22 || [A-Controller] Running analysis thread information:	Directories being analysed = 100 [*]	Files under intense analysis = 0
+INFO 08-30-2016 19:43:27 || [A-Controller] Running analysis thread information:	Directories being analysed = 100 [*]	Files under intense analysis = 0
+INFO 08-30-2016 19:43:32 || [A-Controller] Running analysis thread information:	Directories being analysed = 100 [*]	Files under intense analysis = 0
+INFO 08-30-2016 19:43:37 || [A-Controller] Running analysis thread information:	Directories being analysed = 100 [*]	Files under intense analysis = 0
+INFO 08-30-2016 19:43:42 || [A-Controller] Running analysis thread information:	Directories being analysed = 100 [*]	Files under intense analysis = 0
+INFO 08-30-2016 19:43:47 || [A-Controller] Running analysis thread information:	Directories being analysed = 100 [*]	Files under intense analysis = 0
+WARNING 08-30-2016 19:43:48 || [A-Controller] File C:\Program Files\PostgreSQL\9.4\data\pg_stat_tmp\db_12135.tmp could not be found.
+WARNING 08-30-2016 19:43:51 || [A-Controller] File C:\Program Files\PostgreSQL\9.5\data\pg_stat_tmp\db_12373.tmp could not be found.
+INFO 08-30-2016 19:43:52 || [A-Controller] Running analysis thread information:	Directories being analysed = 100 [*]	Files under intense analysis = 1
+INFO 08-30-2016 19:43:57 || [A-Controller] Running analysis thread information:	Directories being analysed = 100 [*]	Files under intense analysis = 1
+INFO 08-30-2016 19:44:02 || [A-Controller] Running analysis thread information:	Directories being analysed = 100 [*]	Files under intense analysis = 1
+INFO 08-30-2016 19:44:07 || [A-Controller] Running analysis thread information:	Directories being analysed = 100 [*]	Files under intense analysis = 1
+INFO 08-30-2016 19:44:12 || [A-Controller] Running analysis thread information:	Directories being analysed = 100 [*]	Files under intense analysis = 1
+INFO 08-30-2016 19:44:17 || [A-Controller] Running analysis thread information:	Directories being analysed = 100 [*]	Files under intense analysis = 1
+INFO 08-30-2016 19:44:22 || [A-Controller] Running analysis thread information:	Directories being analysed = 100 [*]	Files under intense analysis = 1
+INFO 08-30-2016 19:44:27 || [A-Controller] Running analysis thread information:	Directories being analysed = 100 [*]	Files under intense analysis = 1
+INFO 08-30-2016 19:44:32 || [A-Controller] Running analysis thread information:	Directories being analysed = 100 [*]	Files under intense analysis = 1
+INFO 08-30-2016 19:44:37 || [A-Controller] Running analysis thread information:	Directories being analysed = 100 [*]	Files under intense analysis = 1
+INFO 08-30-2016 19:44:42 || [A-Controller] Running analysis thread information:	Directories being analysed = 100 [*]	Files under intense analysis = 1
+INFO 08-30-2016 19:44:47 || [A-Controller] Running analysis thread information:	Directories being analysed = 100 [*]	Files under intense analysis = 1
+INFO 08-30-2016 19:44:52 || [A-Controller] Running analysis thread information:	Directories being analysed = 100 [*]	Files under intense analysis = 1
+INFO 08-30-2016 19:44:57 || [A-Controller] Running analysis thread information:	Directories being analysed = 100 [*]	Files under intense analysis = 1
+WARNING 08-30-2016 19:45:01 || [A-Controller] File C:\Windows\SoftwareDistribution\DataStore\DataStore.edb could not be found.
+WARNING 08-30-2016 19:45:01 || [A-Controller] File C:\Windows\security\database\secedit.sdb could not be found.
+INFO 08-30-2016 19:45:02 || [A-Controller] Running analysis thread information:	Directories being analysed = 100 [*]	Files under intense analysis = 1
+INFO 08-30-2016 19:45:07 || [A-Controller] Running analysis thread information:	Directories being analysed = 100 [*]	Files under intense analysis = 1
+INFO 08-30-2016 19:45:12 || [A-Controller] Running analysis thread information:	Directories being analysed = 100 [*]	Files under intense analysis = 1
+INFO 08-30-2016 19:45:17 || [A-Controller] Running analysis thread information:	Directories being analysed = 100 [*]	Files under intense analysis = 1
+INFO 08-30-2016 19:45:22 || [A-Controller] Running analysis thread information:	Directories being analysed = 100 [*]	Files under intense analysis = 1
+INFO 08-30-2016 19:45:22 || [A-Controller] File C:\Program Files (x86)\Avira\Antivirus\FAILSAFE\local001.vdf identified as likely TC file.
+INFO 08-30-2016 19:45:27 || [A-Controller] Running analysis thread information:	Directories being analysed = 100 [*]	Files under intense analysis = 0
+INFO 08-30-2016 19:45:32 || [A-Controller] Running analysis thread information:	Directories being analysed = 100 [*]	Files under intense analysis = 0
+INFO 08-30-2016 19:45:37 || [A-Controller] Running analysis thread information:	Directories being analysed = 100 [*]	Files under intense analysis = 0
+INFO 08-30-2016 19:45:42 || [A-Controller] Running analysis thread information:	Directories being analysed = 100 [*]	Files under intense analysis = 0
+INFO 08-30-2016 19:45:47 || [A-Controller] Running analysis thread information:	Directories being analysed = 100 [*]	Files under intense analysis = 0
+INFO 08-30-2016 19:45:52 || [A-Controller] Running analysis thread information:	Directories being analysed = 100 [*]	Files under intense analysis = 0
+INFO 08-30-2016 19:45:57 || [A-Controller] Running analysis thread information:	Directories being analysed = 100 [*]	Files under intense analysis = 0
+INFO 08-30-2016 19:46:02 || [A-Controller] Running analysis thread information:	Directories being analysed = 100 [*]	Files under intense analysis = 0
+INFO 08-30-2016 19:46:07 || [A-Controller] Running analysis thread information:	Directories being analysed = 100 [*]	Files under intense analysis = 0
+INFO 08-30-2016 19:46:12 || [A-Controller] Running analysis thread information:	Directories being analysed = 100 [*]	Files under intense analysis = 0
+INFO 08-30-2016 19:46:17 || [A-Controller] Running analysis thread information:	Directories being analysed = 100 [*]	Files under intense analysis = 0
+INFO 08-30-2016 19:46:50 || [A-Controller] Analysis initiated, target = C:\
+WARNING 08-30-2016 19:46:50 || [A-Controller] File C:\hiberfil.sys could not be found.
+WARNING 08-30-2016 19:46:50 || [A-Controller] File C:\pagefile.sys could not be found.
+WARNING 08-30-2016 19:46:50 || [A-Controller] File C:\swapfile.sys could not be found.
+INFO 08-30-2016 19:46:55 || [A-Controller] Running analysis thread information:	Directories being analysed = 100 [*]	Files under intense analysis = 0
+WARNING 08-30-2016 19:46:59 || [A-Controller] File C:\Users\cmorley\NTUSER.DAT could not be found.
+WARNING 08-30-2016 19:46:59 || [A-Controller] File C:\Users\cmorley\ntuser.dat.LOG1 could not be found.
+WARNING 08-30-2016 19:46:59 || [A-Controller] File C:\Users\cmorley\ntuser.dat.LOG2 could not be found.
+INFO 08-30-2016 19:47:00 || [A-Controller] Running analysis thread information:	Directories being analysed = 100 [*]	Files under intense analysis = 0
+WARNING 08-30-2016 19:47:03 || [A-Controller] File C:\Windows\Tasks\Adobe Flash Player Updater.job could not be found.
+WARNING 08-30-2016 19:47:03 || [A-Controller] File C:\Windows\Tasks\ASC9_SkipUac_cmorley.job could not be found.
+WARNING 08-30-2016 19:47:03 || [A-Controller] File C:\Windows\Tasks\GoogleUpdateTaskMachineCore.job could not be found.
+WARNING 08-30-2016 19:47:03 || [A-Controller] File C:\Windows\Tasks\GoogleUpdateTaskMachineUA.job could not be found.
+WARNING 08-30-2016 19:47:03 || [A-Controller] File C:\Windows\Tasks\Uninstaller_SkipUac_cmorley.job could not be found.
+INFO 08-30-2016 19:47:05 || [A-Controller] Running analysis thread information:	Directories being analysed = 100 [*]	Files under intense analysis = 0
+WARNING 08-30-2016 19:47:09 || [A-Controller] File C:\ProgramData\Avira\Launcher\settings.avdata could not be found.
+INFO 08-30-2016 19:47:10 || [A-Controller] Running analysis thread information:	Directories being analysed = 100 [*]	Files under intense analysis = 0
+WARNING 08-30-2016 19:47:14 || [A-Controller] File C:\ProgramData\Google\Chrome Remote Desktop\host.json could not be found.
+WARNING 08-30-2016 19:47:14 || [A-Controller] File C:\ProgramData\Microsoft\User Account Pictures\admin.dat could not be found.
+WARNING 08-30-2016 19:47:14 || [A-Controller] File C:\ProgramData\Malwarebytes\Malwarebytes Anti-Malware\S-1-5-18-0-ntuser.dat could not be found.
+WARNING 08-30-2016 19:47:14 || [A-Controller] File C:\ProgramData\Malwarebytes\Malwarebytes Anti-Malware\S-1-5-18-0-ntuser.dat.LOG1 could not be found.
+WARNING 08-30-2016 19:47:14 || [A-Controller] File C:\ProgramData\Microsoft\User Account Pictures\IIS APPPOOL+DefaultAppPool.dat could not be found.
+WARNING 08-30-2016 19:47:14 || [A-Controller] File C:\ProgramData\Malwarebytes\Malwarebytes Anti-Malware\S-1-5-18-0-ntuser.dat.LOG2 could not be found.
+WARNING 08-30-2016 19:47:14 || [A-Controller] File C:\ProgramData\Microsoft\User Account Pictures\LDN+jdsouza.dat could not be found.
+WARNING 08-30-2016 19:47:14 || [A-Controller] File C:\ProgramData\Microsoft\User Account Pictures\NT SERVICE+MSSQL$SQLEXPRESS.dat could not be found.
+WARNING 08-30-2016 19:47:14 || [A-Controller] File C:\ProgramData\Microsoft\User Account Pictures\postgres.dat could not be found.
+INFO 08-30-2016 19:47:21 || [A-Controller] Running analysis thread information:	Directories being analysed = 100 [*]	Files under intense analysis = 5
+INFO 08-30-2016 19:47:21 || [A-Controller] File C:\Program Files (x86)\Avira\Antivirus\local000.vdf identified as likely TC file.
+INFO 08-30-2016 19:47:23 || [A-Controller] File C:\Program Files (x86)\Avira\Antivirus\xbv00002.vdf identified as likely TC file.
+INFO 08-30-2016 19:47:23 || [A-Controller] File C:\Program Files (x86)\Avira\Antivirus\xbv00001.vdf identified as likely TC file.
+INFO 08-30-2016 19:47:23 || [A-Controller] File C:\Program Files (x86)\Avira\Antivirus\xbv00000.vdf identified as likely TC file.
+INFO 08-30-2016 19:47:23 || [A-Controller] File C:\Program Files (x86)\Avira\Antivirus\xbv00003.vdf identified as likely TC file.
+WARNING 08-30-2016 19:47:25 || [A-Controller] File C:\ProgramData\Malwarebytes\Malwarebytes Anti-Malware\S-1-5-19-0-ntuser.dat could not be found.
+WARNING 08-30-2016 19:47:25 || [A-Controller] File C:\ProgramData\Malwarebytes\Malwarebytes Anti-Malware\S-1-5-19-0-ntuser.dat.LOG1 could not be found.
+WARNING 08-30-2016 19:47:25 || [A-Controller] File C:\ProgramData\Malwarebytes\Malwarebytes Anti-Malware\S-1-5-19-0-ntuser.dat.LOG2 could not be found.
+INFO 08-30-2016 19:47:26 || [A-Controller] Running analysis thread information:	Directories being analysed = 100 [*]	Files under intense analysis = 0
+WARNING 08-30-2016 19:47:27 || [A-Controller] File C:\Windows\security\database\secedit.sdb could not be found.
+WARNING 08-30-2016 19:47:27 || [A-Controller] File C:\Windows\SoftwareDistribution\DataStore\DataStore.edb could not be found.
+INFO 08-30-2016 19:47:31 || [A-Controller] Running analysis thread information:	Directories being analysed = 100 [*]	Files under intense analysis = 0
+INFO 08-30-2016 19:47:36 || [A-Controller] Running analysis thread information:	Directories being analysed = 100 [*]	Files under intense analysis = 0
+INFO 08-30-2016 19:47:41 || [A-Controller] Running analysis thread information:	Directories being analysed = 100 [*]	Files under intense analysis = 0
+INFO 08-30-2016 19:47:46 || [A-Controller] Running analysis thread information:	Directories being analysed = 100 [*]	Files under intense analysis = 0
+INFO 08-30-2016 19:47:51 || [A-Controller] Running analysis thread information:	Directories being analysed = 100 [*]	Files under intense analysis = 0
+INFO 08-30-2016 19:47:56 || [A-Controller] Running analysis thread information:	Directories being analysed = 100 [*]	Files under intense analysis = 0
+WARNING 08-30-2016 19:47:58 || [A-Controller] File C:\ProgramData\Malwarebytes\Malwarebytes Anti-Malware\S-1-5-20-0-ntuser.dat could not be found.
+WARNING 08-30-2016 19:47:58 || [A-Controller] File C:\ProgramData\Malwarebytes\Malwarebytes Anti-Malware\S-1-5-20-0-ntuser.dat.LOG1 could not be found.
+WARNING 08-30-2016 19:47:58 || [A-Controller] File C:\ProgramData\Malwarebytes\Malwarebytes Anti-Malware\S-1-5-20-0-ntuser.dat.LOG2 could not be found.
+INFO 08-30-2016 19:48:01 || [A-Controller] Running analysis thread information:	Directories being analysed = 100 [*]	Files under intense analysis = 0
+INFO 08-30-2016 19:48:06 || [A-Controller] Running analysis thread information:	Directories being analysed = 100 [*]	Files under intense analysis = 0
+INFO 08-30-2016 19:48:11 || [A-Controller] Running analysis thread information:	Directories being analysed = 100 [*]	Files under intense analysis = 0
+INFO 08-30-2016 19:48:16 || [A-Controller] Running analysis thread information:	Directories being analysed = 100 [*]	Files under intense analysis = 0
+INFO 08-30-2016 19:48:21 || [A-Controller] Running analysis thread information:	Directories being analysed = 100 [*]	Files under intense analysis = 0
+INFO 08-30-2016 19:48:26 || [A-Controller] Running analysis thread information:	Directories being analysed = 100 [*]	Files under intense analysis = 0
+WARNING 08-30-2016 19:48:29 || [A-Controller] File C:\ProgramData\Malwarebytes\Malwarebytes Anti-Malware\S-1-5-21-299502267-583907252-725345543-7069-0-ntuser.dat could not be found.
+WARNING 08-30-2016 19:48:29 || [A-Controller] File C:\ProgramData\Malwarebytes\Malwarebytes Anti-Malware\S-1-5-21-299502267-583907252-725345543-7069-0-ntuser.dat.LOG1 could not be found.
+WARNING 08-30-2016 19:48:29 || [A-Controller] File C:\ProgramData\Malwarebytes\Malwarebytes Anti-Malware\S-1-5-21-299502267-583907252-725345543-7069-0-ntuser.dat.LOG2 could not be found.
+INFO 08-30-2016 19:48:31 || [A-Controller] Running analysis thread information:	Directories being analysed = 100 [*]	Files under intense analysis = 0
+WARNING 08-30-2016 19:48:31 || [A-Controller] File C:\ProgramData\Malwarebytes\Malwarebytes Anti-Malware\S-1-5-21-4143503679-2588418163-2713378358-1004-0-ntuser.dat could not be found.
+WARNING 08-30-2016 19:48:31 || [A-Controller] File C:\ProgramData\Malwarebytes\Malwarebytes Anti-Malware\S-1-5-21-4143503679-2588418163-2713378358-1004-0-ntuser.dat.LOG1 could not be found.
+WARNING 08-30-2016 19:48:31 || [A-Controller] File C:\ProgramData\Malwarebytes\Malwarebytes Anti-Malware\S-1-5-21-4143503679-2588418163-2713378358-1004-0-ntuser.dat.LOG2 could not be found.
+WARNING 08-30-2016 19:48:34 || [A-Controller] File C:\ProgramData\Malwarebytes\Malwarebytes Anti-Malware\S-1-5-80-3880006512-4290199581-1648723128-3569869737-3631323133-0-ntuser.dat could not be found.
+WARNING 08-30-2016 19:48:34 || [A-Controller] File C:\ProgramData\Malwarebytes\Malwarebytes Anti-Malware\S-1-5-80-3880006512-4290199581-1648723128-3569869737-3631323133-0-ntuser.dat.LOG1 could not be found.
+WARNING 08-30-2016 19:48:34 || [A-Controller] File C:\ProgramData\Malwarebytes\Malwarebytes Anti-Malware\S-1-5-80-3880006512-4290199581-1648723128-3569869737-3631323133-0-ntuser.dat.LOG2 could not be found.
+INFO 08-30-2016 19:48:36 || [A-Controller] Running analysis thread information:	Directories being analysed = 100 [*]	Files under intense analysis = 0
+INFO 08-30-2016 19:48:41 || [A-Controller] Running analysis thread information:	Directories being analysed = 100 [*]	Files under intense analysis = 0
+INFO 08-30-2016 19:48:46 || [A-Controller] Running analysis thread information:	Directories being analysed = 100 [*]	Files under intense analysis = 0
+INFO 08-30-2016 19:48:51 || [A-Controller] Running analysis thread information:	Directories being analysed = 100 [*]	Files under intense analysis = 0
+WARNING 08-30-2016 19:48:54 || [A-Controller] File C:\Windows\WinSxS\amd64_microsoft-windows-n..n_service_datastore_31bf3856ad364e35_10.0.10586.0_none_5db42904e056ea84\dnary.xsd could not be found.
+INFO 08-30-2016 19:48:56 || [A-Controller] Running analysis thread information:	Directories being analysed = 100 [*]	Files under intense analysis = 0
+INFO 08-30-2016 19:49:01 || [A-Controller] Running analysis thread information:	Directories being analysed = 100 [*]	Files under intense analysis = 0
+INFO 08-30-2016 19:49:06 || [A-Controller] Running analysis thread information:	Directories being analysed = 100 [*]	Files under intense analysis = 0
+INFO 08-30-2016 19:49:11 || [A-Controller] Running analysis thread information:	Directories being analysed = 100 [*]	Files under intense analysis = 0
+INFO 08-30-2016 19:49:16 || [A-Controller] Running analysis thread information:	Directories being analysed = 100 [*]	Files under intense analysis = 0
+INFO 08-30-2016 19:49:21 || [A-Controller] Running analysis thread information:	Directories being analysed = 100 [*]	Files under intense analysis = 0
+INFO 08-30-2016 19:49:26 || [A-Controller] Running analysis thread information:	Directories being analysed = 100 [*]	Files under intense analysis = 0
+INFO 08-30-2016 19:49:31 || [A-Controller] Running analysis thread information:	Directories being analysed = 100 [*]	Files under intense analysis = 0
+INFO 08-30-2016 19:49:36 || [A-Controller] Running analysis thread information:	Directories being analysed = 100 [*]	Files under intense analysis = 0
+INFO 08-30-2016 19:49:41 || [A-Controller] Running analysis thread information:	Directories being analysed = 100 [*]	Files under intense analysis = 0
+INFO 08-30-2016 19:49:46 || [A-Controller] Running analysis thread information:	Directories being analysed = 100 [*]	Files under intense analysis = 0
+INFO 08-30-2016 19:49:51 || [A-Controller] Running analysis thread information:	Directories being analysed = 100 [*]	Files under intense analysis = 0
+INFO 08-30-2016 19:49:56 || [A-Controller] Running analysis thread information:	Directories being analysed = 100 [*]	Files under intense analysis = 0
+INFO 08-30-2016 19:50:01 || [A-Controller] Running analysis thread information:	Directories being analysed = 100 [*]	Files under intense analysis = 0
+INFO 08-30-2016 19:50:06 || [A-Controller] Running analysis thread information:	Directories being analysed = 100 [*]	Files under intense analysis = 0
+INFO 08-30-2016 19:50:11 || [A-Controller] Running analysis thread information:	Directories being analysed = 100 [*]	Files under intense analysis = 0
+INFO 08-30-2016 19:50:16 || [A-Controller] Running analysis thread information:	Directories being analysed = 100 [*]	Files under intense analysis = 0
+INFO 08-30-2016 19:50:21 || [A-Controller] Running analysis thread information:	Directories being analysed = 100 [*]	Files under intense analysis = 0
+INFO 08-30-2016 19:50:26 || [A-Controller] Running analysis thread information:	Directories being analysed = 100 [*]	Files under intense analysis = 0
+INFO 08-30-2016 19:50:31 || [A-Controller] Running analysis thread information:	Directories being analysed = 100 [*]	Files under intense analysis = 0
+INFO 08-30-2016 19:50:36 || [A-Controller] Running analysis thread information:	Directories being analysed = 100 [*]	Files under intense analysis = 0
+INFO 08-30-2016 19:50:41 || [A-Controller] Running analysis thread information:	Directories being analysed = 100 [*]	Files under intense analysis = 0
+INFO 08-30-2016 19:50:46 || [A-Controller] Running analysis thread information:	Directories being analysed = 100 [*]	Files under intense analysis = 0
+INFO 08-30-2016 19:50:51 || [A-Controller] Running analysis thread information:	Directories being analysed = 100 [*]	Files under intense analysis = 0
+INFO 08-30-2016 19:50:56 || [A-Controller] Running analysis thread information:	Directories being analysed = 100 [*]	Files under intense analysis = 0
+INFO 08-30-2016 19:51:01 || [A-Controller] Running analysis thread information:	Directories being analysed = 100 [*]	Files under intense analysis = 0
+INFO 08-30-2016 19:51:06 || [A-Controller] Running analysis thread information:	Directories being analysed = 100 [*]	Files under intense analysis = 0
+INFO 08-30-2016 19:51:11 || [A-Controller] Running analysis thread information:	Directories being analysed = 100 [*]	Files under intense analysis = 0
+INFO 08-30-2016 19:51:16 || [A-Controller] Running analysis thread information:	Directories being analysed = 100 [*]	Files under intense analysis = 0
+INFO 08-30-2016 19:51:21 || [A-Controller] Running analysis thread information:	Directories being analysed = 100 [*]	Files under intense analysis = 0
+INFO 08-30-2016 19:51:26 || [A-Controller] Running analysis thread information:	Directories being analysed = 100 [*]	Files under intense analysis = 0
+INFO 08-30-2016 19:51:31 || [A-Controller] Running analysis thread information:	Directories being analysed = 100 [*]	Files under intense analysis = 0
+INFO 08-30-2016 19:51:36 || [A-Controller] Running analysis thread information:	Directories being analysed = 100 [*]	Files under intense analysis = 0
+INFO 08-30-2016 19:51:41 || [A-Controller] Running analysis thread information:	Directories being analysed = 100 [*]	Files under intense analysis = 0
+INFO 08-30-2016 19:51:46 || [A-Controller] Running analysis thread information:	Directories being analysed = 100 [*]	Files under intense analysis = 0
+INFO 08-30-2016 19:51:51 || [A-Controller] Running analysis thread information:	Directories being analysed = 100 [*]	Files under intense analysis = 0
+WARNING 08-30-2016 19:51:55 || [A-Controller] File C:\ProgramData\Avira\Launcher\apps\manifest.avdata could not be found.
+WARNING 08-30-2016 19:51:55 || [A-Controller] File C:\ProgramData\Avira\Antivirus\TEMP\scaninfo(4268).tmp could not be found.
+WARNING 08-30-2016 19:51:55 || [A-Controller] File C:\ProgramData\Avira\Antivirus\EVENTDB\gavi3.db could not be found.
+INFO 08-30-2016 19:51:56 || [A-Controller] Running analysis thread information:	Directories being analysed = 100 [*]	Files under intense analysis = 0
+INFO 08-30-2016 19:52:01 || [A-Controller] Running analysis thread information:	Directories being analysed = 100 [*]	Files under intense analysis = 0
+INFO 08-30-2016 19:52:05 || [A-Controller] File C:\Program Files (x86)\Avira\Antivirus\FAILSAFE\local000.vdf identified as likely TC file.
+INFO 08-30-2016 19:52:05 || [A-Controller] File C:\Program Files (x86)\Avira\Antivirus\FAILSAFE\local001.vdf identified as likely TC file.
+WARNING 08-30-2016 19:52:06 || [A-Controller] File C:\ProgramData\Microsoft\Crypto\Keys\597367cc37b886d7ee6c493e3befb421_5cc9a30d-1da8-4c8e-8789-77b368c647af could not be found.
+WARNING 08-30-2016 19:52:06 || [A-Controller] File C:\ProgramData\Microsoft\Crypto\Keys\f0e91f6485ac2d09485e4ec18135601e_5cc9a30d-1da8-4c8e-8789-77b368c647af could not be found.
+INFO 08-30-2016 19:52:06 || [A-Controller] Running analysis thread information:	Directories being analysed = 100 [*]	Files under intense analysis = 0
+WARNING 08-30-2016 19:52:08 || [A-Controller] File C:\Users\All Users\Avira\Launcher\settings.avdata could not be found.
+WARNING 08-30-2016 19:52:08 || [A-Controller] File C:\Users\All Users\Google\Chrome Remote Desktop\host.json could not be found.
+WARNING 08-30-2016 19:52:08 || [A-Controller] File C:\Users\All Users\Microsoft\User Account Pictures\admin.dat could not be found.
+WARNING 08-30-2016 19:52:08 || [A-Controller] File C:\Users\All Users\Malwarebytes\Malwarebytes Anti-Malware\S-1-5-18-0-ntuser.dat could not be found.
+WARNING 08-30-2016 19:52:08 || [A-Controller] File C:\Users\All Users\Malwarebytes\Malwarebytes Anti-Malware\S-1-5-18-0-ntuser.dat.LOG1 could not be found.
+WARNING 08-30-2016 19:52:08 || [A-Controller] File C:\Users\All Users\Microsoft\User Account Pictures\IIS APPPOOL+DefaultAppPool.dat could not be found.
+WARNING 08-30-2016 19:52:08 || [A-Controller] File C:\Users\All Users\Malwarebytes\Malwarebytes Anti-Malware\S-1-5-18-0-ntuser.dat.LOG2 could not be found.
+WARNING 08-30-2016 19:52:08 || [A-Controller] File C:\Users\All Users\Microsoft\User Account Pictures\LDN+jdsouza.dat could not be found.
+WARNING 08-30-2016 19:52:08 || [A-Controller] File C:\Users\All Users\Microsoft\User Account Pictures\NT SERVICE+MSSQL$SQLEXPRESS.dat could not be found.
+WARNING 08-30-2016 19:52:08 || [A-Controller] File C:\Users\All Users\Microsoft\User Account Pictures\postgres.dat could not be found.
+WARNING 08-30-2016 19:52:10 || [A-Controller] File C:\Users\All Users\Malwarebytes\Malwarebytes Anti-Malware\S-1-5-19-0-ntuser.dat could not be found.
+WARNING 08-30-2016 19:52:10 || [A-Controller] File C:\Users\All Users\Malwarebytes\Malwarebytes Anti-Malware\S-1-5-19-0-ntuser.dat.LOG1 could not be found.
+WARNING 08-30-2016 19:52:10 || [A-Controller] File C:\Users\All Users\Malwarebytes\Malwarebytes Anti-Malware\S-1-5-19-0-ntuser.dat.LOG2 could not be found.
+INFO 08-30-2016 19:52:11 || [A-Controller] Running analysis thread information:	Directories being analysed = 100 [*]	Files under intense analysis = 0
+INFO 08-30-2016 19:52:14 || [A-Controller] File C:\Users\cmorley\Desktop\tc tests\tester identified as likely TC file.
+INFO 08-30-2016 19:52:15 || [A-Controller] File C:\Users\cmorley\Desktop\tc tests\testgb identified as likely TC file.
+INFO 08-30-2016 19:52:15 || [A-Controller] File C:\Users\cmorley\Desktop\tc tests\testGB600000 identified as likely TC file.
+INFO 08-30-2016 19:52:16 || [A-Controller] Running analysis thread information:	Directories being analysed = 100 [*]	Files under intense analysis = 0
+INFO 08-30-2016 19:52:21 || [A-Controller] Running analysis thread information:	Directories being analysed = 100 [*]	Files under intense analysis = 0
+INFO 08-30-2016 19:52:26 || [A-Controller] Running analysis thread information:	Directories being analysed = 100 [*]	Files under intense analysis = 0
+WARNING 08-30-2016 19:52:28 || [A-Controller] File C:\Users\All Users\Malwarebytes\Malwarebytes Anti-Malware\S-1-5-20-0-ntuser.dat could not be found.
+WARNING 08-30-2016 19:52:28 || [A-Controller] File C:\Users\All Users\Malwarebytes\Malwarebytes Anti-Malware\S-1-5-20-0-ntuser.dat.LOG1 could not be found.
+WARNING 08-30-2016 19:52:28 || [A-Controller] File C:\Users\All Users\Malwarebytes\Malwarebytes Anti-Malware\S-1-5-20-0-ntuser.dat.LOG2 could not be found.
+INFO 08-30-2016 19:52:31 || [A-Controller] Running analysis thread information:	Directories being analysed = 100 [*]	Files under intense analysis = 0
+WARNING 08-30-2016 19:52:35 || [A-Controller] File C:\Users\All Users\Malwarebytes\Malwarebytes Anti-Malware\S-1-5-21-299502267-583907252-725345543-7069-0-ntuser.dat could not be found.
+WARNING 08-30-2016 19:52:35 || [A-Controller] File C:\Users\All Users\Malwarebytes\Malwarebytes Anti-Malware\S-1-5-21-299502267-583907252-725345543-7069-0-ntuser.dat.LOG1 could not be found.
+WARNING 08-30-2016 19:52:35 || [A-Controller] File C:\Users\All Users\Malwarebytes\Malwarebytes Anti-Malware\S-1-5-21-299502267-583907252-725345543-7069-0-ntuser.dat.LOG2 could not be found.
+WARNING 08-30-2016 19:52:36 || [A-Controller] File C:\Users\All Users\Malwarebytes\Malwarebytes Anti-Malware\S-1-5-21-4143503679-2588418163-2713378358-1004-0-ntuser.dat could not be found.
+WARNING 08-30-2016 19:52:36 || [A-Controller] File C:\Users\All Users\Malwarebytes\Malwarebytes Anti-Malware\S-1-5-21-4143503679-2588418163-2713378358-1004-0-ntuser.dat.LOG1 could not be found.
+WARNING 08-30-2016 19:52:36 || [A-Controller] File C:\Users\All Users\Malwarebytes\Malwarebytes Anti-Malware\S-1-5-21-4143503679-2588418163-2713378358-1004-0-ntuser.dat.LOG2 could not be found.
+INFO 08-30-2016 19:52:36 || [A-Controller] Running analysis thread information:	Directories being analysed = 100 [*]	Files under intense analysis = 0
+WARNING 08-30-2016 19:52:39 || [A-Controller] File C:\Users\All Users\Malwarebytes\Malwarebytes Anti-Malware\S-1-5-80-3880006512-4290199581-1648723128-3569869737-3631323133-0-ntuser.dat could not be found.
+WARNING 08-30-2016 19:52:39 || [A-Controller] File C:\Users\All Users\Malwarebytes\Malwarebytes Anti-Malware\S-1-5-80-3880006512-4290199581-1648723128-3569869737-3631323133-0-ntuser.dat.LOG1 could not be found.
+WARNING 08-30-2016 19:52:39 || [A-Controller] File C:\Users\All Users\Malwarebytes\Malwarebytes Anti-Malware\S-1-5-80-3880006512-4290199581-1648723128-3569869737-3631323133-0-ntuser.dat.LOG2 could not be found.
+WARNING 08-30-2016 19:52:40 || [A-Controller] File C:\Windows\System32\catroot2\edb.log could not be found.
+INFO 08-30-2016 19:52:41 || [A-Controller] Running analysis thread information:	Directories being analysed = 100 [*]	Files under intense analysis = 0
+WARNING 08-30-2016 19:52:42 || [A-Controller] File C:\Windows\System32\catroot2\edbtmp.log could not be found.
+INFO 08-30-2016 19:52:46 || [A-Controller] Running analysis thread information:	Directories being analysed = 100 [*]	Files under intense analysis = 0
+INFO 08-30-2016 19:52:51 || [A-Controller] Running analysis thread information:	Directories being analysed = 100 [*]	Files under intense analysis = 0
+WARNING 08-30-2016 19:52:52 || [A-Controller] File C:\ProgramData\Avira\Antivirus\EVENTDB\Logs\edb.log could not be found.
+WARNING 08-30-2016 19:52:53 || [A-Controller] File C:\Windows\SysWOW64\log.txt could not be found.
+INFO 08-30-2016 19:52:54 || [A-Controller] File C:\Program Files\Common Files\Intel Corporation\WiDiAgent\fwv00300\zbimage-linux-xload.monolithic identified as likely TC file.
+INFO 08-30-2016 19:52:54 || [A-Controller] File C:\Program Files\Common Files\Intel Corporation\WiDiAgent\fwv00100\zbimage-linux-xload.monolithic-factory identified as likely TC file.
+INFO 08-30-2016 19:52:54 || [A-Controller] File C:\ProgramData\Avira\Antivirus\TEMP\UPDATE\local000.vdf identified as likely TC file.
+INFO 08-30-2016 19:52:56 || [A-Controller] Running analysis thread information:	Directories being analysed = 100 [*]	Files under intense analysis = 0
+WARNING 08-30-2016 19:52:58 || [A-Controller] File C:\Program Files\Microsoft SQL Server\MSSQL12.SQLEXPRESS\MSSQL\Template Data\MS_AgentSigningCertificate.cer could not be found.
+WARNING 08-30-2016 19:52:58 || [A-Controller] File C:\Program Files\Microsoft SQL Server\MSSQL12.SQLEXPRESS\MSSQL\Template Data\tempdb.mdf could not be found.
+WARNING 08-30-2016 19:52:58 || [A-Controller] File C:\Program Files\Microsoft SQL Server\MSSQL12.SQLEXPRESS\MSSQL\Template Data\templog.ldf could not be found.
+INFO 08-30-2016 19:53:01 || [A-Controller] Running analysis thread information:	Directories being analysed = 100 [*]	Files under intense analysis = 0
+INFO 08-30-2016 19:53:06 || [A-Controller] Running analysis thread information:	Directories being analysed = 100 [*]	Files under intense analysis = 0
+INFO 08-30-2016 19:53:11 || [A-Controller] Running analysis thread information:	Directories being analysed = 100 [*]	Files under intense analysis = 0
+INFO 08-30-2016 19:53:16 || [A-Controller] Running analysis thread information:	Directories being analysed = 100 [*]	Files under intense analysis = 0
+INFO 08-30-2016 19:53:21 || [A-Controller] Running analysis thread information:	Directories being analysed = 100 [*]	Files under intense analysis = 0
+INFO 08-30-2016 19:53:26 || [A-Controller] Running analysis thread information:	Directories being analysed = 100 [*]	Files under intense analysis = 0
+INFO 08-30-2016 19:53:31 || [A-Controller] Running analysis thread information:	Directories being analysed = 100 [*]	Files under intense analysis = 0
+INFO 08-30-2016 19:53:36 || [A-Controller] Running analysis thread information:	Directories being analysed = 100 [*]	Files under intense analysis = 0
+INFO 08-30-2016 19:53:41 || [A-Controller] Running analysis thread information:	Directories being analysed = 100 [*]	Files under intense analysis = 0
+INFO 08-30-2016 19:53:46 || [A-Controller] Running analysis thread information:	Directories being analysed = 100 [*]	Files under intense analysis = 0
+INFO 08-30-2016 19:53:51 || [A-Controller] Running analysis thread information:	Directories being analysed = 100 [*]	Files under intense analysis = 0
+INFO 08-30-2016 19:53:56 || [A-Controller] Running analysis thread information:	Directories being analysed = 100 [*]	Files under intense analysis = 0
+INFO 08-30-2016 19:54:01 || [A-Controller] Running analysis thread information:	Directories being analysed = 100 [*]	Files under intense analysis = 0
+INFO 08-30-2016 19:54:06 || [A-Controller] Running analysis thread information:	Directories being analysed = 100 [*]	Files under intense analysis = 0
+INFO 08-30-2016 19:54:11 || [A-Controller] Running analysis thread information:	Directories being analysed = 100 [*]	Files under intense analysis = 0
+INFO 08-30-2016 19:54:16 || [A-Controller] Running analysis thread information:	Directories being analysed = 100 [*]	Files under intense analysis = 0
+INFO 08-30-2016 19:54:21 || [A-Controller] Running analysis thread information:	Directories being analysed = 100 [*]	Files under intense analysis = 0
+INFO 08-30-2016 19:54:26 || [A-Controller] Running analysis thread information:	Directories being analysed = 100 [*]	Files under intense analysis = 0
+INFO 08-30-2016 19:54:31 || [A-Controller] Running analysis thread information:	Directories being analysed = 100 [*]	Files under intense analysis = 0
+WARNING 08-30-2016 19:54:36 || [A-Controller] File C:\ProgramData\Microsoft\Crypto\RSA\MachineKeys\6de9cb26d2b98c01ec4e9e8b34824aa2_5cc9a30d-1da8-4c8e-8789-77b368c647af could not be found.
+WARNING 08-30-2016 19:54:36 || [A-Controller] File C:\ProgramData\Microsoft\Crypto\RSA\MachineKeys\76944fb33636aeddb9590521c2e8815a_5cc9a30d-1da8-4c8e-8789-77b368c647af could not be found.
+WARNING 08-30-2016 19:54:36 || [A-Controller] File C:\ProgramData\Microsoft\Crypto\RSA\MachineKeys\b651b41e58472b5f287df69e0ffe62d5_5cc9a30d-1da8-4c8e-8789-77b368c647af could not be found.
+WARNING 08-30-2016 19:54:36 || [A-Controller] File C:\ProgramData\Microsoft\Crypto\RSA\MachineKeys\c83816487e1cec6dc9478fda08615b79_5cc9a30d-1da8-4c8e-8789-77b368c647af could not be found.
+INFO 08-30-2016 19:54:36 || [A-Controller] Running analysis thread information:	Directories being analysed = 100 [*]	Files under intense analysis = 0
+WARNING 08-30-2016 19:54:37 || [A-Controller] File C:\ProgramData\Microsoft\Crypto\RSA\MachineKeys\d6d986f09a1ee04e24c949879fdb506c_5cc9a30d-1da8-4c8e-8789-77b368c647af could not be found.
+WARNING 08-30-2016 19:54:39 || [A-Controller] File C:\ProgramData\Microsoft\Crypto\RSA\MachineKeys\f686aace6942fb7f7ceb231212eef4a4_5cc9a30d-1da8-4c8e-8789-77b368c647af could not be found.
+INFO 08-30-2016 19:54:41 || [A-Controller] Running analysis thread information:	Directories being analysed = 100 [*]	Files under intense analysis = 0
+INFO 08-30-2016 19:54:46 || [A-Controller] Running analysis thread information:	Directories being analysed = 100 [*]	Files under intense analysis = 0
+WARNING 08-30-2016 19:54:48 || [A-Controller] File C:\Users\All Users\Avira\Launcher\apps\manifest.avdata could not be found.
+WARNING 08-30-2016 19:54:48 || [A-Controller] File C:\Users\All Users\Avira\Antivirus\EVENTDB\gavi3.db could not be found.
+WARNING 08-30-2016 19:54:49 || [A-Controller] File C:\Users\All Users\Avira\Antivirus\TEMP\scaninfo(4268).tmp could not be found.
+WARNING 08-30-2016 19:54:49 || [A-Controller] File C:\Users\All Users\Microsoft\Crypto\Keys\597367cc37b886d7ee6c493e3befb421_5cc9a30d-1da8-4c8e-8789-77b368c647af could not be found.
+WARNING 08-30-2016 19:54:49 || [A-Controller] File C:\Users\All Users\Microsoft\Crypto\Keys\f0e91f6485ac2d09485e4ec18135601e_5cc9a30d-1da8-4c8e-8789-77b368c647af could not be found.
+INFO 08-30-2016 19:54:51 || [A-Controller] Running analysis thread information:	Directories being analysed = 100 [*]	Files under intense analysis = 0
+INFO 08-30-2016 19:54:56 || [A-Controller] Running analysis thread information:	Directories being analysed = 100 [*]	Files under intense analysis = 0
+WARNING 08-30-2016 19:54:57 || [A-Controller] File C:\Users\cmorley\AppData\Local\Temp\etilqs_BLkQrVqfNIx4zP5 could not be found.
+WARNING 08-30-2016 19:54:57 || [A-Controller] File C:\Users\cmorley\AppData\Local\Temp\etilqs_oZTJ4dY0YP6Kgm7 could not be found.
+WARNING 08-30-2016 19:54:57 || [A-Controller] File C:\Users\cmorley\AppData\Local\Temp\etilqs_S0lJPT5OAB2QoyL could not be found.
+WARNING 08-30-2016 19:54:57 || [A-Controller] File C:\Users\cmorley\AppData\Local\Temp\etilqs_V5keQlnL04cVc0R could not be found.
+WARNING 08-30-2016 19:54:57 || [A-Controller] File C:\Users\cmorley\AppData\Local\Temp\etilqs_ygdo9bLjg9Ecur2 could not be found.
+INFO 08-30-2016 19:55:01 || [A-Controller] Running analysis thread information:	Directories being analysed = 100 [*]	Files under intense analysis = 0
+INFO 08-30-2016 19:55:06 || [A-Controller] Running analysis thread information:	Directories being analysed = 100 [*]	Files under intense analysis = 0
+INFO 08-30-2016 19:55:11 || [A-Controller] Running analysis thread information:	Directories being analysed = 100 [*]	Files under intense analysis = 0
+INFO 08-30-2016 19:55:16 || [A-Controller] Running analysis thread information:	Directories being analysed = 100 [*]	Files under intense analysis = 0
+INFO 08-30-2016 19:55:21 || [A-Controller] Running analysis thread information:	Directories being analysed = 100 [*]	Files under intense analysis = 0
+INFO 08-30-2016 19:55:26 || [A-Controller] Running analysis thread information:	Directories being analysed = 100 [*]	Files under intense analysis = 0
+INFO 08-30-2016 19:55:31 || [A-Controller] Running analysis thread information:	Directories being analysed = 100 [*]	Files under intense analysis = 0
+INFO 08-30-2016 19:55:36 || [A-Controller] Running analysis thread information:	Directories being analysed = 100 [*]	Files under intense analysis = 0
+INFO 08-30-2016 19:55:41 || [A-Controller] Running analysis thread information:	Directories being analysed = 100 [*]	Files under intense analysis = 0
+INFO 08-30-2016 19:55:46 || [A-Controller] Running analysis thread information:	Directories being analysed = 100 [*]	Files under intense analysis = 0
+INFO 08-30-2016 19:55:51 || [A-Controller] Running analysis thread information:	Directories being analysed = 100 [*]	Files under intense analysis = 0
+INFO 08-30-2016 19:55:56 || [A-Controller] Running analysis thread information:	Directories being analysed = 100 [*]	Files under intense analysis = 0
+INFO 08-30-2016 19:56:01 || [A-Controller] Running analysis thread information:	Directories being analysed = 100 [*]	Files under intense analysis = 0
+INFO 08-30-2016 19:56:06 || [A-Controller] Running analysis thread information:	Directories being analysed = 100 [*]	Files under intense analysis = 0
+INFO 08-30-2016 19:56:11 || [A-Controller] Running analysis thread information:	Directories being analysed = 100 [*]	Files under intense analysis = 0
+INFO 08-30-2016 19:56:16 || [A-Controller] Running analysis thread information:	Directories being analysed = 100 [*]	Files under intense analysis = 0
+INFO 08-30-2016 19:56:21 || [A-Controller] Running analysis thread information:	Directories being analysed = 100 [*]	Files under intense analysis = 0
+INFO 08-30-2016 19:56:26 || [A-Controller] Running analysis thread information:	Directories being analysed = 100 [*]	Files under intense analysis = 0
+INFO 08-30-2016 19:56:31 || [A-Controller] Running analysis thread information:	Directories being analysed = 100 [*]	Files under intense analysis = 0
+INFO 08-30-2016 19:56:36 || [A-Controller] Running analysis thread information:	Directories being analysed = 100 [*]	Files under intense analysis = 0
+INFO 08-30-2016 19:56:41 || [A-Controller] Running analysis thread information:	Directories being analysed = 100 [*]	Files under intense analysis = 0
+INFO 08-30-2016 19:56:46 || [A-Controller] Running analysis thread information:	Directories being analysed = 100 [*]	Files under intense analysis = 0
+INFO 08-30-2016 19:56:51 || [A-Controller] Running analysis thread information:	Directories being analysed = 100 [*]	Files under intense analysis = 0
+INFO 08-30-2016 19:56:56 || [A-Controller] Running analysis thread information:	Directories being analysed = 100 [*]	Files under intense analysis = 0
+INFO 08-30-2016 19:57:01 || [A-Controller] Running analysis thread information:	Directories being analysed = 100 [*]	Files under intense analysis = 0
+INFO 08-30-2016 19:57:06 || [A-Controller] Running analysis thread information:	Directories being analysed = 100 [*]	Files under intense analysis = 0
+INFO 08-30-2016 19:57:11 || [A-Controller] Running analysis thread information:	Directories being analysed = 100 [*]	Files under intense analysis = 0
+INFO 08-30-2016 19:57:16 || [A-Controller] Running analysis thread information:	Directories being analysed = 100 [*]	Files under intense analysis = 0
+INFO 08-30-2016 19:57:21 || [A-Controller] Running analysis thread information:	Directories being analysed = 100 [*]	Files under intense analysis = 0
+INFO 08-30-2016 19:57:26 || [A-Controller] Running analysis thread information:	Directories being analysed = 100 [*]	Files under intense analysis = 0
+INFO 08-30-2016 19:57:31 || [A-Controller] Running analysis thread information:	Directories being analysed = 100 [*]	Files under intense analysis = 0
+INFO 08-30-2016 19:57:36 || [A-Controller] Running analysis thread information:	Directories being analysed = 100 [*]	Files under intense analysis = 0
+INFO 08-30-2016 19:57:41 || [A-Controller] Running analysis thread information:	Directories being analysed = 100 [*]	Files under intense analysis = 0
+INFO 08-30-2016 19:57:46 || [A-Controller] Running analysis thread information:	Directories being analysed = 100 [*]	Files under intense analysis = 0
+INFO 08-30-2016 19:57:51 || [A-Controller] Running analysis thread information:	Directories being analysed = 100 [*]	Files under intense analysis = 0
+WARNING 08-30-2016 19:57:54 || [A-Controller] File C:\Windows\Microsoft.NET\Framework\v3.0\Windows Communication Foundation\SMSvcHost.exe.config could not be found.
+WARNING 08-30-2016 19:57:54 || [A-Controller] File C:\Windows\Microsoft.NET\Framework\v2.0.50727\CONFIG\enterprisesec.config.cch.15684.101740062 could not be found.
+WARNING 08-30-2016 19:57:54 || [A-Controller] File C:\Windows\Microsoft.NET\Framework\v2.0.50727\CONFIG\enterprisesec.config.cch.18060.101689453 could not be found.
+WARNING 08-30-2016 19:57:54 || [A-Controller] File C:\Windows\Microsoft.NET\Framework\v2.0.50727\CONFIG\security.config.cch.13612.101649218 could not be found.
+WARNING 08-30-2016 19:57:54 || [A-Controller] File C:\Windows\Microsoft.NET\Framework\v2.0.50727\CONFIG\security.config.cch.14680.175474218 could not be found.
+WARNING 08-30-2016 19:57:54 || [A-Controller] File C:\Windows\Microsoft.NET\Framework\v2.0.50727\CONFIG\security.config.cch.15684.101740062 could not be found.
+WARNING 08-30-2016 19:57:55 || [A-Controller] File C:\Windows\Microsoft.NET\Framework64\v3.0\Windows Communication Foundation\SMSvcHost.exe.config could not be found.
+INFO 08-30-2016 19:57:56 || [A-Controller] Running analysis thread information:	Directories being analysed = 100 [*]	Files under intense analysis = 0
+INFO 08-30-2016 19:58:38 || [A-Controller] Analysis initiated, target = C:\Program Files\Common Files\Intel Corporation\WiDiAgent\fwv00100\zbimage-linux-xload.monolithic-factory
+INFO 08-30-2016 19:58:45 || [A-Controller] Directory scan complete. Time taken for completion = 7 Seconds
+INFO 08-30-2016 19:59:29 || [A-Controller] Analysis initiated, target = C:\Program Files\Common Files\Intel Corporation\WiDiAgent\fwv00100\zbimage-linux-xload.monolithic-factory
+INFO 08-30-2016 19:59:37 || [A-Controller] Directory scan complete. Time taken for completion = 7 Seconds
+INFO 08-30-2016 20:00:23 || [A-Controller] Analysis initiated, target = C:\Program Files\Common Files\Intel Corporation\WiDiAgent\fwv00100\zbimage-linux-xload.monolithic-factory
+INFO 08-30-2016 20:00:30 || [A-Controller] Directory scan complete. Time taken for completion = 7 Seconds

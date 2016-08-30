@@ -4,6 +4,8 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
@@ -35,7 +37,7 @@ public class AnalysisController {
 	public static AtomicInteger furtherTests;
 	public static long startTime; 
 	static LtA logA = new LogObject();
-	public static ArrayList<Integer> mcTest = new ArrayList<Integer>();
+	//public static ArrayList<Integer> mcTest = new ArrayList<Integer>();
 	public static AtomicInteger totalFiles;
 	
 	public static int analyseFile(File file) throws IOException, InterruptedException {
@@ -79,7 +81,7 @@ public class AnalysisController {
 	private static void refreshVariables() {
 		//ExecutorService tp = new ThreadPoolExecutor(10, 50, 5*60, TimeUnit.SECONDS, new LinkedBlockingQueue<>());
 		scanDefaultExecutor = Executors.newFixedThreadPool(100);
-		scanFurtherExecutor = Executors.newFixedThreadPool(100);
+		scanFurtherExecutor = Executors.newFixedThreadPool(5);
 		//scanDefaultExecutor = new ThreadPoolExecutor(100, 100, 5*60, TimeUnit.SECONDS, new LinkedBlockingQueue<>());
 		//scanFurtherExecutor = new ThreadPoolExecutor(100, 100, 5*60, TimeUnit.SECONDS, new LinkedBlockingQueue<>());
 		startTime = System.currentTimeMillis();
@@ -144,23 +146,26 @@ public class AnalysisController {
 	{
 			int ret;
 			boolean wholeFileCheck = false;
+			ArrayList<Integer> mcTest = new ArrayList<Integer>();
 			Map<Byte, Integer> distribution = new HashMap<Byte, Integer>();
 			try {
 			    FileInputStream is = new FileInputStream(file);
 			    byte[] chunk = new byte[512];
+			    Long test = file.length();
 			    int chunkLen = 0;
-			    long chunkLimit = 3907L; // must match check value 5 lines down
+			    long chunkLimit = 9766L; // must match check value 5 lines down
 			    if((file.length() % 512) != 0 || !tika.detect(file.toPath()).equals("application/octet-stream")) // TC files are always a size correlating to 512
 			    {
 			    	return 1;
 			    }
-			if ((file.length() / 512) < 3907) {// sample of either 3907 = 2GB or 16384 = 8.3GB or 32768 = 16.7GB change chunk limit
+			 // sample of either 4194304 = 2GB or 16777216 = 8GB or 17179869184 = 16GB change chunk limit
+			if ((file.length() / 512) < 9766) {// sample of either 3907 = 2MB or 9766 = 5MB or 19532 = 10MB or 39064 = 20 MB change chunk limit
 				wholeFileCheck = true;
 				chunkLimit = file.length() / 512;
 			}
 			while (chunkLen != chunkLimit) {
 				is.read(chunk);
-				sortBytes(chunk, distribution);
+				sortBytes(chunk, distribution, mcTest);
 				chunkLen++;
 			}
 			    
@@ -172,7 +177,8 @@ public class AnalysisController {
 						, "Warning");
 			}
 			ret = analyseDistribution(distribution, wholeFileCheck);
-			//monteCarloTest();
+			if(ret == 0)
+			ret = monteCarloTest(mcTest);
 			if(ret == 0 && GUI.typeOfSearch.equals("dir"))
 			{
 				walkedFiles.put(file.getAbsolutePath(), 1);
@@ -281,7 +287,7 @@ public class AnalysisController {
 	//////////////////////////////////////////////////////////////////////
 	//////////////////////////////////////////////////////////////////////
 	
-	private static void sortBytes(byte[] b, Map<Byte, Integer> distribution)
+	private static void sortBytes(byte[] b, Map<Byte, Integer> distribution) //Original file sorting
 	{
 		int sum = 0;
 		int count = 0;
@@ -290,27 +296,54 @@ public class AnalysisController {
 			if(!distribution.containsKey(bite))
 				distribution.put(bite,0);
 			distribution.put(bite, distribution.get(bite) + 1);
+		}
+	}
+	
+//////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////
+
+	private static void sortBytes(byte[] b, Map<Byte, Integer> distribution, ArrayList<Integer> mcTest) //Overload file sorting in case of further testing
+	{	
+		int sum = 0;
+		int count = 0;
+		for (byte bite : b) {
+			if (!distribution.containsKey(bite))
+				distribution.put(bite, 0);
+			distribution.put(bite, distribution.get(bite) + 1);
 			
-			/*sum = sum + (bite & 0xff); // This needs to be thread specific you complete MORON!!!!!
-			count++;
-			if(count == 6)
-			{
+/*			sum = sum + Math.abs(bite); // Not sure if this should be unsigned, test without
+			count++; 
+			if (count == 6) { //1530
+				count = 0;
+				double check = (sum / 153) / 100;
+				mcTest.add(sum);
+				sum = 0;
+			}*/
+			
+			/*sum = sum + Math.abs(bite); // Not sure if this should be unsigned, test without
+			int check = Math.abs(bite);
+			if(check > 128)
+				System.out.println(check);
+			count++; 
+			if (count == 6) {
 				count = 0;
 				mcTest.add(sum);
 				sum = 0;
 			}*/
 			
-			/*sum = sum + (bite & 0xff); // Convert the byte to unsigned, prevents negative values in the sum - MONTE CARLO NEEEDED STUFF
-			if((bite & 0xff) == 0)
-				sum = sum + 1;
-			count++;
-			if(count == 8)
-			{
+			
+/*			sum = sum + Math.abs(bite);
+			count++; 
+			if (count == 6) {
 				count = 0;
 				mcTest.add(sum);
 				sum = 0;
-			}*/
+			}
+			*/
 			
+			//this works
+			int check = Math.abs(bite);
+			mcTest.add(check);
 		}
 	}
 	
@@ -359,7 +392,7 @@ public class AnalysisController {
 		{
 			result = result + (Math.pow((entry.getValue() - probability) , 2) / probability);// Math needs adapting to prevent floating math, unnecessary processing power required.
 		}
-		System.out.println(result);
+		//System.out.println(result);
 		int ret = 1;
 		if(result > 190 && result < 325)
 			ret = 0;
@@ -368,7 +401,7 @@ public class AnalysisController {
 	
 	
 	
-	private static double monteCarloTest() // Test doesnt work!!!
+	private static int monteCarloTest(ArrayList<Integer> mcTest) // Test doesnt work!!!
 	{
 		
 		double totalCoords = mcTest.size();
@@ -378,38 +411,60 @@ public class AnalysisController {
 		int entriesUsed = 0;
 		while(entriesUsed < totalCoords)
 		{
-			double sum1 = (mcTest.get(entriesUsed) * 2) - 1536;
+			//This works
+			double sum1 = (mcTest.get(entriesUsed) * 2) - 128;
 			entriesUsed++;
-			double sum2 = (mcTest.get(entriesUsed) * 2) - 1536;
+			double sum2 = (mcTest.get(entriesUsed) * 2) - 128;
+			entriesUsed++;
+			double distance = Math.hypot(sum1, sum2); // calculate distance from point 0,0 of plot
+			//System.out.println(distance);
+			if(distance < 128) //If within radius of circle (max range / 2)
+			{
+				countWithinRange++;
+			}
+			
+/*	    	double sum1 = (mcTest.get(entriesUsed) * 2) - 768;
+			entriesUsed++;
+			double sum2 = (mcTest.get(entriesUsed) * 2) - 768;
 			entriesUsed++;
 			double distance = Math.hypot(sum1, sum2); // calculate distance from point 0,0 of plot
 			if(distance < 768) //If within radius of circle (max range / 2)
 			{
 				countWithinRange++;
 			}
-		}
-		double piEst = (4 * countWithinRange / (totalCoords / 2));
-		System.out.println(piEst);
-		return 0;
-		
-		
-		
-		
-		/*int totalCoords = mcTest.size();
-		int countWithinRange = 0;
-		int entriesUsed = 0;
-		while(entriesUsed < totalCoords)
-		{
-			double sum1 = mcTest.get(entriesUsed);
+			else 
+				System.out.println(distance);*/
+			
+			
+/*			double sum1 = (mcTest.get(entriesUsed) * 2) - 765;
 			entriesUsed++;
-			double sum2 = mcTest.get(entriesUsed);
+			double sum2 = (mcTest.get(entriesUsed) * 2) - 765;
 			entriesUsed++;
-			if(Math.hypot(sum1, sum2) < 2046)
+			double distance = Math.hypot(sum1, sum2); // calculate distance from point 0,0 of plot
+			System.out.println(distance);
+			if(distance < 765) //If within radius of circle (max range / 2)
 			{
 				countWithinRange++;
-			}
+			}*/
+			
+/*			double sum1 = (mcTest.get(entriesUsed) * 2) - 765;
+			entriesUsed++;
+			double sum2 = (mcTest.get(entriesUsed) * 2) - 765;
+			entriesUsed++;
+			double distance = Math.hypot(sum1, sum2); // calculate distance from point 0,0 of plot
+			if(distance < 1530) //If within radius of circle (max range / 2)
+			{
+				countWithinRange++;
+			}*/
 		}
-		double piEst = (4 * countWithinRange / (entriesUsed / 2));
-		return 0;*/
+		double piEst = (4 * countWithinRange / (totalCoords / 2));
+		BigDecimal dec = new BigDecimal(Math.PI).setScale(16, RoundingMode.HALF_UP);
+		double diff = 100 * ((piEst - dec.doubleValue()) / dec.doubleValue());
+		int ret = 0;
+		if(diff > 0.21 || diff < -0.21)
+			ret = 1;
+		System.out.println(piEst);
+		System.out.println(diff);
+		return ret;
 	}
 }
