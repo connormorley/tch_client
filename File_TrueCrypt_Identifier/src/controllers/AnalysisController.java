@@ -37,7 +37,6 @@ public class AnalysisController {
 	public static AtomicInteger furtherTests;
 	public static long startTime; 
 	static LtA logA = new LogObject();
-	//public static ArrayList<Integer> mcTest = new ArrayList<Integer>();
 	public static AtomicInteger totalFiles;
 	
 	public static int analyseFile(File file) throws IOException, InterruptedException {
@@ -61,9 +60,6 @@ public class AnalysisController {
 			while (threads.get() != 0 || dirThreadCount.get() != 0) {
 				logA.doLog("AnalysisController", "[A-Controller] Running analysis thread information:	Directories being analysed = " 
 						+ dirThreadCount + " [*]	Files under intense analysis = " + threads, "Info");
-				/*logA.doLog("AnalysisController", "[A-Controller] Running analysis thread information:	Directories being analysed = " 
-						+ ((ThreadPoolExecutor) scanDefaultExecutor).getActiveCount() + "::" + dirThreadCount +  " [*]	Files under intense analysis = " + threads, "Info");*/
-				
 				Thread.sleep(5000);
 			}
 			scanDefaultExecutor.shutdown();
@@ -79,7 +75,6 @@ public class AnalysisController {
 	}
 
 	private static void refreshVariables() {
-		//ExecutorService tp = new ThreadPoolExecutor(10, 50, 5*60, TimeUnit.SECONDS, new LinkedBlockingQueue<>());
 		scanDefaultExecutor = Executors.newFixedThreadPool(100);
 		scanFurtherExecutor = Executors.newFixedThreadPool(5);
 		//scanDefaultExecutor = new ThreadPoolExecutor(100, 100, 5*60, TimeUnit.SECONDS, new LinkedBlockingQueue<>());
@@ -99,12 +94,10 @@ public class AnalysisController {
 
 	public static int processFile(File file) throws IOException {
 		int ret;
-		//System.out.println(file.getAbsolutePath());
 		int now = totalFiles.incrementAndGet();
 		if(now % 20 == 0)
 		{
 		GUI.jLabel7.setText(Integer.toString(now));
-		//GUI.jLabel7.paintImmediately(GUI.jLabel7.getVisibleRect()); // for file scanned counter, shows scanner progression
 		GUI.jLabel7.repaint(); // for file scanned counter, shows scanner progression
 		}
 		Map<Byte, Integer> distribution = new HashMap<Byte, Integer>();
@@ -198,15 +191,6 @@ public class AnalysisController {
 
 	public static void createDefaultTest(String path)
 	{
-/*		while(dirThreadCount.get() >= 100)
-		{
-			try {
-				Thread.sleep(100);
-			} catch (InterruptedException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-		}*/
         Callable<Integer> worker = new AnalysisController.MyAnalysis(path);
         Future<Integer> thread = AnalysisController.scanDefaultExecutor.submit(worker);
         return;
@@ -311,27 +295,6 @@ public class AnalysisController {
 				distribution.put(bite, 0);
 			distribution.put(bite, distribution.get(bite) + 1);
 			
-/*			sum = sum + Math.abs(bite); // Not sure if this should be unsigned, test without
-			count++; 
-			if (count == 6) { //1530
-				count = 0;
-				double check = (sum / 153) / 100;
-				mcTest.add(sum);
-				sum = 0;
-			}*/
-			
-			/*sum = sum + Math.abs(bite); // Not sure if this should be unsigned, test without
-			int check = Math.abs(bite);
-			if(check > 128)
-				System.out.println(check);
-			count++; 
-			if (count == 6) {
-				count = 0;
-				mcTest.add(sum);
-				sum = 0;
-			}*/
-			
-			
 /*			sum = sum + Math.abs(bite);
 			count++; 
 			if (count == 6) {
@@ -422,40 +385,6 @@ public class AnalysisController {
 			{
 				countWithinRange++;
 			}
-			
-/*	    	double sum1 = (mcTest.get(entriesUsed) * 2) - 768;
-			entriesUsed++;
-			double sum2 = (mcTest.get(entriesUsed) * 2) - 768;
-			entriesUsed++;
-			double distance = Math.hypot(sum1, sum2); // calculate distance from point 0,0 of plot
-			if(distance < 768) //If within radius of circle (max range / 2)
-			{
-				countWithinRange++;
-			}
-			else 
-				System.out.println(distance);*/
-			
-			
-/*			double sum1 = (mcTest.get(entriesUsed) * 2) - 765;
-			entriesUsed++;
-			double sum2 = (mcTest.get(entriesUsed) * 2) - 765;
-			entriesUsed++;
-			double distance = Math.hypot(sum1, sum2); // calculate distance from point 0,0 of plot
-			System.out.println(distance);
-			if(distance < 765) //If within radius of circle (max range / 2)
-			{
-				countWithinRange++;
-			}*/
-			
-/*			double sum1 = (mcTest.get(entriesUsed) * 2) - 765;
-			entriesUsed++;
-			double sum2 = (mcTest.get(entriesUsed) * 2) - 765;
-			entriesUsed++;
-			double distance = Math.hypot(sum1, sum2); // calculate distance from point 0,0 of plot
-			if(distance < 1530) //If within radius of circle (max range / 2)
-			{
-				countWithinRange++;
-			}*/
 		}
 		double piEst = (4 * countWithinRange / (totalCoords / 2));
 		BigDecimal dec = new BigDecimal(Math.PI).setScale(16, RoundingMode.HALF_UP);

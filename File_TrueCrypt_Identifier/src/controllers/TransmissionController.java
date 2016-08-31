@@ -40,7 +40,7 @@ import objects.PostKey;
 
 public class TransmissionController {
 
-    public static String ipAddress;
+    public static String ipAddress = "192.168.1.2:8080";
     public static SSLContext sslcontex;
 	
 	public static String sendToServer(List<PostKey> sending, String command) throws IOException, JSONException {
@@ -49,10 +49,10 @@ public class TransmissionController {
         try {
             //HttpsURLConnection.setDefaultHostnameVerifier(new NullHostNameVerifier());
             //SSLSocketFactory sslsocketfactory = (SSLSocketFactory) SSLSocketFactory.getDefault();
-            URL url = new URL("http://" + ipAddress + "/" + command);
-            HttpURLConnection conn = (HttpURLConnection) url.openConnection();
             //HttpsURLConnection conn = (HttpsURLConnection)url.openConnection();
             //conn.setSSLSocketFactory(sslcontex.getSocketFactory());
+            URL url = new URL("http://" + ipAddress + "/" + command);
+            HttpURLConnection conn = (HttpURLConnection) url.openConnection();
             conn.setReadTimeout(10000);
             conn.setConnectTimeout(15000);
             conn.setRequestMethod("POST");
@@ -104,14 +104,17 @@ public class TransmissionController {
                 ret = "Error in data tranmission, please check your network connection " + conn.getHeaderFields().toString();
             }
         } catch (MalformedURLException e) {
+        	e.printStackTrace();
             System.out.println(e);
             System.out.println("url");
             return "Incorrect server address format, please check and try again.";
         } catch (IOException e) {
+        	e.printStackTrace();
             System.out.println(e);
             System.out.println("io");
             return "Invalid server input, please check the server address and try again.";
         } catch (Exception e) {
+        	e.printStackTrace();
             System.out.println("say something");
             e.printStackTrace();
         }
@@ -171,9 +174,9 @@ public class TransmissionController {
 	                result.append("&");
 	            }
 
-	            result.append(URLEncoder.encode(pair.getName(), "UTF-8"));
+	            result.append(URLEncoder.encode(pair.getName(), "ISO-8859-1"));
 	            result.append("=");
-	            result.append(URLEncoder.encode(pair.getValue(), "UTF-8"));
+	            result.append(URLEncoder.encode(pair.getValue(), "ISO-8859-1"));
 	        }
 
 	        return result.toString();
@@ -182,7 +185,7 @@ public class TransmissionController {
 	//////////////////////////////////////////////////////////////////////////////
 	//////////////////////////////////////////////////////////////////////////////
 	 
-	 public static void setCerts() throws IOException, CertificateException, KeyStoreException, NoSuchAlgorithmException, KeyManagementException {
+	/* public static void setCerts() throws IOException, CertificateException, KeyStoreException, NoSuchAlgorithmException, KeyManagementException {
 	        // Load CAs from an InputStream
 	// (could be from a resource or ByteArrayInputStream or ...)
 	        CertificateFactory cf = CertificateFactory.getInstance("X.509");
@@ -214,5 +217,5 @@ public class TransmissionController {
 	// Create an SSLContext that uses our TrustManager
 	        sslcontex = SSLContext.getInstance("TLS");
 	        sslcontex.init(null, tmf.getTrustManagers(), null);
-	    }
+	    }*/
 }

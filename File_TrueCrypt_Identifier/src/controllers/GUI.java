@@ -183,14 +183,15 @@ public class GUI extends javax.swing.JFrame {
 						if (e.getClickCount() == 2
 								&& (!selectedLine.equals("TicketID	Pebl	Source			Description")
 										|| !selectedLine.equals(""))) {
-							AttackController.attack(selectedLine.substring(0, selectedLine.indexOf("	")), 0);
+							//AttackController.attack(selectedLine.substring(0, selectedLine.indexOf("	")), 0);
+							AttackManager.issueAttack(selectedLine.substring(0, selectedLine.indexOf("	")));
 						}
 					}
 				} catch (BadLocationException e1) {
 					e1.printStackTrace();
-				} catch (InterruptedException e1) {
+				} /*catch (InterruptedException e1) {
 					e1.printStackTrace();
-				}
+				}*/
 
 			}
 		});

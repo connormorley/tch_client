@@ -1,4 +1,4 @@
-package Threads;
+/*package Threads;
 
 import java.io.IOException;
 import java.net.NetworkInterface;
@@ -44,3 +44,4 @@ public class JobPollThread {
         return mac;
 	}
 }
+*/
