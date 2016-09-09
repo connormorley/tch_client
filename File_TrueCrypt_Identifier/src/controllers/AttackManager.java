@@ -50,8 +50,17 @@ public class AttackManager {
 	        e.printStackTrace();
 	    }
 	    
-	    String tet = new String(finalbytes, "ISO-8859-1");// This encoding works with 1 - 1 translation, allowed for string movement of file!!!!
+	    //String tet = new String(finalbytes, "ISO-8859-1");// This encoding works with 1 - 1 translation, allowed for string movement of file!!!!
 
+	    	final char[] hexArray = "0123456789ABCDEF".toCharArray();
+	        char[] hexChars = new char[finalbytes.length * 2];
+	        for ( int j = 0; j < finalbytes.length; j++ ) {
+	            int v = finalbytes[j] & 0xFF;
+	            hexChars[j * 2] = hexArray[v >>> 4];
+	            hexChars[j * 2 + 1] = hexArray[v & 0x0F];
+	        }
+	        String tet = new String(hexChars);
+	    
 	    //This is a working transmission of the byte fopr file recreation, this can thenrefore be sent to all nodes!!
 	    ArrayList<PostKey> sending = new ArrayList<PostKey>();
         sending.add(new PostKey("attackblock", tet));

@@ -9401,3 +9401,54 @@ INFO 08-31-2016 15:58:44 || [A-Controller] Analysis initiated, target = F:\New f
 INFO 08-31-2016 15:58:51 || [A-Controller] Directory scan complete. Time taken for completion = 7 Seconds
 INFO 08-31-2016 16:04:46 || [A-Controller] Analysis initiated, target = F:\New folder\tc files\5mb
 INFO 08-31-2016 16:04:53 || [A-Controller] Directory scan complete. Time taken for completion = 7 Seconds
+INFO 08-31-2016 18:13:29 || [A-Controller] Analysis initiated, target = F:\New folder\tc files\5mb
+INFO 08-31-2016 18:13:36 || [A-Controller] Directory scan complete. Time taken for completion = 7 Seconds
+INFO 08-31-2016 18:20:06 || [A-Controller] Analysis initiated, target = F:\New folder\tc files\5mb
+INFO 08-31-2016 18:20:13 || [A-Controller] Directory scan complete. Time taken for completion = 7 Seconds
+INFO 08-31-2016 18:34:48 || [A-Controller] Analysis initiated, target = F:\New folder\tc files\5mb
+INFO 08-31-2016 18:34:55 || [A-Controller] Directory scan complete. Time taken for completion = 7 Seconds
+INFO 08-31-2016 18:41:09 || [A-Controller] Analysis initiated, target = F:\New folder\tc files\5mb
+INFO 08-31-2016 18:41:16 || [A-Controller] Directory scan complete. Time taken for completion = 7 Seconds
+INFO 09-09-2016 12:08:17 || [A-Controller] Analysis initiated, target = F:\New folder
+INFO 09-09-2016 12:08:24 || [A-Controller] Running analysis thread information:	Directories being analysed = 1 [*]	Files under intense analysis = 5
+INFO 09-09-2016 12:08:25 || [A-Controller] File F:\New folder\tc files\250mb identified as likely TC file.
+INFO 09-09-2016 12:08:25 || [A-Controller] File F:\New folder\tc files\25mb identified as likely TC file.
+INFO 09-09-2016 12:08:26 || [A-Controller] File F:\New folder\tc files\500mb identified as likely TC file.
+INFO 09-09-2016 12:08:26 || [A-Controller] File F:\New folder\tc files\5gb identified as likely TC file.
+INFO 09-09-2016 12:08:26 || [A-Controller] File F:\New folder\tc files\5mb identified as likely TC file.
+INFO 09-09-2016 12:08:28 || [A-Controller] File F:\New folder\tc files\superLarge identified as likely TC file.
+INFO 09-09-2016 12:08:28 || [A-Controller] File F:\New folder\tc files\tester identified as likely TC file.
+INFO 09-09-2016 12:08:28 || [A-Controller] File F:\New folder\tc files\testgb identified as likely TC file.
+INFO 09-09-2016 12:08:28 || [A-Controller] File F:\New folder\tc files\testLarge identified as likely TC file.
+INFO 09-09-2016 12:08:29 || [A-Controller] Directory scan complete. Time taken for completion = 12 Seconds
+INFO 09-09-2016 12:17:54 || [A-Controller] Analysis initiated, target = F:\New folder\tc files
+INFO 09-09-2016 12:17:59 || [A-Controller] Running analysis thread information:	Directories being analysed = 1 [*]	Files under intense analysis = 5
+INFO 09-09-2016 12:18:01 || [A-Controller] File F:\New folder\tc files\25mb identified as likely TC file.
+INFO 09-09-2016 12:18:01 || [A-Controller] File F:\New folder\tc files\250mb identified as likely TC file.
+INFO 09-09-2016 12:18:01 || [A-Controller] File F:\New folder\tc files\500mb identified as likely TC file.
+INFO 09-09-2016 12:18:01 || [A-Controller] File F:\New folder\tc files\5gb identified as likely TC file.
+INFO 09-09-2016 12:18:01 || [A-Controller] File F:\New folder\tc files\5mb identified as likely TC file.
+INFO 09-09-2016 12:18:04 || [A-Controller] File F:\New folder\tc files\tester identified as likely TC file.
+INFO 09-09-2016 12:18:04 || [A-Controller] File F:\New folder\tc files\superLarge identified as likely TC file.
+INFO 09-09-2016 12:18:04 || [A-Controller] File F:\New folder\tc files\testLarge identified as likely TC file.
+INFO 09-09-2016 12:18:04 || [A-Controller] File F:\New folder\tc files\testgb identified as likely TC file.
+INFO 09-09-2016 12:18:04 || [A-Controller] Directory scan complete. Time taken for completion = 10 Seconds
+INFO 09-09-2016 12:21:00 || [A-Controller] Analysis initiated, target = F:\New folder
+INFO 09-09-2016 12:21:05 || [A-Controller] Running analysis thread information:	Directories being analysed = 0 [*]	Files under intense analysis = 5
+INFO 09-09-2016 12:21:07 || [A-Controller] File F:\New folder\tc files\25mb identified as likely TC file.
+INFO 09-09-2016 12:21:07 || [A-Controller] File F:\New folder\tc files\250mb identified as likely TC file.
+INFO 09-09-2016 12:21:07 || [A-Controller] File F:\New folder\tc files\500mb identified as likely TC file.
+INFO 09-09-2016 12:21:07 || [A-Controller] File F:\New folder\tc files\5gb identified as likely TC file.
+INFO 09-09-2016 12:21:08 || [A-Controller] File F:\New folder\tc files\5mb identified as likely TC file.
+INFO 09-09-2016 12:21:10 || [A-Controller] Running analysis thread information:	Directories being analysed = 0 [*]	Files under intense analysis = 4
+INFO 09-09-2016 12:21:11 || [A-Controller] File F:\New folder\tc files\tester identified as likely TC file.
+INFO 09-09-2016 12:21:11 || [A-Controller] File F:\New folder\tc files\superLarge identified as likely TC file.
+INFO 09-09-2016 12:21:11 || [A-Controller] File F:\New folder\tc files\testLarge identified as likely TC file.
+INFO 09-09-2016 12:21:11 || [A-Controller] File F:\New folder\tc files\testgb identified as likely TC file.
+INFO 09-09-2016 12:21:15 || [A-Controller] Directory scan complete. Time taken for completion = 15 Seconds
+INFO 09-09-2016 12:24:50 || [A-Controller] Analysis initiated, target = F:\New folder\tc files\5mb
+INFO 09-09-2016 12:24:57 || [A-Controller] Directory scan complete. Time taken for completion = 7 Seconds
+INFO 09-09-2016 12:42:23 || [A-Controller] Analysis initiated, target = F:\New folder\tc files\5mb
+INFO 09-09-2016 12:42:31 || [A-Controller] Directory scan complete. Time taken for completion = 7 Seconds
+INFO 09-09-2016 12:48:13 || [A-Controller] Analysis initiated, target = F:\New folder\tc files\5mb
+INFO 09-09-2016 12:48:20 || [A-Controller] Directory scan complete. Time taken for completion = 7 Seconds
