@@ -40,7 +40,7 @@ import objects.PostKey;
 
 public class TransmissionController {
 
-    public static String ipAddress = "192.168.1.10:8080";
+    public static String ipAddress = "localhost:8080";
     public static SSLContext sslcontex;
 	
 	public static String sendToServer(List<PostKey> sending, String command) throws IOException, JSONException {
@@ -85,7 +85,7 @@ public class TransmissionController {
             StringBuilder response = new StringBuilder();
             while ((line = rd.readLine()) != null) {
                 response.append(line);
-                response.append('\r');
+                //response.append('\r');
             }
             rd.close();
             String tester = response.toString();

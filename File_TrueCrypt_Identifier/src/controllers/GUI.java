@@ -8,6 +8,7 @@ import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URISyntaxException;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.concurrent.Callable;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -19,12 +20,17 @@ import javax.swing.SwingConstants;
 import javax.swing.text.BadLocationException;
 import javax.swing.text.Utilities;
 
+import org.json.JSONException;
+
+import objects.PostKey;
+
 public class GUI extends javax.swing.JFrame {
 
 	public static File file;
 	public static String typeOfSearch = "";
 	public static String selectedItem = "";
 	static int isScanning = 0;
+	private static Future<String> scanningThread;
 	
 
     public GUI() {
@@ -162,6 +168,8 @@ public class GUI extends javax.swing.JFrame {
                 .addGap(21, 21, 21))
         );
         
+        jTextArea1.setEditable(false);
+        
 		jTextArea1.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
@@ -185,6 +193,7 @@ public class GUI extends javax.swing.JFrame {
 										|| !selectedLine.equals(""))) {
 							//AttackController.attack(selectedLine.substring(0, selectedLine.indexOf("	")), 0);
 							AttackManager.issueAttack(selectedLine.substring(0, selectedLine.indexOf("	")));
+							startAttackMonitor();
 						}
 					}
 				} catch (BadLocationException e1) {
@@ -234,7 +243,7 @@ public class GUI extends javax.swing.JFrame {
     
     private void scanSelection(java.awt.event.ActionEvent evt) throws InterruptedException {     
     	if(isScanning == 0)
- {
+    	{
 			if (file != null) {
 				isScanning = 1;
 				jLabel5.setText("Scanning");
@@ -245,7 +254,7 @@ public class GUI extends javax.swing.JFrame {
 				Callable<String> callable = new Callable<String>() {
 					@Override
 					public String call() throws InterruptedException, IOException {
-						int tc = AnalysisController.analyseFile(file);
+						int tc = AnalysisController.analyseFile(file); //submits file for analysis, if it is solo file does text print, if directory this is handled within the subsequent threads.
 						if (typeOfSearch.equals("file")) {
 							jTextArea1.setText(file.getAbsolutePath() + "						TC DETECTED!");
 							jLabel5.setText("Scan Complete");
@@ -256,13 +265,44 @@ public class GUI extends javax.swing.JFrame {
 						return "Complete";
 					}
 				};
-				Future<String> future = exec.submit(callable); //Future added for cancellation option to be added!!!!
+				scanningThread = exec.submit(callable); //Future added for cancellation option to be added!!!!
 			}
-		} else {
-			JOptionPane.showMessageDialog(null, "Scan already in progress, please wait for completion.", "Warning",
-					JOptionPane.INFORMATION_MESSAGE);
+		} else if(button1.getText().equals("Cancel")){
+			scanningThread.cancel(true);
+			button1.setText("Scan");
+			button1.paintImmediately(button1.getVisibleRect());
 		}
+		else
+			JOptionPane.showMessageDialog(null, "Scan is in the process of termination, please wait.", "Warning",
+			JOptionPane.INFORMATION_MESSAGE);
 	}
+    
+    public static void startAttackMonitor()
+    {
+    	ExecutorService exec = Executors.newSingleThreadExecutor();
+    	Callable<Integer> callable = new Callable<Integer>() {
+    		@Override
+    		public Integer call() throws JSONException, IOException, InterruptedException {
+    			String password = "";
+    			while(true)
+    			{
+    			Thread.sleep(2500);
+    			ArrayList<PostKey> sending = new ArrayList<PostKey>();
+    	        sending.add(new PostKey("attackID", AttackManager.attackID));
+    	        sending.add(new PostKey("password", "test"));
+    	        password = TransmissionController.sendToServer(sending, "resultCheck");
+    	        if(!password.equals("No result"))
+    	        {
+    	        	AttackManager.passwordResult = password;
+    	        	JOptionPane.showMessageDialog(null, "Password for target : " + AttackManager.attackTarget + " has been identified. \n Password is : " + password, "Password Identified", JOptionPane.INFORMATION_MESSAGE);
+    	        	return 1;
+    	        }
+    			}
+    		}
+    	};
+    	Future<Integer> future = exec.submit(callable);
+    	return;
+    }
     
 
     public static void main(String args[]) {
@@ -290,7 +330,7 @@ public class GUI extends javax.swing.JFrame {
         });
     }
     
-    private javax.swing.JButton button1;
+    public static javax.swing.JButton button1;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;

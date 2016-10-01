@@ -40,8 +40,11 @@ public class AnalysisController {
 	public static AtomicInteger totalFiles;
 	
 	public static int analyseFile(File file) throws IOException, InterruptedException {
-		logA.doLog("AnalysisController", "[A-Controller] Analysis initiated, target = " + file.getAbsolutePath(), "Info");
 		int ret = 0;
+		try{
+		logA.doLog("AnalysisController", "[A-Controller] Analysis initiated, target = " + file.getAbsolutePath(), "Info");
+		GUI.button1.setText("Cancel");
+		GUI.button1.paintImmediately(GUI.button1.getVisibleRect());
 		refreshVariables(); //Reset class variables for fresh analysis of new selection
 		
 		if (file.isDirectory()) {
@@ -71,6 +74,25 @@ public class AnalysisController {
 		GUI.jLabel5.setText("Scan Complete");
 		GUI.jLabel5.paintImmediately(GUI.jLabel5.getVisibleRect());
 		GUI.isScanning = 0;
+		GUI.button1.setText("Scan");
+		GUI.button1.paintImmediately(GUI.button1.getVisibleRect());
+		}
+		catch(InterruptedException e)
+		{
+			scanDefaultExecutor.shutdownNow();
+			scanFurtherExecutor.shutdownNow();
+			logA.doLog("AnalysisController", "[A-Controller] Analysis thread manually terminated", "Info");
+			GUI.jLabel5.setText("Scan Stopping");
+			GUI.jLabel5.paintImmediately(GUI.jLabel5.getVisibleRect());
+			while(!scanDefaultExecutor.isTerminated() && !scanFurtherExecutor.isTerminated())
+			{
+				Thread.sleep(1000);
+			}
+			GUI.jLabel5.setText("Scan Terminated");
+			GUI.jLabel5.paintImmediately(GUI.jLabel5.getVisibleRect());
+			GUI.isScanning = 0;
+			return 0;
+		}
 		return ret;
 	}
 

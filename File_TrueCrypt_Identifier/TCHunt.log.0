@@ -9452,3 +9452,101 @@ INFO 09-09-2016 12:42:23 || [A-Controller] Analysis initiated, target = F:\New f
 INFO 09-09-2016 12:42:31 || [A-Controller] Directory scan complete. Time taken for completion = 7 Seconds
 INFO 09-09-2016 12:48:13 || [A-Controller] Analysis initiated, target = F:\New folder\tc files\5mb
 INFO 09-09-2016 12:48:20 || [A-Controller] Directory scan complete. Time taken for completion = 7 Seconds
+INFO 09-30-2016 20:46:26 || [A-Controller] Analysis initiated, target = C:\Users\whyis\Documents
+INFO 09-30-2016 20:46:31 || [A-Controller] Running analysis thread information:	Directories being analysed = 100 [*]	Files under intense analysis = 1
+INFO 09-30-2016 20:46:36 || [A-Controller] Running analysis thread information:	Directories being analysed = 100 [*]	Files under intense analysis = 1
+INFO 09-30-2016 20:46:41 || [A-Controller] Running analysis thread information:	Directories being analysed = 100 [*]	Files under intense analysis = 1
+INFO 09-30-2016 20:46:46 || [A-Controller] Running analysis thread information:	Directories being analysed = 100 [*]	Files under intense analysis = 1
+INFO 09-30-2016 20:46:51 || [A-Controller] Running analysis thread information:	Directories being analysed = 100 [*]	Files under intense analysis = 1
+INFO 09-30-2016 20:46:56 || [A-Controller] Running analysis thread information:	Directories being analysed = 100 [*]	Files under intense analysis = 1
+INFO 09-30-2016 20:47:01 || [A-Controller] Running analysis thread information:	Directories being analysed = 100 [*]	Files under intense analysis = 1
+INFO 09-30-2016 20:47:06 || [A-Controller] Running analysis thread information:	Directories being analysed = 100 [*]	Files under intense analysis = 1
+INFO 09-30-2016 20:47:11 || [A-Controller] Running analysis thread information:	Directories being analysed = 100 [*]	Files under intense analysis = 1
+INFO 09-30-2016 20:47:16 || [A-Controller] Running analysis thread information:	Directories being analysed = 100 [*]	Files under intense analysis = 1
+INFO 09-30-2016 20:47:21 || [A-Controller] Running analysis thread information:	Directories being analysed = 68 [*]	Files under intense analysis = 1
+INFO 09-30-2016 20:47:26 || [A-Controller] Running analysis thread information:	Directories being analysed = 31 [*]	Files under intense analysis = 1
+INFO 09-30-2016 20:47:31 || [A-Controller] Running analysis thread information:	Directories being analysed = 12 [*]	Files under intense analysis = 1
+INFO 09-30-2016 20:47:31 || [A-Controller] File C:\Users\whyis\Documents\0091557843215 identified as likely TC file.
+INFO 09-30-2016 20:47:36 || [A-Controller] Running analysis thread information:	Directories being analysed = 3 [*]	Files under intense analysis = 0
+INFO 09-30-2016 20:47:41 || [A-Controller] Running analysis thread information:	Directories being analysed = 2 [*]	Files under intense analysis = 0
+INFO 09-30-2016 20:47:46 || [A-Controller] Directory scan complete. Time taken for completion = 80 Seconds
+INFO 09-30-2016 20:48:56 || [A-Controller] Analysis initiated, target = C:\Users\whyis\Documents\0091557843215
+INFO 09-30-2016 20:49:04 || [A-Controller] Directory scan complete. Time taken for completion = 7 Seconds
+INFO 09-30-2016 20:57:53 || [A-Controller] Analysis initiated, target = C:\Users\whyis\Documents\0091557843215
+INFO 09-30-2016 20:58:00 || [A-Controller] Directory scan complete. Time taken for completion = 7 Seconds
+INFO 09-30-2016 20:59:55 || [A-Controller] Analysis initiated, target = C:\Users\whyis\Documents\tester
+INFO 09-30-2016 21:00:02 || [A-Controller] Directory scan complete. Time taken for completion = 6 Seconds
+INFO 09-30-2016 22:52:15 || [A-Controller] Analysis initiated, target = C:\Users\whyis\Documents\tester
+INFO 09-30-2016 22:52:22 || [A-Controller] Directory scan complete. Time taken for completion = 7 Seconds
+INFO 09-30-2016 22:55:05 || [A-Controller] Analysis initiated, target = C:\Users\whyis\Documents\tester
+INFO 09-30-2016 22:55:12 || [A-Controller] Directory scan complete. Time taken for completion = 7 Seconds
+INFO 09-30-2016 23:06:00 || [A-Controller] Analysis initiated, target = C:\Users\whyis\Documents\tester
+INFO 09-30-2016 23:06:07 || [A-Controller] Directory scan complete. Time taken for completion = 7 Seconds
+INFO 09-30-2016 23:07:29 || [A-Controller] Analysis initiated, target = C:\Users\whyis\Documents\tester
+INFO 09-30-2016 23:07:36 || [A-Controller] Directory scan complete. Time taken for completion = 7 Seconds
+INFO 10-01-2016 00:22:51 || [A-Controller] Analysis initiated, target = C:\Users\whyis\Documents\0091557843215
+INFO 10-01-2016 00:22:59 || [A-Controller] Directory scan complete. Time taken for completion = 7 Seconds
+INFO 10-01-2016 00:26:39 || [A-Controller] Analysis initiated, target = C:\Users\whyis\Documents\0091557843215
+INFO 10-01-2016 00:26:47 || [A-Controller] Directory scan complete. Time taken for completion = 7 Seconds
+INFO 10-01-2016 00:40:51 || [A-Controller] Analysis initiated, target = C:\Users\whyis\Documents\0091557843215
+INFO 10-01-2016 00:40:59 || [A-Controller] Directory scan complete. Time taken for completion = 7 Seconds
+INFO 10-01-2016 00:49:15 || [A-Controller] Analysis initiated, target = C:\Users\whyis\Documents\0091557843215
+INFO 10-01-2016 00:49:22 || [A-Controller] Directory scan complete. Time taken for completion = 7 Seconds
+INFO 10-01-2016 01:35:02 || [A-Controller] Analysis initiated, target = C:\Users\whyis\Documents
+INFO 10-01-2016 01:35:05 || [A-Controller] File C:\Users\whyis\Documents\0091557843215 identified as likely TC file.
+INFO 10-01-2016 01:35:05 || [A-Controller] File C:\Users\whyis\Documents\tester identified as likely TC file.
+INFO 10-01-2016 01:35:07 || [A-Controller] Running analysis thread information:	Directories being analysed = 101 [*]	Files under intense analysis = 0
+INFO 10-01-2016 01:37:57 || [A-Controller] Analysis initiated, target = C:\Users\whyis\Documents
+INFO 10-01-2016 01:38:00 || [A-Controller] File C:\Users\whyis\Documents\0091557843215 identified as likely TC file.
+INFO 10-01-2016 01:38:01 || [A-Controller] File C:\Users\whyis\Documents\tester identified as likely TC file.
+INFO 10-01-2016 01:41:29 || [A-Controller] Analysis initiated, target = C:\Users\whyis\Documents
+INFO 10-01-2016 01:41:32 || [A-Controller] File C:\Users\whyis\Documents\0091557843215 identified as likely TC file.
+INFO 10-01-2016 01:41:32 || [A-Controller] File C:\Users\whyis\Documents\tester identified as likely TC file.
+INFO 10-01-2016 01:41:33 || [A-Controller] Analysis thread manually terminated
+INFO 10-01-2016 01:42:35 || [A-Controller] Analysis initiated, target = C:\Users\whyis\Documents
+INFO 10-01-2016 01:42:38 || [A-Controller] Analysis thread manually terminated
+INFO 10-01-2016 01:42:38 || [A-Controller] File C:\Users\whyis\Documents\0091557843215 identified as likely TC file.
+INFO 10-01-2016 01:42:38 || [A-Controller] File C:\Users\whyis\Documents\tester identified as likely TC file.
+INFO 10-01-2016 01:43:53 || [A-Controller] Analysis initiated, target = C:\Users\whyis\Documents
+INFO 10-01-2016 01:43:56 || [A-Controller] Analysis thread manually terminated
+INFO 10-01-2016 01:43:56 || [A-Controller] File C:\Users\whyis\Documents\0091557843215 identified as likely TC file.
+INFO 10-01-2016 01:43:56 || [A-Controller] File C:\Users\whyis\Documents\tester identified as likely TC file.
+INFO 10-01-2016 01:44:03 || [A-Controller] Analysis initiated, target = C:\Users\whyis\Documents
+INFO 10-01-2016 01:44:06 || [A-Controller] File C:\Users\whyis\Documents\0091557843215 identified as likely TC file.
+INFO 10-01-2016 01:44:06 || [A-Controller] File C:\Users\whyis\Documents\tester identified as likely TC file.
+INFO 10-01-2016 01:44:08 || [A-Controller] Running analysis thread information:	Directories being analysed = 75 [*]	Files under intense analysis = 0
+INFO 10-01-2016 01:44:11 || [A-Controller] Analysis thread manually terminated
+INFO 10-01-2016 01:47:59 || [A-Controller] Analysis initiated, target = C:\Users\whyis\Documents
+INFO 10-01-2016 01:48:02 || [A-Controller] File C:\Users\whyis\Documents\0091557843215 identified as likely TC file.
+INFO 10-01-2016 01:48:02 || [A-Controller] File C:\Users\whyis\Documents\tester identified as likely TC file.
+INFO 10-01-2016 01:48:04 || [A-Controller] Running analysis thread information:	Directories being analysed = 100 [*]	Files under intense analysis = 0
+INFO 10-01-2016 01:48:06 || [A-Controller] Analysis thread manually terminated
+INFO 10-01-2016 01:48:16 || [A-Controller] Analysis initiated, target = C:\Users\whyis\Documents
+INFO 10-01-2016 01:48:19 || [A-Controller] Analysis thread manually terminated
+INFO 10-01-2016 01:48:19 || [A-Controller] File C:\Users\whyis\Documents\0091557843215 identified as likely TC file.
+INFO 10-01-2016 01:48:19 || [A-Controller] File C:\Users\whyis\Documents\tester identified as likely TC file.
+INFO 10-01-2016 01:48:23 || [A-Controller] Analysis initiated, target = C:\Users\whyis\Documents
+INFO 10-01-2016 01:48:24 || [A-Controller] Analysis thread manually terminated
+INFO 10-01-2016 01:48:25 || [A-Controller] File C:\Users\whyis\Documents\0091557843215 identified as likely TC file.
+INFO 10-01-2016 01:48:25 || [A-Controller] File C:\Users\whyis\Documents\tester identified as likely TC file.
+INFO 10-01-2016 01:48:31 || [A-Controller] Analysis initiated, target = C:\Users\whyis\Documents
+INFO 10-01-2016 01:48:34 || [A-Controller] File C:\Users\whyis\Documents\0091557843215 identified as likely TC file.
+INFO 10-01-2016 01:48:34 || [A-Controller] File C:\Users\whyis\Documents\tester identified as likely TC file.
+INFO 10-01-2016 01:48:36 || [A-Controller] Analysis thread manually terminated
+INFO 10-01-2016 01:48:37 || [A-Controller] Analysis initiated, target = C:\Users\whyis\Documents
+INFO 10-01-2016 01:48:39 || [A-Controller] File C:\Users\whyis\Documents\0091557843215 identified as likely TC file.
+INFO 10-01-2016 01:48:39 || [A-Controller] File C:\Users\whyis\Documents\tester identified as likely TC file.
+INFO 10-01-2016 01:48:42 || [A-Controller] Analysis thread manually terminated
+INFO 10-01-2016 01:48:43 || [A-Controller] Analysis initiated, target = C:\Users\whyis\Documents
+INFO 10-01-2016 01:48:44 || [A-Controller] Analysis thread manually terminated
+INFO 10-01-2016 01:48:45 || [A-Controller] File C:\Users\whyis\Documents\0091557843215 identified as likely TC file.
+INFO 10-01-2016 01:48:46 || [A-Controller] File C:\Users\whyis\Documents\tester identified as likely TC file.
+INFO 10-01-2016 01:51:00 || [A-Controller] Analysis initiated, target = C:\Users\whyis\Documents
+INFO 10-01-2016 01:51:02 || [A-Controller] Analysis thread manually terminated
+INFO 10-01-2016 01:51:03 || [A-Controller] File C:\Users\whyis\Documents\0091557843215 identified as likely TC file.
+INFO 10-01-2016 01:51:03 || [A-Controller] File C:\Users\whyis\Documents\tester identified as likely TC file.
+INFO 10-01-2016 01:53:08 || [A-Controller] Analysis initiated, target = C:\Users\whyis\Documents
+INFO 10-01-2016 01:53:11 || [A-Controller] File C:\Users\whyis\Documents\0091557843215 identified as likely TC file.
+INFO 10-01-2016 01:53:11 || [A-Controller] File C:\Users\whyis\Documents\tester identified as likely TC file.
+INFO 10-01-2016 01:53:13 || [A-Controller] Running analysis thread information:	Directories being analysed = 100 [*]	Files under intense analysis = 0
+INFO 10-01-2016 01:53:17 || [A-Controller] Analysis thread manually terminated

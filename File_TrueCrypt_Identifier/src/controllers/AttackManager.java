@@ -18,11 +18,16 @@ import org.apache.commons.lang.ArrayUtils;
 import objects.PostKey;
 
 public class AttackManager {
+	
+	public static String attackID;
+	public static String passwordResult;
+	public static String attackTarget;
 
 	
 	public static boolean issueAttack(String fileName)
 	{
 		try{
+		attackTarget = fileName;
 		Byte[] forFile; 
 		File file = new File(fileName);
 		FileInputStream is = new FileInputStream(file);
@@ -65,7 +70,7 @@ public class AttackManager {
 	    ArrayList<PostKey> sending = new ArrayList<PostKey>();
         sending.add(new PostKey("attackblock", tet));
         sending.add(new PostKey("password", "test"));
-        TransmissionController.sendToServer(sending, "issueAttack");
+        attackID = TransmissionController.sendToServer(sending, "issueAttack");
 	    
 		}catch(Exception e){
 			e.printStackTrace();
