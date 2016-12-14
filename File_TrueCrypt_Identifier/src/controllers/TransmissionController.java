@@ -43,7 +43,7 @@ public class TransmissionController {
     public static String ipAddress = "localhost:8080";
     public static SSLContext sslcontex;
 	
-	public static String sendToServer(List<PostKey> sending, String command) throws IOException, JSONException {
+	public static String sendToServer(List<PostKey> sending, String command) throws Exception {
         // Add custom implementation, as needed.
         String ret = "";
         try {
@@ -71,7 +71,7 @@ public class TransmissionController {
             }
 
 
-            System.out.println("here");
+            //System.out.println("here");
             OutputStream os = conn.getOutputStream();
             BufferedWriter writer = new BufferedWriter(
                     new OutputStreamWriter(os, "UTF-8"));
@@ -91,7 +91,7 @@ public class TransmissionController {
             String tester = response.toString();
             if (tester.equals(""))
                 tester = "Success";
-            System.out.println("POST RETURN VALUE : " + tester);
+            //System.out.println("POST RETURN VALUE : " + tester);
 
             if (conn.getResponseCode() == HttpURLConnection.HTTP_OK) {
                 ret = tester;
@@ -104,19 +104,23 @@ public class TransmissionController {
                 ret = "Error in data tranmission, please check your network connection " + conn.getHeaderFields().toString();
             }
         } catch (MalformedURLException e) {
-        	e.printStackTrace();
-            System.out.println(e);
-            System.out.println("url");
-            return "Incorrect server address format, please check and try again.";
+/*        	e.printStackTrace();
+            System.out.println(e);*/
+            System.out.println("url related issue!");
+            throw new MalformedURLException();
+            //return "Incorrect server address format, please check and try again.";
         } catch (IOException e) {
-        	e.printStackTrace();
-            System.out.println(e);
-            System.out.println("io");
-            return "Invalid server input, please check the server address and try again.";
+/*        	e.printStackTrace();
+            System.out.println(e);*/
+            System.out.println("io related issue!");
+            throw new IOException();
+            //return "Invalid server input, please check the server address and try again.";
         } catch (Exception e) {
-        	e.printStackTrace();
-            System.out.println("say something");
-            e.printStackTrace();
+/*        	e.printStackTrace();
+            System.out.println("say something");*/
+            //e.printStackTrace();
+        	System.out.println("Unknown exception thrown in transmission handler!");
+            throw new Exception();
         }
         return ret;
     }

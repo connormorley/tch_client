@@ -29,8 +29,10 @@ public class GUI extends javax.swing.JFrame {
 	public static File file;
 	public static String typeOfSearch = "";
 	public static String selectedItem = "";
+	public static boolean connected = false;
 	static int isScanning = 0;
 	private static Future<String> scanningThread;
+	private static Future<Integer> AMfuture;
 	
 
     public GUI() {
@@ -49,12 +51,17 @@ public class GUI extends javax.swing.JFrame {
         jRadioButton1 = new javax.swing.JRadioButton();
         jRadioButton2 = new javax.swing.JRadioButton();
         jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
         fc = new JFileChooser();
         dc = new JFileChooser();
         dc.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
@@ -79,9 +86,15 @@ public class GUI extends javax.swing.JFrame {
 				selectTarget(evt);
 			}
 		});
+		
+		jButton2.addActionListener(new java.awt.event.ActionListener() {
+			public void actionPerformed(java.awt.event.ActionEvent evt) {
+				attackSelection(evt);
+			}
+		});
 
 		jLabel1.setFont(new java.awt.Font("Tahoma", 0, 18));
-		jLabel1.setText("TC HUNTER");
+		jLabel1.setText("TCrunch");
 
 		jLabel4.setText("Status: ");
 
@@ -98,6 +111,7 @@ public class GUI extends javax.swing.JFrame {
 		jRadioButton2.setText("Dir Select");
 
 		jButton1.setText("Select Target");
+		jButton2.setText("Attack");
 		jTextField1.setEditable(false);
 
 
@@ -110,6 +124,12 @@ public class GUI extends javax.swing.JFrame {
 		jLabel5.setHorizontalTextPosition(SwingConstants.LEADING);
 		jLabel5.setAlignmentX(SwingConstants.RIGHT);
 		jLabel5.setText("Ready");
+		
+		jLabel8.setText("Total :");
+		jLabel9.setText("Deep Scan :");
+
+		jLabel10.setText("Connection Status :");
+		jLabel11.setText("Disconnected");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -119,7 +139,7 @@ public class GUI extends javax.swing.JFrame {
                 .addGap(33, 33, 33)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 550, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jRadioButton1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -127,7 +147,8 @@ public class GUI extends javax.swing.JFrame {
                         .addGap(34, 34, 34)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 68, Short.MAX_VALUE)
                         .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(button1, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(button1, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jScrollPane1)
@@ -137,11 +158,20 @@ public class GUI extends javax.swing.JFrame {
                                         .addGroup(layout.createSequentialGroup()
                                         	.addGap(38,38,38)
                                             .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 600, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addGap(130,130,130) //Original 150 all three
+                                            .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addGap(100,100,100)
+                                            //.addGap(130,130,130) //Original 150 all three
+                                            .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addGap(5,5,5)
                                             .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                                             .addGap(15,15,15)
+                                            .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addGap(5,5,5)
                                             .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addGap(275,275,275)
+                                            .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addGap(5,5,5)
+                                            .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
                                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                                 ))
                         .addContainerGap())))
@@ -154,12 +184,17 @@ public class GUI extends javax.swing.JFrame {
                     .addComponent(jLabel1)
                     .addComponent(jLabel4)
                     .addComponent(jLabel5)
+                    .addComponent(jLabel8)
                     .addComponent(jLabel7)
-                    .addComponent(jLabel6))
+                    .addComponent(jLabel9)
+                    .addComponent(jLabel6)
+                    .addComponent(jLabel10)
+                    .addComponent(jLabel11))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 492, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton2)
                     .addComponent(button1)
                     .addComponent(jButton1)
                     .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -188,13 +223,13 @@ public class GUI extends javax.swing.JFrame {
 							selectedItem = selectedLine;
 							jLabel3.setText(selectedLine);
 						}
-						if (e.getClickCount() == 2
+/*						if (e.getClickCount() == 2
 								&& (!selectedLine.equals("TicketID	Pebl	Source			Description")
 										|| !selectedLine.equals(""))) {
 							//AttackController.attack(selectedLine.substring(0, selectedLine.indexOf("	")), 0);
 							AttackManager.issueAttack(selectedLine.substring(0, selectedLine.indexOf("	")));
 							startAttackMonitor();
-						}
+						}*/ // Old double click method of engaging attack
 					}
 				} catch (BadLocationException e1) {
 					e1.printStackTrace();
@@ -210,7 +245,31 @@ public class GUI extends javax.swing.JFrame {
 		pack();
     }
     
-                    
+       
+	private void attackSelection(java.awt.event.ActionEvent evt) {
+		if (connected == false)
+			JOptionPane.showMessageDialog(null, "Server is currently disconnected, please check connection and try again.", "Warning",
+					JOptionPane.INFORMATION_MESSAGE);
+		else {
+			if ((!selectedItem.equals("TicketID	Pebl	Source			Description") || !selectedItem.equals(""))
+					&& jButton2.getText().equals("Attack")) {
+				AttackManager.issueAttack(selectedItem.substring(0, selectedItem.indexOf("	")));
+				startAttackMonitor();
+				jButton2.setText("Abort");
+			} else if (jButton2.getText().equals("Abort")) {
+				try {
+					cancelAttack();
+				} catch (JSONException e) {
+					// to -do
+					e.printStackTrace();
+				} catch (IOException e) {
+					// to-do
+					e.printStackTrace();
+				}
+				jButton2.setText("Attack");
+			}
+		}
+	}
 
     private void selectTarget(java.awt.event.ActionEvent evt) {   
 		if (jRadioButton1.isSelected()) {
@@ -277,12 +336,26 @@ public class GUI extends javax.swing.JFrame {
 			JOptionPane.INFORMATION_MESSAGE);
 	}
     
+    public static void cancelAttack() throws JSONException, IOException
+    {
+        try {
+    	AMfuture.cancel(true);
+    	ArrayList<PostKey> sending = new ArrayList<PostKey>();
+        sending.add(new PostKey("attackID", AttackManager.attackID));
+        sending.add(new PostKey("password", "test"));
+			TransmissionController.sendToServer(sending, "abortAttack");
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+    }
+    
     public static void startAttackMonitor()
     {
     	ExecutorService exec = Executors.newSingleThreadExecutor();
     	Callable<Integer> callable = new Callable<Integer>() {
     		@Override
     		public Integer call() throws JSONException, IOException, InterruptedException {
+    	        try {
     			String password = "";
     			while(true)
     			{
@@ -290,7 +363,7 @@ public class GUI extends javax.swing.JFrame {
     			ArrayList<PostKey> sending = new ArrayList<PostKey>();
     	        sending.add(new PostKey("attackID", AttackManager.attackID));
     	        sending.add(new PostKey("password", "test"));
-    	        password = TransmissionController.sendToServer(sending, "resultCheck");
+				password = TransmissionController.sendToServer(sending, "resultCheck");
     	        if(!password.equals("No result"))
     	        {
     	        	AttackManager.passwordResult = password;
@@ -298,14 +371,61 @@ public class GUI extends javax.swing.JFrame {
     	        	return 1;
     	        }
     			}
+    	        } catch (Exception e) {
+					e.printStackTrace();
+				}
+				return 1;
     		}
     	};
-    	Future<Integer> future = exec.submit(callable);
+    	AMfuture = exec.submit(callable);
+    	return;
+    }
+    
+    public static void startServerMonitor()
+    {
+    	ExecutorService exec = Executors.newSingleThreadExecutor();
+    	Callable<Integer> callable = new Callable<Integer>() {
+    		@Override
+    		public Integer call(){
+    			try{
+    			String ret = "";
+    			while(true)
+    			{
+    			Thread.sleep(2500);
+    			ArrayList<PostKey> sending = new ArrayList<PostKey>();
+    	        sending.add(new PostKey("password", "test"));
+    	        ret = TransmissionController.sendToServer(sending, "checkLive");
+    	        if(ret.equals("Connection ok"))
+    	        {
+    	        	jLabel11.setText("Connected");
+    	        	jLabel11.paintImmediately(GUI.jLabel11.getVisibleRect());
+    	        	connected = true;
+    	        }
+    	        else
+    	        {
+    	        	jLabel11.setText("Disconnected");
+    	        	jLabel11.paintImmediately(GUI.jLabel11.getVisibleRect());
+    	        	connected = false;
+    	        }
+    			}
+    			} catch(Exception e)
+    			{
+    				jLabel11.setText("Diconnected");
+    				jLabel11.paintImmediately(GUI.jLabel11.getVisibleRect());
+    				connected = false;
+    				startServerMonitor();
+    			}
+				return 0;
+    		}
+    	};
+    	exec.submit(callable);
     	return;
     }
     
 
     public static void main(String args[]) {
+    	
+    	startServerMonitor();
 
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
@@ -340,6 +460,10 @@ public class GUI extends javax.swing.JFrame {
     public static javax.swing.JLabel jLabel5;
     public static javax.swing.JLabel jLabel6;
     public static javax.swing.JLabel jLabel7;
+    public static javax.swing.JLabel jLabel8;
+    public static javax.swing.JLabel jLabel9;
+    public static javax.swing.JLabel jLabel10;
+    public static javax.swing.JLabel jLabel11;
     private javax.swing.JRadioButton jRadioButton1;
     private javax.swing.JRadioButton jRadioButton2;
     private javax.swing.JScrollPane jScrollPane1;

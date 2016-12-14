@@ -73,6 +73,7 @@ public class AnalysisController {
 				+ ((System.currentTimeMillis() - startTime) / 1000) + " Seconds", "Info");
 		GUI.jLabel5.setText("Scan Complete");
 		GUI.jLabel5.paintImmediately(GUI.jLabel5.getVisibleRect());
+		Thread.sleep(100);
 		GUI.isScanning = 0;
 		GUI.button1.setText("Scan");
 		GUI.button1.paintImmediately(GUI.button1.getVisibleRect());
@@ -371,11 +372,11 @@ public class AnalysisController {
 		{
 			totalBytes = totalBytes + entry.getValue();
 		}
-		probability = totalBytes * probability; // 
+		probability = totalBytes * probability; // generate the expected format
 		
 		for(Map.Entry<Byte,Integer> entry : distribution.entrySet())
 		{
-			result = result + (Math.pow((entry.getValue() - probability) , 2) / probability);// Math needs adapting to prevent floating math, unnecessary processing power required.
+			result = result + (Math.pow((entry.getValue() - probability) , 2) / probability);// Calculate chi -quare value from real and expected values
 		}
 		//System.out.println(result);
 		int ret = 1;
@@ -386,9 +387,8 @@ public class AnalysisController {
 	
 	
 	
-	private static int monteCarloTest(ArrayList<Integer> mcTest) // Test doesnt work!!!
+	private static int monteCarloTest(ArrayList<Integer> mcTest) //This is with one byte per cords, further research needed for 6 bytes!
 	{
-		
 		double totalCoords = mcTest.size();
 		if((totalCoords % 2) != 0)
 			totalCoords = totalCoords - 1;
