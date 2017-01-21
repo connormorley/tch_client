@@ -27,6 +27,15 @@ public class AttackManager {
 	public static boolean issueAttack(String fileName)
 	{
 		try{
+			if(OptionsScreen.method.equals("Dictionary"))
+			{
+				boolean exists = DatabaseController.checkEntriesExists();
+				if(!exists)
+				{
+					System.out.println("Table has no entries!!!!");
+					return false;
+				}
+			}
 		attackTarget = fileName;
 		Byte[] forFile; 
 		File file = new File(fileName);
@@ -70,6 +79,7 @@ public class AttackManager {
 	    ArrayList<PostKey> sending = new ArrayList<PostKey>();
         sending.add(new PostKey("attackblock", tet));
         sending.add(new PostKey("password", "test"));
+        sending.add(new PostKey("attackmethod", OptionsScreen.method));
         attackID = TransmissionController.sendToServer(sending, "issueAttack");
 	    
 		}catch(Exception e){

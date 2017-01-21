@@ -52,6 +52,7 @@ public class GUI extends javax.swing.JFrame {
         jRadioButton2 = new javax.swing.JRadioButton();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
+        jButton3 = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
@@ -92,6 +93,12 @@ public class GUI extends javax.swing.JFrame {
 				attackSelection(evt);
 			}
 		});
+		
+		jButton3.addActionListener(new java.awt.event.ActionListener() {
+			public void actionPerformed(java.awt.event.ActionEvent evt) {
+				openOptions(evt);
+			}
+		});
 
 		jLabel1.setFont(new java.awt.Font("Tahoma", 0, 18));
 		jLabel1.setText("TCrunch");
@@ -112,6 +119,8 @@ public class GUI extends javax.swing.JFrame {
 
 		jButton1.setText("Select Target");
 		jButton2.setText("Attack");
+		jButton3.setText("Options");
+		
 		jTextField1.setEditable(false);
 
 
@@ -145,7 +154,8 @@ public class GUI extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jRadioButton2)
                         .addGap(34, 34, 34)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 68, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 1, Short.MAX_VALUE)
+                        .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(button1, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -170,7 +180,7 @@ public class GUI extends javax.swing.JFrame {
                                             .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                                             .addGap(275,275,275)
                                             .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addGap(5,5,5)
+                                            .addGap(20,20,20)
                                             .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
                                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                                 ))
@@ -197,6 +207,7 @@ public class GUI extends javax.swing.JFrame {
                     .addComponent(jButton2)
                     .addComponent(button1)
                     .addComponent(jButton1)
+                    .addComponent(jButton3)
                     .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                    .addComponent(jRadioButton1)
                     .addComponent(jRadioButton2))
@@ -218,7 +229,7 @@ public class GUI extends javax.swing.JFrame {
 						int rowStart = Utilities.getRowStart(jTextArea1, offset);
 						int rowEnd = Utilities.getRowEnd(jTextArea1, offset);
 						String selectedLine = jTextArea1.getText().substring(rowStart, rowEnd);
-						if (!selectedLine.equals("TicketID	Pebl	Source			Description")) {
+						if (!selectedLine.equals("")) {
 							jTextArea1.select(rowStart, rowEnd);
 							selectedItem = selectedLine;
 							jLabel3.setText(selectedLine);
@@ -246,14 +257,23 @@ public class GUI extends javax.swing.JFrame {
     }
     
        
+    private void openOptions(java.awt.event.ActionEvent evt) {
+		OptionsScreen.display();
+	}
+    
+    
 	private void attackSelection(java.awt.event.ActionEvent evt) {
 		if (connected == false)
 			JOptionPane.showMessageDialog(null, "Server is currently disconnected, please check connection and try again.", "Warning",
 					JOptionPane.INFORMATION_MESSAGE);
 		else {
-			if ((!selectedItem.equals("TicketID	Pebl	Source			Description") || !selectedItem.equals(""))
-					&& jButton2.getText().equals("Attack")) {
-				AttackManager.issueAttack(selectedItem.substring(0, selectedItem.indexOf("	")));
+			if (!selectedItem.equals("") && jButton2.getText().equals("Attack")) {
+				boolean executed = AttackManager.issueAttack(selectedItem.substring(0, selectedItem.indexOf("	")));
+				if(!executed)
+				{
+					JOptionPane.showMessageDialog(null, "The associated wordlist database is empty!", "Warning", JOptionPane.INFORMATION_MESSAGE);
+					return;
+				}
 				startAttackMonitor();
 				jButton2.setText("Abort");
 			} else if (jButton2.getText().equals("Abort")) {
@@ -267,6 +287,10 @@ public class GUI extends javax.swing.JFrame {
 					e.printStackTrace();
 				}
 				jButton2.setText("Attack");
+			}
+			else
+			{
+				JOptionPane.showMessageDialog(null, "No attack target selected!", "Warning", JOptionPane.INFORMATION_MESSAGE);
 			}
 		}
 	}
@@ -364,10 +388,18 @@ public class GUI extends javax.swing.JFrame {
     	        sending.add(new PostKey("attackID", AttackManager.attackID));
     	        sending.add(new PostKey("password", "test"));
 				password = TransmissionController.sendToServer(sending, "resultCheck");
-    	        if(!password.equals("No result"))
+				if(password.equals("Wordlist Exhausted"))
+    	        {
+    	        	AttackManager.passwordResult = password;
+    	        	JOptionPane.showMessageDialog(null, "Password for target : " + AttackManager.attackTarget + " could not be found. \n Wordlist was exhausted during dictionary attack.", "Attack unsuccesful", JOptionPane.INFORMATION_MESSAGE);
+    	        	jButton2.setText("Attack");
+    	        	return 1;
+    	        }
+				else if(!password.equals("No result"))
     	        {
     	        	AttackManager.passwordResult = password;
     	        	JOptionPane.showMessageDialog(null, "Password for target : " + AttackManager.attackTarget + " has been identified. \n Password is : " + password, "Password Identified", JOptionPane.INFORMATION_MESSAGE);
+    	        	jButton2.setText("Attack");
     	        	return 1;
     	        }
     			}
@@ -425,6 +457,7 @@ public class GUI extends javax.swing.JFrame {
 
     public static void main(String args[]) {
     	
+    	StartController.readSettingsFile();
     	startServerMonitor();
 
         try {
@@ -452,7 +485,8 @@ public class GUI extends javax.swing.JFrame {
     
     public static javax.swing.JButton button1;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
+    private static javax.swing.JButton jButton2;
+    private static javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
