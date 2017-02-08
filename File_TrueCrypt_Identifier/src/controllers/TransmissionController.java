@@ -42,6 +42,7 @@ public class TransmissionController {
 
     public static String ipAddress = "";
     public static SSLContext sslcontex;
+    public static boolean firstCheck = true;
 	
 	public static String sendToServer(List<PostKey> sending, String command) throws Exception {
         // Add custom implementation, as needed.
@@ -112,6 +113,15 @@ public class TransmissionController {
         } catch (IOException e) {
 /*        	e.printStackTrace();
             System.out.println(e);*/
+        	if(command.equals("checkLive"))
+        	{
+        		if(firstCheck)
+        		{
+        			System.out.println("Server is Disconnected.");
+        			firstCheck = false;
+        		}
+        		return "disconnected";
+        	}
             System.out.println("io related issue!");
             throw new IOException();
             //return "Invalid server input, please check the server address and try again.";

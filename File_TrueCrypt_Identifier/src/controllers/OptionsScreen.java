@@ -98,6 +98,8 @@ public class OptionsScreen extends javax.swing.JFrame {
         jButton3.setText("Close");
 
         jLabel3.setText("Dictionary Database Addition");
+        jTextField1.setText("<No File selected>");
+        jTextField1.setEditable(false);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);

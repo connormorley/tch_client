@@ -1,5 +1,6 @@
 package controllers;
 
+import java.awt.Color;
 import java.awt.Desktop;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
@@ -14,6 +15,7 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
 import javax.swing.ButtonGroup;
+import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 import javax.swing.SwingConstants;
@@ -23,6 +25,16 @@ import javax.swing.text.Utilities;
 import org.json.JSONException;
 
 import objects.PostKey;
+
+/*	Created by:		Connor Morley
+ *  Date:			27/01/2017
+ * 	Title:			TCrunch Client Main GUI
+ *  Version:		1.6
+ *  Notes:			Main GUI interface for the client component, provides interface for all related system functionality.
+ *  
+ *  References:		> GUI framework generated using Netbeans JFrame template with drag and drop utility. Since original version 
+ *  				  additional elements have been added manually.
+ */
 
 public class GUI extends javax.swing.JFrame {
 
@@ -68,7 +80,13 @@ public class GUI extends javax.swing.JFrame {
         dc.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
         dc.setAcceptAllFileFilterUsed(false);
         
+        
+        //Image source = http://media.moddb.com/images/mods/1/21/20122/crosshairs.png
+        ImageIcon img = new ImageIcon(".\\TCrunch.png");
+        this.setIconImage(img.getImage());
+        
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setBackground(Color.white);
 
 		button1.setText("Scan");
 		button1.addActionListener(new java.awt.event.ActionListener() {
@@ -122,6 +140,7 @@ public class GUI extends javax.swing.JFrame {
 		jButton3.setText("Options");
 		
 		jTextField1.setEditable(false);
+		jTextField1.setText("<No Scan Target Selected>");
 
 
 		jLabel2.setText("Selected:");
@@ -161,7 +180,7 @@ public class GUI extends javax.swing.JFrame {
                         .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPane1)
+                        		.addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1175, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel1)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -301,7 +320,7 @@ public class GUI extends javax.swing.JFrame {
 
 			if (returnVal == JFileChooser.APPROVE_OPTION) {
 				file = fc.getSelectedFile();
-				jTextField1.setText(file.getName());
+				jTextField1.setText(file.getPath());
 				System.out.println("success");
 				typeOfSearch = "file";
 			} else {
@@ -314,7 +333,7 @@ public class GUI extends javax.swing.JFrame {
 
 			if (returnVal == JFileChooser.APPROVE_OPTION) {
 				file = dc.getSelectedFile();
-				jTextField1.setText(file.getName());
+				jTextField1.setText(file.getPath());
 				System.out.println("success");
 				typeOfSearch = "dir";
 			} else {
@@ -324,7 +343,13 @@ public class GUI extends javax.swing.JFrame {
 		}
     }  
     
-    private void scanSelection(java.awt.event.ActionEvent evt) throws InterruptedException {     
+    private void scanSelection(java.awt.event.ActionEvent evt) throws InterruptedException {   
+    	if(file == null)
+    	{
+    		JOptionPane.showMessageDialog(null, "No Scan target selected!", "Warning",
+    		JOptionPane.INFORMATION_MESSAGE);
+    		return;
+    	}
     	if(isScanning == 0)
     	{
 			if (file != null) {
@@ -429,6 +454,15 @@ public class GUI extends javax.swing.JFrame {
     	        ret = TransmissionController.sendToServer(sending, "checkLive");
     	        if(ret.equals("Connection ok"))
     	        {
+    	        	TransmissionController.firstCheck = true;
+    	        	System.out.println("Server is Connected.");
+    	        	ret = TransmissionController.sendToServer(sending, "clientAttackCheck");
+    	        	if(!ret.equals("no") || !ret.equals("Unauthorised access"))
+    	        	{
+    	        		jButton2.setText("Abort");
+    	        		AttackManager.attackID = ret;
+    	        		startAttackMonitor();
+    	        	}
     	        	jLabel11.setText("Connected");
     	        	jLabel11.paintImmediately(GUI.jLabel11.getVisibleRect());
     	        	connected = true;
@@ -442,6 +476,7 @@ public class GUI extends javax.swing.JFrame {
     			}
     			} catch(Exception e)
     			{
+    				
     				jLabel11.setText("Diconnected");
     				jLabel11.paintImmediately(GUI.jLabel11.getVisibleRect());
     				connected = false;

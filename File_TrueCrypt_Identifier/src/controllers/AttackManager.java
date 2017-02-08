@@ -46,7 +46,7 @@ public class AttackManager {
 	    if(file.length() < 408064) // Must be at least the minimum size (299008 bytes = 292KB)
 	    	chunkLimit = file.length() / 512; // or return false as sample size is too small for attacking??!?!?!??!?!??!?!?!
 	    ArrayList<Byte> fileFor = new ArrayList<Byte>(0);
-	    while (chunkLen != chunkLimit) { // sums up to 414208 Bytes analyzed as sample block, can also be used as attack block!!!! 809 is the original
+	    while (chunkLen != chunkLimit) { // sums up to 408064 Bytes analyzed as sample block, can also be used as attack block!!!! 797 is the original
 	    	is.read(chunk);
 	    	fileFor.addAll(Arrays.asList(ArrayUtils.toObject(chunk)));
 	        chunkLen++;
@@ -65,7 +65,9 @@ public class AttackManager {
 	    }
 	    
 	    //String tet = new String(finalbytes, "ISO-8859-1");// This encoding works with 1 - 1 translation, allowed for string movement of file!!!!
-
+	    	
+	    // Covert byte array to hex string - initial solution to use ISO-8859-1 - References solution much more efficient
+	    //http://stackoverflow.com/questions/9655181/how-to-convert-a-byte-array-to-a-hex-string-in-java
 	    	final char[] hexArray = "0123456789ABCDEF".toCharArray();
 	        char[] hexChars = new char[finalbytes.length * 2];
 	        for ( int j = 0; j < finalbytes.length; j++ ) {

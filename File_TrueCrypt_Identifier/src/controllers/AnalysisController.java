@@ -214,20 +214,20 @@ public class AnalysisController {
 
 	public static void createDefaultTest(String path)
 	{
-        Callable<Integer> worker = new AnalysisController.MyAnalysis(path);
+        Callable<Integer> worker = new AnalysisController.PrimaryAnalysis(path);
         Future<Integer> thread = AnalysisController.scanDefaultExecutor.submit(worker);
         return;
 	}
 	    
 	 
-	 public static class MyAnalysis implements Callable<Integer> {
+	 public static class PrimaryAnalysis implements Callable<Integer> {
 
 			private String dir;
 			ExecutorService exec;
 			Callable<Integer> callable;
 			Future<Integer> future;
 
-			public MyAnalysis(String path) {
+			public PrimaryAnalysis(String path) {
 				this.dir = path;
 			}
 
