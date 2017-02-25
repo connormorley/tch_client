@@ -295,6 +295,8 @@ public class GUI extends javax.swing.JFrame {
 				}
 				startAttackMonitor();
 				jButton2.setText("Abort");
+				JOptionPane.showMessageDialog(null, "The attack ID for this file is : " + AttackManager.attackID + "\nPlease keep a note of this ID.", "Warning",
+						JOptionPane.INFORMATION_MESSAGE);
 			} else if (jButton2.getText().equals("Abort")) {
 				try {
 					cancelAttack();
@@ -393,6 +395,7 @@ public class GUI extends javax.swing.JFrame {
         sending.add(new PostKey("attackID", AttackManager.attackID));
         sending.add(new PostKey("password", "test"));
 			TransmissionController.sendToServer(sending, "abortAttack");
+		AMfuture = null;
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -428,7 +431,12 @@ public class GUI extends javax.swing.JFrame {
     	        	return 1;
     	        }
     			}
-    	        } catch (Exception e) {
+    	        } catch(IOException e)
+    	        {
+    	        	System.out.println("Server diconnected during attack.");
+    	        	return 1;
+    	        }
+    	        catch (Exception e) {
 					e.printStackTrace();
 				}
 				return 1;
@@ -454,10 +462,12 @@ public class GUI extends javax.swing.JFrame {
     	        ret = TransmissionController.sendToServer(sending, "checkLive");
     	        if(ret.equals("Connection ok"))
     	        {
+    	        	if(!connected)
+    	        	{
     	        	TransmissionController.firstCheck = true;
     	        	System.out.println("Server is Connected.");
     	        	ret = TransmissionController.sendToServer(sending, "clientAttackCheck");
-    	        	if(!ret.equals("no") || !ret.equals("Unauthorised access"))
+    	        	if(!ret.equals("no") && !ret.equals("Unauthorised access") && AMfuture == null)
     	        	{
     	        		jButton2.setText("Abort");
     	        		AttackManager.attackID = ret;
@@ -466,10 +476,12 @@ public class GUI extends javax.swing.JFrame {
     	        	jLabel11.setText("Connected");
     	        	jLabel11.paintImmediately(GUI.jLabel11.getVisibleRect());
     	        	connected = true;
+    	        	}
     	        }
     	        else
     	        {
     	        	jLabel11.setText("Disconnected");
+    	        	jButton2.setText("Attack");
     	        	jLabel11.paintImmediately(GUI.jLabel11.getVisibleRect());
     	        	connected = false;
     	        }
@@ -478,6 +490,7 @@ public class GUI extends javax.swing.JFrame {
     			{
     				
     				jLabel11.setText("Diconnected");
+    				jButton2.setText("Attack");
     				jLabel11.paintImmediately(GUI.jLabel11.getVisibleRect());
     				connected = false;
     				startServerMonitor();

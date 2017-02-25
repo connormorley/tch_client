@@ -22,6 +22,7 @@ public class DirectoryThread {
 	public static void newCheck()
 	{
 		checkers = new ArrayList<String>();
+		dirs = new HashMap<String, Future<Integer>>();
 	}
 	
 	// Increase the known thread count for termination control, if the directory is not empty analyze contents.;
@@ -36,17 +37,17 @@ public class DirectoryThread {
  		}
 
 	// Depending on whether the entry to the array is a File or Directory either process file for TC or create new thread for new Directory
-	private static void filterSelection(File[] list) throws IOException {
+	private static void filterSelection(File[] list) throws IOException, InterruptedException {
 		for (File f : list) {
 			if (f.isDirectory()) {
 				scanDirectory(f);
 			} else {
-				try {
+				//try {
 					Thread.currentThread().sleep(20);
-				} catch (Exception e) {
+				/*} catch (Exception e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
-				}
+				}*/
 				scanFile(f);
 			}
 		}

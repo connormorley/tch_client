@@ -12107,3 +12107,63 @@ INFO 02-08-2017 19:38:27 || [A-Controller] Running analysis thread information:	
 INFO 02-08-2017 19:38:32 || [A-Controller] Running analysis thread information:	Directories being analysed = 1 [*]	Files under intense analysis = 0
 INFO 02-08-2017 19:38:37 || [A-Controller] Running analysis thread information:	Directories being analysed = 1 [*]	Files under intense analysis = 0
 INFO 02-08-2017 19:38:42 || [A-Controller] Directory scan complete. Time taken for completion = 1125 Seconds
+INFO 02-10-2017 23:43:27 || [A-Controller] Analysis initiated, target = C:\Users\whyis\Documents\tester
+INFO 02-10-2017 23:43:34 || [A-Controller] Directory scan complete. Time taken for completion = 7 Seconds
+INFO 02-10-2017 23:48:29 || [A-Controller] Analysis initiated, target = C:\Users\whyis\Documents\tester
+INFO 02-10-2017 23:48:36 || [A-Controller] Directory scan complete. Time taken for completion = 7 Seconds
+INFO 02-10-2017 23:54:39 || [A-Controller] Analysis initiated, target = C:\Users\whyis\Documents\tester
+INFO 02-10-2017 23:54:46 || [A-Controller] Directory scan complete. Time taken for completion = 7 Seconds
+INFO 02-10-2017 23:55:58 || [A-Controller] Analysis initiated, target = C:\Users\whyis\Documents\tester
+INFO 02-10-2017 23:56:05 || [A-Controller] Directory scan complete. Time taken for completion = 7 Seconds
+INFO 02-11-2017 00:00:54 || [A-Controller] Analysis initiated, target = C:\Users\whyis\Documents\tester
+INFO 02-11-2017 00:01:01 || [A-Controller] Directory scan complete. Time taken for completion = 7 Seconds
+INFO 02-11-2017 00:12:02 || [A-Controller] Analysis initiated, target = C:\Users\whyis\Documents\tester
+INFO 02-11-2017 00:12:09 || [A-Controller] Directory scan complete. Time taken for completion = 7 Seconds
+INFO 02-11-2017 00:14:31 || [A-Controller] Analysis initiated, target = C:\Users\whyis\Documents\tester
+INFO 02-11-2017 00:14:38 || [A-Controller] Directory scan complete. Time taken for completion = 7 Seconds
+INFO 02-11-2017 00:21:37 || [A-Controller] Analysis initiated, target = C:\Users\whyis\Documents\tester
+INFO 02-11-2017 00:21:44 || [A-Controller] Directory scan complete. Time taken for completion = 7 Seconds
+INFO 02-11-2017 00:22:35 || [A-Controller] Analysis initiated, target = C:\Users\whyis\Documents\tester
+INFO 02-11-2017 00:22:43 || [A-Controller] Directory scan complete. Time taken for completion = 7 Seconds
+INFO 02-11-2017 00:24:16 || [A-Controller] Analysis initiated, target = C:\Users\whyis\Documents\tester
+INFO 02-11-2017 00:24:23 || [A-Controller] Directory scan complete. Time taken for completion = 7 Seconds
+INFO 02-11-2017 00:28:27 || [A-Controller] Analysis initiated, target = C:\Users\whyis\Documents\tester
+INFO 02-11-2017 00:28:34 || [A-Controller] Directory scan complete. Time taken for completion = 7 Seconds
+INFO 02-11-2017 00:29:50 || [A-Controller] Analysis initiated, target = C:\Users\whyis\Documents\tester
+INFO 02-11-2017 00:29:57 || [A-Controller] Directory scan complete. Time taken for completion = 7 Seconds
+INFO 02-11-2017 00:31:12 || [A-Controller] Analysis initiated, target = C:\Users\whyis\Documents\tester
+INFO 02-11-2017 00:31:19 || [A-Controller] Directory scan complete. Time taken for completion = 7 Seconds
+INFO 02-11-2017 00:34:31 || [A-Controller] Analysis initiated, target = C:\Users\whyis\Documents\tester
+INFO 02-11-2017 00:34:39 || [A-Controller] Directory scan complete. Time taken for completion = 7 Seconds
+INFO 02-11-2017 00:36:09 || [A-Controller] Analysis initiated, target = C:\Users\whyis\Documents\tester
+INFO 02-11-2017 00:36:16 || [A-Controller] Directory scan complete. Time taken for completion = 7 Seconds
+INFO 02-11-2017 00:57:55 || [A-Controller] Analysis initiated, target = C:\Users\whyis\Documents\tester
+INFO 02-11-2017 00:58:03 || [A-Controller] Directory scan complete. Time taken for completion = 7 Seconds
+INFO 02-11-2017 00:59:28 || [A-Controller] Analysis initiated, target = C:\Users\whyis\Documents\tester
+INFO 02-11-2017 00:59:35 || [A-Controller] Directory scan complete. Time taken for completion = 7 Seconds
+INFO 02-11-2017 01:05:22 || [A-Controller] Analysis initiated, target = C:\Users\whyis\Documents\tester
+INFO 02-11-2017 01:05:30 || [A-Controller] Directory scan complete. Time taken for completion = 7 Seconds
+INFO 02-11-2017 01:13:19 || [A-Controller] Analysis initiated, target = C:\Users\whyis\Documents\tester
+INFO 02-11-2017 01:13:26 || [A-Controller] Directory scan complete. Time taken for completion = 7 Seconds
+INFO 02-11-2017 01:14:26 || [A-Controller] Analysis initiated, target = C:\Users\whyis\Documents\tester
+INFO 02-11-2017 01:14:33 || [A-Controller] Directory scan complete. Time taken for completion = 7 Seconds
+INFO 02-11-2017 01:16:01 || [A-Controller] Analysis initiated, target = C:\Users\whyis\Documents\tester
+INFO 02-11-2017 01:16:09 || [A-Controller] Directory scan complete. Time taken for completion = 7 Seconds
+INFO 02-11-2017 01:19:41 || [A-Controller] Analysis initiated, target = C:\Users\whyis\Documents\tester
+INFO 02-11-2017 01:19:48 || [A-Controller] Directory scan complete. Time taken for completion = 7 Seconds
+INFO 02-11-2017 01:25:34 || [A-Controller] Analysis initiated, target = C:\Users\whyis\Documents\tester
+INFO 02-11-2017 01:25:41 || [A-Controller] Directory scan complete. Time taken for completion = 7 Seconds
+INFO 02-11-2017 01:35:41 || [A-Controller] Analysis initiated, target = C:\Users\whyis\Documents\tester
+INFO 02-11-2017 01:35:48 || [A-Controller] Directory scan complete. Time taken for completion = 7 Seconds
+INFO 02-11-2017 01:37:24 || [A-Controller] Analysis initiated, target = C:\Users\whyis\Documents\tester
+INFO 02-11-2017 01:37:31 || [A-Controller] Directory scan complete. Time taken for completion = 7 Seconds
+INFO 02-11-2017 01:41:53 || [A-Controller] Analysis initiated, target = C:\Users\whyis\Documents\tester
+INFO 02-11-2017 01:42:00 || [A-Controller] Directory scan complete. Time taken for completion = 7 Seconds
+INFO 02-11-2017 02:20:22 || [A-Controller] Analysis initiated, target = H:\
+INFO 02-11-2017 02:20:26 || [A-Controller] File H:\EnCase6\Export\NothingToSeeHereOrIsThere1 identified as likely TC file.
+INFO 02-11-2017 02:20:26 || [A-Controller] File H:\EnCase6\Export\NothingToSeeHereOrIsThere identified as likely TC file.
+INFO 02-11-2017 02:20:27 || [A-Controller] Running analysis thread information:	Directories being analysed = 2 [*]	Files under intense analysis = 0
+INFO 02-11-2017 02:20:32 || [A-Controller] Running analysis thread information:	Directories being analysed = 1 [*]	Files under intense analysis = 0
+INFO 02-11-2017 02:20:37 || [A-Controller] Directory scan complete. Time taken for completion = 15 Seconds
+INFO 02-13-2017 16:00:59 || [A-Controller] Analysis initiated, target = C:\Users\whyis\Documents\tester
+INFO 02-13-2017 16:01:07 || [A-Controller] Directory scan complete. Time taken for completion = 7 Seconds

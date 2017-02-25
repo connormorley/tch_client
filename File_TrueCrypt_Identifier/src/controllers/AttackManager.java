@@ -76,6 +76,7 @@ public class AttackManager {
 	            hexChars[j * 2 + 1] = hexArray[v & 0x0F];
 	        }
 	        String tet = new String(hexChars);
+	        System.out.println(tet.length());
 	    
 	    //This is a working transmission of the byte fopr file recreation, this can thenrefore be sent to all nodes!!
 	    ArrayList<PostKey> sending = new ArrayList<PostKey>();

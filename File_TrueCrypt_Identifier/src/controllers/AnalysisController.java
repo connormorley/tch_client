@@ -18,6 +18,8 @@ import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicInteger;
+
+import org.apache.poi.hdgf.chunks.Chunk;
 import org.apache.tika.Tika;
 
 import Threads.DirectoryThread;
@@ -94,6 +96,8 @@ public class AnalysisController {
 			GUI.isScanning = 0;
 			return 0;
 		}
+		refreshVariables();
+		System.gc();
 		return ret;
 	}
 
@@ -151,6 +155,7 @@ public class AnalysisController {
 		ret = analyseDistribution(distribution, false);
 		if(ret == 0)
 		ret = chiSquareTest(distribution);
+		distribution = null;
 		return ret;
 	}
 	
@@ -206,6 +211,7 @@ public class AnalysisController {
 					GUI.jTextArea1.append(file.getAbsolutePath() + "	\n");
 				GUI.jTextArea1.paintImmediately(GUI.jTextArea1.getVisibleRect());
 			}
+			distribution = null;
 			return ret;
 	}
 	
@@ -234,15 +240,10 @@ public class AnalysisController {
 			@Override
 			public Integer call() throws InterruptedException, ExecutionException, IOException {
 				Integer x = 1;
-				try{
 				dirThreadCount.incrementAndGet();
 				Integer dv = 1;
 				dv = callThread();
 				dirThreadCount.decrementAndGet();
-				}catch(Exception e)
-				{
-					e.printStackTrace();
-				}
 				return x;
 			}
 
