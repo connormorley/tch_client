@@ -483,6 +483,11 @@ public class GUI extends javax.swing.JFrame {
     	        	jLabel11.setText("Disconnected");
     	        	jButton2.setText("Attack");
     	        	jLabel11.paintImmediately(GUI.jLabel11.getVisibleRect());
+    	        	if(AMfuture != null)
+    				{
+	    				AMfuture.cancel(true);
+	    	        	AMfuture = null;
+    				}
     	        	connected = false;
     	        }
     			}
@@ -493,6 +498,11 @@ public class GUI extends javax.swing.JFrame {
     				jButton2.setText("Attack");
     				jLabel11.paintImmediately(GUI.jLabel11.getVisibleRect());
     				connected = false;
+    				if(AMfuture != null)
+    				{
+	    				AMfuture.cancel(true);
+	    	        	AMfuture = null;
+    				}
     				startServerMonitor();
     			}
 				return 0;

@@ -23,7 +23,7 @@ public class AttackManager {
 	public static String passwordResult;
 	public static String attackTarget;
 
-	
+		
 	public static boolean issueAttack(String fileName)
 	{
 		try{
