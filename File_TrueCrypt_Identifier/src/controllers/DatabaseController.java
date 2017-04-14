@@ -87,13 +87,21 @@ public static void execCustom(String query) {
 
 	public static void uploadWordlist(ArrayList<String> wordlist) {
 		SQLConnect();
+		String query = "insert ignore into wordlist (password) values ";
 		try {
 			stmt = conn.createStatement();
 			
-			String query = "insert ignore into wordlist (password) values ";
 			boolean firstLoop = true;
+			int counter = 0;
 			for(String entry: wordlist)
 			{
+				if(entry.contains("\\")) // Replace all forward slashes with excepted forward slashes
+					entry = entry.replaceAll("\\\\", "\\\\\\\\");
+				if(entry.contains("\"")) // Replace all quotations with excepted quotations
+					entry = entry.replaceAll("\"", "\\\\\"");
+				if(entry.contains("'")) // Replace all quotations with excepted quotations
+					entry = entry.replaceAll("'", "\\\\\'");
+				
 				if(firstLoop)
 				{
 					query = new StringBuilder().append(query).append("('" + entry + "') ").toString();
@@ -101,12 +109,21 @@ public static void execCustom(String query) {
 				}
 				else
 				query = new StringBuilder().append(query).append(",('" + entry + "') ").toString();
+				counter++;
+				if(counter == 10000)
+				{
+					stmt.execute(query + ";");
+					query = "insert ignore into wordlist (password) values ";
+					firstLoop = true;
+					counter = 0;
+				}
 			}
-			stmt.execute(query);
+			//stmt.execute(query + ";");
 		} catch (SQLException e) {
 			logA.doLog("SQL", "[SQL]Query error while retrieving custom dataset \nError is : " + e.toString(),
 					"Critical");
 			e.printStackTrace();
+			System.out.println(query);
 			close();
 			throw new RuntimeException(e);
 		}
