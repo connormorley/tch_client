@@ -30,10 +30,12 @@ import objects.PostKey;
  *  Date:			27/01/2017
  * 	Title:			TCrunch Client Main GUI
  *  Version:		1.6
- *  Notes:			Main GUI interface for the client component, provides interface for all related system functionality.
+ *  Notes:			Main GUI interface for the client component, provides interface for all related system functionality. Class also
+ *  				monitors server connection and attack status when attack is currently in operation with associated control server.
  *  
  *  References:		> GUI framework generated using Netbeans JFrame template with drag and drop utility. Since original version 
  *  				  additional elements have been added manually.
+ *  				> http://media.moddb.com/images/mods/1/21/20122/crosshairs.png
  */
 
 public class GUI extends javax.swing.JFrame {
@@ -54,7 +56,6 @@ public class GUI extends javax.swing.JFrame {
 
     @SuppressWarnings("unchecked")                       
     private void initComponents() {
-
         button1 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -79,7 +80,6 @@ public class GUI extends javax.swing.JFrame {
         dc = new JFileChooser();
         dc.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
         dc.setAcceptAllFileFilterUsed(false);
-        
         
         //Image source = http://media.moddb.com/images/mods/1/21/20122/crosshairs.png
         ImageIcon img = new ImageIcon(".\\TCrunch.png");
@@ -120,42 +120,28 @@ public class GUI extends javax.swing.JFrame {
 
 		jLabel1.setFont(new java.awt.Font("Tahoma", 0, 18));
 		jLabel1.setText("TCrunch");
-
 		jLabel4.setText("Status: ");
-
 		jTextArea1.setColumns(20);
 		jTextArea1.setRows(5);
 		jScrollPane1.setViewportView(jTextArea1);
-
 		ButtonGroup group = new ButtonGroup();
 		group.add(jRadioButton1);
 		group.add(jRadioButton2);
-
 		jRadioButton1.setText("File Select");
-
 		jRadioButton2.setText("Dir Select");
-
 		jButton1.setText("Select Target");
 		jButton2.setText("Attack");
 		jButton3.setText("Options");
-		
 		jTextField1.setEditable(false);
 		jTextField1.setText("<No Scan Target Selected>");
-
-
 		jLabel2.setText("Selected:");
-		
 		jLabel6.setText("0");
-		
 		jLabel7.setText("0");
-
 		jLabel5.setHorizontalTextPosition(SwingConstants.LEADING);
 		jLabel5.setAlignmentX(SwingConstants.RIGHT);
 		jLabel5.setText("Ready");
-		
 		jLabel8.setText("Total :");
 		jLabel9.setText("Deep Scan :");
-
 		jLabel10.setText("Connection Status :");
 		jLabel11.setText("Disconnected");
 
@@ -253,20 +239,10 @@ public class GUI extends javax.swing.JFrame {
 							selectedItem = selectedLine;
 							jLabel3.setText(selectedLine);
 						}
-/*						if (e.getClickCount() == 2
-								&& (!selectedLine.equals("TicketID	Pebl	Source			Description")
-										|| !selectedLine.equals(""))) {
-							//AttackController.attack(selectedLine.substring(0, selectedLine.indexOf("	")), 0);
-							AttackManager.issueAttack(selectedLine.substring(0, selectedLine.indexOf("	")));
-							startAttackMonitor();
-						}*/ // Old double click method of engaging attack
 					}
 				} catch (BadLocationException e1) {
 					e1.printStackTrace();
-				} /*catch (InterruptedException e1) {
-					e1.printStackTrace();
-				}*/
-
+				}
 			}
 		});
 
@@ -279,8 +255,7 @@ public class GUI extends javax.swing.JFrame {
     private void openOptions(java.awt.event.ActionEvent evt) {
 		OptionsScreen.display();
 	}
-    
-    
+   
 	private void attackSelection(java.awt.event.ActionEvent evt) {
 		if (connected == false)
 			JOptionPane.showMessageDialog(null, "Server is currently disconnected, please check connection and try again.", "Warning",
@@ -301,10 +276,8 @@ public class GUI extends javax.swing.JFrame {
 				try {
 					cancelAttack();
 				} catch (JSONException e) {
-					// to -do
 					e.printStackTrace();
 				} catch (IOException e) {
-					// to-do
 					e.printStackTrace();
 				}
 				jButton2.setText("Attack");
@@ -329,7 +302,6 @@ public class GUI extends javax.swing.JFrame {
 				System.out.println("cancelled");
 			}
 		}
-
 		else if (jRadioButton2.isSelected()) {
 			int returnVal = dc.showOpenDialog(GUI.this);
 
@@ -375,7 +347,7 @@ public class GUI extends javax.swing.JFrame {
 						return "Complete";
 					}
 				};
-				scanningThread = exec.submit(callable); //Future added for cancellation option to be added!!!!
+				scanningThread = exec.submit(callable);
 			}
 		} else if(button1.getText().equals("Cancel")){
 			scanningThread.cancel(true);

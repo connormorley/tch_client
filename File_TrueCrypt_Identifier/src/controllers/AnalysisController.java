@@ -26,6 +26,16 @@ import Threads.DirectoryThread;
 import loggers.LogObject;
 import loggers.LtA;
 
+/*	Created by:		Connor Morley
+ * 	Title:			Analysis Controller
+ *  Version update:	2.2
+ *  Notes:			Class isued to control and organise the detection feature of the system. Primarily responsible for initiating threading
+ *  				in directory based analysis as well as conducting detection methods (statistical analysis). Class also controls
+ *  				scan abort function and publication of results to GUI.
+ *  
+ *  References:		N/A
+ */
+
 public class AnalysisController {
 	
 	public static Map<String, Integer> walkedFiles;
@@ -104,8 +114,6 @@ public class AnalysisController {
 	private static void refreshVariables() {
 		scanDefaultExecutor = Executors.newFixedThreadPool(100);
 		scanFurtherExecutor = Executors.newFixedThreadPool(5);
-		//scanDefaultExecutor = new ThreadPoolExecutor(100, 100, 5*60, TimeUnit.SECONDS, new LinkedBlockingQueue<>());
-		//scanFurtherExecutor = new ThreadPoolExecutor(100, 100, 5*60, TimeUnit.SECONDS, new LinkedBlockingQueue<>());
 		startTime = System.currentTimeMillis();
 		walkedFiles = new HashMap<String, Integer>();
 		paths = new ArrayList<String>();
@@ -115,9 +123,6 @@ public class AnalysisController {
 		DirectoryThread.newCheck();
 		totalFiles = new AtomicInteger(0);
 	}
-	
-	//////////////////////////////////////////////////////////////////////
-	//////////////////////////////////////////////////////////////////////
 
 	public static int processFile(File file) throws IOException {
 		int ret;
@@ -159,11 +164,7 @@ public class AnalysisController {
 		return ret;
 	}
 	
-	
-	//////////////////////////////////////////////////////////////////////
-	//////////////////////////////////////////////////////////////////////
-	
-	public static int doubleCheck(File file) throws IOException // Make a further check for those that test positive on initial testing!!!!
+	public static int doubleCheck(File file) throws IOException 
 	{
 			int ret;
 			boolean wholeFileCheck = false;
@@ -174,12 +175,11 @@ public class AnalysisController {
 			    byte[] chunk = new byte[512];
 			    Long test = file.length();
 			    int chunkLen = 0;
-			    long chunkLimit = 9766L; // must match check value 5 lines down
+			    long chunkLimit = 9766L;
 			    if((file.length() % 512) != 0 || !tika.detect(file.toPath()).equals("application/octet-stream")) // TC files are always a size correlating to 512
 			    {
 			    	return 1;
 			    }
-			 // sample of either 4194304 = 2GB or 16777216 = 8GB or 17179869184 = 16GB change chunk limit
 			if ((file.length() / 512) < 9766) {// sample of either 3907 = 2MB or 9766 = 5MB or 19532 = 10MB or 39064 = 20 MB change chunk limit
 				wholeFileCheck = true;
 				chunkLimit = file.length() / 512;
@@ -189,7 +189,6 @@ public class AnalysisController {
 				sortBytes(chunk, distribution, mcTest);
 				chunkLen++;
 			}
-			    
 			} catch (FileNotFoundException fnfE) {
 				logA.doLog("AnalysisController", "[A-Controller] File " + file.getAbsolutePath() + " could not be found." 
 						, "Warning");
@@ -214,9 +213,6 @@ public class AnalysisController {
 			distribution = null;
 			return ret;
 	}
-	
-	//////////////////////////////////////////////////////////////////////
-	//////////////////////////////////////////////////////////////////////	 
 
 	public static void createDefaultTest(String path)
 	{
@@ -225,7 +221,6 @@ public class AnalysisController {
         return;
 	}
 	    
-	 
 	 public static class PrimaryAnalysis implements Callable<Integer> {
 
 			private String dir;
@@ -253,10 +248,6 @@ public class AnalysisController {
 			}
 		}
 	 
-		//////////////////////////////////////////////////////////////////////
-		//////////////////////////////////////////////////////////////////////
-	 
-	 
 	 public static void createFurtherTest(File f)
 		{
 	        Callable<Integer> worker = new AnalysisController.FurtherAnalysis(f);
@@ -264,7 +255,6 @@ public class AnalysisController {
 	        return;
 		}
 		    
-		 
 		 public static class FurtherAnalysis implements Callable<Integer> {
 
 				private File dir;
@@ -291,9 +281,6 @@ public class AnalysisController {
 					return DirectoryThread.furtherThread(dir);
 				}
 			}
-	 
-	//////////////////////////////////////////////////////////////////////
-	//////////////////////////////////////////////////////////////////////
 	
 	private static void sortBytes(byte[] b, Map<Byte, Integer> distribution) //Original file sorting
 	{
@@ -306,9 +293,6 @@ public class AnalysisController {
 			distribution.put(bite, distribution.get(bite) + 1);
 		}
 	}
-	
-//////////////////////////////////////////////////////////////////////
-//////////////////////////////////////////////////////////////////////
 
 	private static void sortBytes(byte[] b, Map<Byte, Integer> distribution, ArrayList<Integer> mcTest) //Overload file sorting in case of further testing
 	{	
@@ -318,24 +302,10 @@ public class AnalysisController {
 			if (!distribution.containsKey(bite))
 				distribution.put(bite, 0);
 			distribution.put(bite, distribution.get(bite) + 1);
-			
-/*			sum = sum + Math.abs(bite);
-			count++; 
-			if (count == 6) {
-				count = 0;
-				mcTest.add(sum);
-				sum = 0;
-			}
-			*/
-			
-			//this works
 			int check = Math.abs(bite);
 			mcTest.add(check);
 		}
 	}
-	
-	//////////////////////////////////////////////////////////////////////
-	//////////////////////////////////////////////////////////////////////
 	
 	private static int analyseDistribution(Map<Byte, Integer> distribution, boolean wholeFileCheck)
 	{
@@ -374,19 +344,15 @@ public class AnalysisController {
 			totalBytes = totalBytes + entry.getValue();
 		}
 		probability = totalBytes * probability; // generate the expected format
-		
 		for(Map.Entry<Byte,Integer> entry : distribution.entrySet())
 		{
-			result = result + (Math.pow((entry.getValue() - probability) , 2) / probability);// Calculate chi -quare value from real and expected values
+			result = result + (Math.pow((entry.getValue() - probability) , 2) / probability);// Calculate chi-square value from real and expected values
 		}
-		//System.out.println(result);
 		int ret = 1;
-		if(result > 190 && result < 325)
+		if(result > 190 && result < 325) //Parameters refined through arduous trial and error.
 			ret = 0;
 		return ret;
 	}
-	
-	
 	
 	private static int monteCarloTest(ArrayList<Integer> mcTest) //This is with one byte per cords, further research needed for 6 bytes!
 	{
@@ -397,13 +363,11 @@ public class AnalysisController {
 		int entriesUsed = 0;
 		while(entriesUsed < totalCoords)
 		{
-			//This works
 			double sum1 = (mcTest.get(entriesUsed) * 2) - 128;
 			entriesUsed++;
 			double sum2 = (mcTest.get(entriesUsed) * 2) - 128;
 			entriesUsed++;
 			double distance = Math.hypot(sum1, sum2); // calculate distance from point 0,0 of plot
-			//System.out.println(distance);
 			if(distance < 128) //If within radius of circle (max range / 2)
 			{
 				countWithinRange++;

@@ -11,6 +11,16 @@ import java.util.Properties;
 import loggers.LogObject;
 import loggers.LtA;
 
+/*	Created by:		Connor Morley
+ * 	Title:			TCrunch Client Start Controller
+ *  Version update:	2.1
+ *  Notes:			Class is used in conjunction with the system properties file for the applicaiton. Takes the user specified input of 
+ *  				the properties file and applies it to system components. Checks are also made that enough information is provided
+ *  				and that certain information provided is accurate.  
+ *  
+ *  References:		N/A
+ */
+
 public class StartController {
 	
 	private static Map<String, String> settings = new HashMap<String, String>();
@@ -65,7 +75,6 @@ public class StartController {
 		if(settings.get("useDatabase").equals("yes"))
 		{
 			String add = "jdbc:mysql://"+settings.get("mySQLHOST")+":"+settings.get("mySQLPort")+"/"+settings.get("mySQLDB")+"?user="+settings.get("mySQLUser")+"&password="+settings.get("mySQLPass");
-			//System.out.println(add);
 			DatabaseController.setAddress(add);
 			checkValidity();
 		}

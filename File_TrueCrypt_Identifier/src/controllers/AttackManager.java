@@ -17,6 +17,17 @@ import org.apache.commons.lang.ArrayUtils;
 
 import objects.PostKey;
 
+/*	Created by:		Connor Morley
+ * 	Title:			TCrunch Client Attack Manager
+ *  Version update:	2.1
+ *  Notes:			Class is used to extract file fragment from designated target file and upload fragment to control server with configured
+ *  				attack option. In addition to issuing attack command to server/cluster, this class also performs a worldist check
+ *  				to ensure words are available within wordlist DB and encodes the fragment data to prevent degrading or alteration
+ *  				during transmission.
+ *  
+ *  References:		http://stackoverflow.com/questions/9655181/how-to-convert-a-byte-array-to-a-hex-string-in-java
+ */
+
 public class AttackManager {
 	
 	public static String attackID;
@@ -44,9 +55,9 @@ public class AttackManager {
 	    int chunkLen = 0;
 	    long chunkLimit = 797;
 	    if(file.length() < 408064) // Must be at least the minimum size (299008 bytes = 292KB)
-	    	chunkLimit = file.length() / 512; // or return false as sample size is too small for attacking??!?!?!??!?!??!?!?!
+	    	chunkLimit = file.length() / 512;
 	    ArrayList<Byte> fileFor = new ArrayList<Byte>(0);
-	    while (chunkLen != chunkLimit) { // sums up to 408064 Bytes analyzed as sample block, can also be used as attack block!!!! 797 is the original
+	    while (chunkLen != chunkLimit) {
 	    	is.read(chunk);
 	    	fileFor.addAll(Arrays.asList(ArrayUtils.toObject(chunk)));
 	        chunkLen++;
@@ -54,19 +65,16 @@ public class AttackManager {
 	    
 	    // This section is to make a extract target block file, this may be redundant due to encoding options.
 	    forFile = fileFor.toArray(new Byte[fileFor.size()]);
-	    Byte[] demBytes = forFile; //instead of null, specify your bytes here. 
+	    Byte[] demBytes = forFile;
 	    byte[] finalbytes = ArrayUtils.toPrimitive(demBytes);
 	    File outputFile = new File("testingTCFile");
 	    try ( FileOutputStream outputStream = new FileOutputStream(outputFile); ) {
-	        outputStream.write(finalbytes, 0, finalbytes.length);  //write the bytes and your done. 
+	        outputStream.write(finalbytes, 0, finalbytes.length);
 	        outputStream.flush();
 	    } catch (Exception e) {
 	        e.printStackTrace();
 	    }
-	    
-	    //String tet = new String(finalbytes, "ISO-8859-1");// This encoding works with 1 - 1 translation, allowed for string movement of file!!!!
-	    	
-	    // Covert byte array to hex string - initial solution to use ISO-8859-1 - References solution much more efficient
+
 	    //http://stackoverflow.com/questions/9655181/how-to-convert-a-byte-array-to-a-hex-string-in-java
 	    	final char[] hexArray = "0123456789ABCDEF".toCharArray();
 	        char[] hexChars = new char[finalbytes.length * 2];
@@ -78,7 +86,6 @@ public class AttackManager {
 	        String tet = new String(hexChars);
 	        System.out.println(tet.length());
 	    
-	    //This is a working transmission of the byte fopr file recreation, this can thenrefore be sent to all nodes!!
 	    ArrayList<PostKey> sending = new ArrayList<PostKey>();
         sending.add(new PostKey("attackblock", tet));
         sending.add(new PostKey("password", "test"));

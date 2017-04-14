@@ -12,13 +12,25 @@ import controllers.GUI;
 import loggers.LogObject;
 import loggers.LtA;
 
+/*	Created by:		Connor Morley
+ * 	Title:			Directory Analysis Thread
+ *  Version update:	2.1
+ *  Notes:			Class is used to generate sub threads for each sub directory found within a target directory during a scan operation.
+ *  				This class processes how many subsequent threads should be made, their targets, the files in the current directory 
+ *  				level that need to be processed and processes their scanning. The class also deals with further scan threads for
+ *  				files which pass initial scanning and are put into seperate threads for further processing, this is a resource control
+ *  				as there can only be 5 running further tests and the others get queed.
+ *  
+ *  References:		N/A
+ */
+
 public class DirectoryThread {
 	
 	public static Map<String, Future<Integer>> dirs = new HashMap<String, Future<Integer>>();
 	public static ArrayList<String> checkers;
 	static LtA logA = new LogObject();
 	
-	//Initiate a new checkers array for new test, prevent prviously scanned files from being ignored (this could be a setting)
+	//Initiate a new checkers array for new test, prevent previously scanned files from being ignored
 	public static void newCheck()
 	{
 		checkers = new ArrayList<String>();
@@ -42,12 +54,7 @@ public class DirectoryThread {
 			if (f.isDirectory()) {
 				scanDirectory(f);
 			} else {
-				//try {
 					Thread.currentThread().sleep(20);
-				/*} catch (Exception e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}*/
 				scanFile(f);
 			}
 		}
@@ -70,7 +77,7 @@ public class DirectoryThread {
 		if (AnalysisController.processFile(f) == 0) {
 			if (!checkers.contains(f.getAbsolutePath())) {
 				checkers.add(f.getAbsolutePath());
-				AnalysisController.createFurtherTest(f); // adapt to only do one further test at a time, load handling and collision prevention?????
+				AnalysisController.createFurtherTest(f);
 			} else {
 				logA.doLog("DirecotryThread", "[D-Thread] File " + f.getAbsolutePath() + " has been put through for analysis twice. File check failure."
 						, "Critical");

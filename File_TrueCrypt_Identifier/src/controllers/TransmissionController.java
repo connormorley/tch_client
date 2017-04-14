@@ -38,6 +38,18 @@ import org.json.JSONException;
 import objects.PostKey;
 
 
+/*	Created by:		Connor Morley
+ * 	Title:			TCrunch Client Transmissions Controller
+ *  Version update:	2.0
+ *  Notes:			Class is used to conduct communication via HTTPURL protocol between node and control server. Class is templated across
+ *  				all components within the system. Class conducts POST requests by default with timeout constraints. Return values are 
+ *  				checked and errors handles appropriately under special circumstances where expected. HTTPS controls have been included
+ *  				but commented in order for easy conversion in later versions. Further testing and configuration options will be required
+ *  				for this feature.
+ *  
+ *  References:		N/A
+ */
+
 public class TransmissionController {
 
     public static String ipAddress = "";
@@ -72,7 +84,6 @@ public class TransmissionController {
             }
 
 
-            //System.out.println("here");
             OutputStream os = conn.getOutputStream();
             BufferedWriter writer = new BufferedWriter(
                     new OutputStreamWriter(os, "UTF-8"));
@@ -86,13 +97,11 @@ public class TransmissionController {
             StringBuilder response = new StringBuilder();
             while ((line = rd.readLine()) != null) {
                 response.append(line);
-                //response.append('\r');
             }
             rd.close();
             String tester = response.toString();
             if (tester.equals(""))
                 tester = "Success";
-            //System.out.println("POST RETURN VALUE : " + tester);
 
             if (conn.getResponseCode() == HttpURLConnection.HTTP_OK) {
                 ret = tester;
@@ -105,14 +114,9 @@ public class TransmissionController {
                 ret = "Error in data tranmission, please check your network connection " + conn.getHeaderFields().toString();
             }
         } catch (MalformedURLException e) {
-/*        	e.printStackTrace();
-            System.out.println(e);*/
             System.out.println("url related issue!");
             throw new MalformedURLException();
-            //return "Incorrect server address format, please check and try again.";
         } catch (IOException e) {
-/*        	e.printStackTrace();
-            System.out.println(e);*/
         	if(command.equals("checkLive"))
         	{
         		if(firstCheck)
@@ -124,11 +128,7 @@ public class TransmissionController {
         	}
             System.out.println("io related issue!");
             throw new IOException();
-            //return "Invalid server input, please check the server address and try again.";
         } catch (Exception e) {
-/*        	e.printStackTrace();
-            System.out.println("say something");*/
-            //e.printStackTrace();
         	System.out.println("Unknown exception thrown in transmission handler!");
             throw new Exception();
         }

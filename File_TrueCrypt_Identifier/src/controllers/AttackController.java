@@ -11,6 +11,17 @@ import java.util.TreeMap;
 import loggers.LogObject;
 import loggers.LtA;
 
+/*	Created by:		Connor Morley
+ * 	Title:			Unused Attack Controller
+ *  Version update:	1.6
+ *  Notes:			Class is left as a remnant of its original stand along application function. Concept is to include a stand alone attack
+ *  				operation option that would allow users to run a single node attack without the need for a control server with
+ *  				the client acting as the attack node. This was decided for only very basic TC file passwords or if user was rather
+ *  				certain they knew the range of the password. THIS IS ONLY WITHIN CLIENT FOR FUTURE DEVELOPMENT OPTIONS.
+ *  
+ *  References:		N/A
+ */
+
 public class AttackController {
 
 	private static int passwordMasterCounter = 0;
