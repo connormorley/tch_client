@@ -18,4 +18,4 @@ If a file is identified as a TrueCrypt container, the client will extract a file
 This is one of the more strict access control components and there are several settings and credentials that must be provided in order for the client to operate as intended. 
 
 # FULL RESEARCH PAPER
-TBA
+https://drive.google.com/file/d/1p2W0RYuNo1GthDc_53RPB1ZLBIufRINz/view?usp=sharing
